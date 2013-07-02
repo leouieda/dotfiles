@@ -1,0 +1,16 @@
+root = /home/leo
+root = /media/hd500
+perms = 0
+log = true
+ignore = Name *.pyc
+ignore = Name bib/bibtex
+path = bib
+path = doc
+path = dat
+path = media/pictures
+path = .local/share/data/Mendeley Ltd.
+path = .local/share/Avadon
+path = .local/share/SuperMeatBoy
+path = .local/share/Steam
+path = .local/share/doublefine
+path = .local/share/Psychonauts
