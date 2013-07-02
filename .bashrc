@@ -107,3 +107,6 @@ fi
 export PATH=$PATH":~/bin"
 export PATH=$PATH":~/src/tesseroids/bin"
 export PATH=$PATH":/usr/lib/gmt/bin"
+# git stuff
+source ~/.bash/gitprompt.sh
+#export PS1=$PS1"\[\033[0;31m\]$(__git_ps1|tr -d ' ')\[\033[0m\]$"
