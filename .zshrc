@@ -53,3 +53,7 @@ alias du="du -sh"
 export PATH=$PATH":/usr/lib/gmt/bin"
 export PATH=$PATH":~/bin"
 export PATH=$PATH":~/src/tesseroids/bin"
+# virtualenvwrapper stuff
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
