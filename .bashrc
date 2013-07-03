@@ -104,9 +104,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # These are my personal changes
+##############################################################################
 export PATH=$PATH":~/bin"
 export PATH=$PATH":~/src/tesseroids/bin"
 export PATH=$PATH":/usr/lib/gmt/bin"
 # git stuff
 source ~/.bash/gitprompt.sh
-#export PS1=$PS1"\[\033[0;31m\]$(__git_ps1|tr -d ' ')\[\033[0m\]$"
+# virtualenvwrapper stuff
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
