@@ -1,3 +1,7 @@
 [ui]
 username = Leonardo Uieda <leouieda@gmail.com>
 ssh = ssh -C
+
+[extensions]
+hgext.bookmarks =
+hggit = 
