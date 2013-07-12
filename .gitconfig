@@ -4,4 +4,4 @@
 [core]
 	editor = vim
 [push]
-	default = simple
+	default = upstream 
