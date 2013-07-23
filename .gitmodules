@@ -10,3 +10,6 @@
 [submodule ".bash"]
 	path = .bash
 	url = git@github.com:leouieda/bash-git-prompt.git
+[submodule ".vim/bundle/jedi-vim"]
+	path = .vim/bundle/jedi-vim
+	url = git@github.com:davidhalter/jedi-vim.git
