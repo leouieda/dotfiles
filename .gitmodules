@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/jedi-vim"]
 	path = .vim/bundle/jedi-vim
 	url = git@github.com:davidhalter/jedi-vim.git
+[submodule ".local/share/vlc/lua/extensions"]
+	path = .local/share/vlc/lua/extensions
+	url = git@github.com:leouieda/vlsub.git
