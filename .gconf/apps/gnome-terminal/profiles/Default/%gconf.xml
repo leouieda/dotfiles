@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="background_darkness" mtime="1375986491" type="float" value="0.80000001192092896"/>
+	<entry name="background_darkness" mtime="1375986980" type="float" value="0.59999996423721313"/>
 	<entry name="cursor_shape" mtime="1375985861" type="string">
 		<stringvalue>block</stringvalue>
 	</entry>
