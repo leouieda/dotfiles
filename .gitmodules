@@ -1,3 +1,0 @@
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = git@github.com:leouieda/syntastic.git
