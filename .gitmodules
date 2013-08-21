@@ -4,6 +4,3 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git@github.com:leouieda/nerdcommenter.git
-[submodule ".vim/bundle/jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = git@github.com:davidhalter/jedi-vim.git
