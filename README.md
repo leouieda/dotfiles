@@ -20,3 +20,5 @@ And to pull changes from a subtree remote:
 
 `git subtree pull --prefix path_where_repo_goes remote_name branch --squash`
 
+
+See [this post](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/) for more info.
