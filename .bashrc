@@ -106,6 +106,7 @@ fi
 # These are my personal changes
 ##############################################################################
 export PATH=$PATH":~/bin"
+export PATH=$PATH":~/bin/Copy"
 export PATH=$PATH":~/src/tesseroids/bin"
 export PATH=$PATH":/usr/lib/gmt/bin"
 # git stuff
