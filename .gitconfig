@@ -5,3 +5,5 @@
 	editor = vim
 [push]
 	default = upstream 
+[merge]
+	tool = meld
