@@ -1,7 +1,10 @@
 " Start pathogen to load the plugins in .vim/bundle
 execute pathogen#infect()
 
+set laststatus=2
 set t_Co=256
+set ttimeoutlen=50
+set encoding=utf-8
 
 " Set identation to 4 spaces
 set noai ts=4 sw=4 expandtab
@@ -25,4 +28,13 @@ autocmd BufWritePre *.md :%s/\s\+$//e
 " For nerdcommenter
 filetype plugin indent on
 
-set laststatus=2
+" Airline config
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#symbol = '⎇  '
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '◀'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
