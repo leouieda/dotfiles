@@ -1,6 +1,8 @@
 " Start pathogen to load the plugins in .vim/bundle
 execute pathogen#infect()
 
+set t_Co=256
+
 " Set identation to 4 spaces
 set noai ts=4 sw=4 expandtab
 " Set an 80 char column
@@ -22,3 +24,5 @@ autocmd BufWritePre *.rst :%s/\s\+$//e
 autocmd BufWritePre *.md :%s/\s\+$//e
 " For nerdcommenter
 filetype plugin indent on
+
+set laststatus=2
