@@ -105,10 +105,12 @@ fi
 
 # These are my personal changes
 ##############################################################################
-export PATH=$PATH":~/bin"
-export PATH=$PATH":~/bin/Copy"
-export PATH=$PATH":~/src/tesseroids/bin"
-export PATH=$PATH":/usr/lib/gmt/bin"
+export PATH=/home/leo/bin:$PATH
+export PATH=/home/leo/bin/Copy:$PATH
+export PATH=/home/leo/src/tesseroids/bin:$PATH
+export PATH=/usr/lib/gmt/bin:$PATH
+export PYTHONPATH=/home/leo/src/fatiando:$PYTHONPATH
+export PYTHONPATH=/home/leo/src/fungui:$PYTHONPATH
 # git stuff
 source ~/.bash/gitprompt.sh
 # virtualenvwrapper stuff
