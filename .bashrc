@@ -115,3 +115,8 @@ source ~/.bash/gitprompt.sh
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+# Anaconda stuff
+export PATHBACK=$PATH
+alias condaon='export PATH=/home/leo/bin/anaconda/bin:$PATH'
+alias condaoff='export PATH=$PATHBACK'
+condaon
