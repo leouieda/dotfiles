@@ -105,12 +105,12 @@ fi
 
 # These are my personal changes
 ##############################################################################
-export PATH=/home/leo/bin:$PATH
-export PATH=/home/leo/bin/Copy:$PATH
-export PATH=/home/leo/src/tesseroids/bin:$PATH
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin/Copy:$PATH
+export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
-export PYTHONPATH=/home/leo/src/fatiando:$PYTHONPATH
-export PYTHONPATH=/home/leo/src/fungui:$PYTHONPATH
+export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
+export PYTHONPATH=$HOME/src/fungui:$PYTHONPATH
 # git stuff
 source ~/.bash/gitprompt.sh
 # virtualenvwrapper stuff
@@ -119,6 +119,7 @@ export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 # Anaconda stuff
 export PATHBACK=$PATH
-alias condaon='export PATH=/home/leo/bin/anaconda/bin:$PATH'
+export CONDAPATH=$HOME/bin/anaconda/bin
+alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
