@@ -10,6 +10,9 @@ set encoding=utf-8
 set noai ts=4 sw=4 expandtab
 " Set an 80 char column
 set colorcolumn=80
+" Line numbers
+set number
+highlight LineNr ctermfg=DarkGrey
 " Rule for Makefiles to use tab
 autocmd BufEnter ?akefile* set noet ts=4 sw=4
 " Configure .ipy files to syntax highlight as python
@@ -33,8 +36,6 @@ let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#symbol = '⎇  '
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '◀'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
