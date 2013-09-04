@@ -15,8 +15,10 @@ set number
 highlight LineNr ctermfg=DarkGrey
 " Rule for Makefiles to use tab
 autocmd BufEnter ?akefile* set noet ts=4 sw=4
-" Configure .ipy files to syntax highlight as python
+" Configure files to syntax highlight as python
 autocmd BufNewFile,BufRead *.ipy set filetype=python
+autocmd BufNewFile,BufRead *.pyx set filetype=python
+autocmd BufNewFile,BufRead SConstruct set filetype=python
 " Remove trailing spaces on save
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre Makefile :%s/\s\+$//e
@@ -30,7 +32,17 @@ autocmd BufWritePre *.rst :%s/\s\+$//e
 autocmd BufWritePre *.md :%s/\s\+$//e
 " For nerdcommenter
 filetype plugin indent on
-
+" Spell checking
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing \ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
+" ]s and [s to move down-up marked words
+" Shortcuts using <leader> (\)
+" Add word to dictionary
+map <leader>sa zg
+" Substitution option for marked word
+map <leader>s? z=
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline config
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
