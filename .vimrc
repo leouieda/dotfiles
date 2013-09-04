@@ -12,7 +12,8 @@ set noai ts=4 sw=4 expandtab
 set colorcolumn=80
 " Line numbers
 set number
-highlight LineNr ctermfg=DarkGrey
+highlight LineNr ctermfg=DarkGrey 
+highlight SignColumn ctermbg=black
 " Rule for Makefiles to use tab
 autocmd BufEnter ?akefile* set noet ts=4 sw=4
 " Configure files to syntax highlight as python
@@ -50,4 +51,3 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#symbol = '⎇  '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-
