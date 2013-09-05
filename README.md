@@ -14,11 +14,15 @@ A quick cheatsheet to add a new subtree:
 
 `git subtree add --prefix path_where_repo_goes remote_name branch --squash`
 
+Now **remember**, separate what you commit to the subtree and to the main repo!
+After than, to push changes back to the subtree:
+
+`git subtree push --prefix=path_where_repo_goes remote_name branch`
+
 And to pull changes from a subtree remote:
 
 `git fetch remote_name branch`
 
 `git subtree pull --prefix path_where_repo_goes remote_name branch --squash`
-
 
 See [this post](http://blogs.atlassian.com/2013/05/alternatives-to-git-submodule-git-subtree/) for more info.
