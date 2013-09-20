@@ -22,16 +22,8 @@ autocmd BufNewFile,BufRead *.pyx set filetype=python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-"autocmd BufWritePre *.py :%s/\s\+$//e
-"autocmd BufWritePre Makefile :%s/\s\+$//e
-"autocmd BufWritePre *.pyx :%s/\s\+$//e
-"autocmd BufWritePre *.c :%s/\s\+$//e
-"autocmd BufWritePre *.h :%s/\s\+$//e
-"autocmd BufWritePre *.tex :%s/\s\+$//e
-"autocmd BufWritePre *.bib :%s/\s\+$//e
-"autocmd BufWritePre *.html :%s/\s\+$//e
-"autocmd BufWritePre *.rst :%s/\s\+$//e
-"autocmd BufWritePre *.md :%s/\s\+$//e
+" Git commits
+autocmd Filetype gitcommit setlocal spell textwidth=72
 " For nerdcommenter
 filetype plugin indent on
 " Spell checking
@@ -52,3 +44,4 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#symbol = '⎇  '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+
