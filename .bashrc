@@ -1,8 +1,3 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -123,3 +118,8 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
+# Github
+alias install-github='curl http://hub.github.com/standalone -sLo ~/bin/hub && chmod +x ~/bin/hub && wget https://raw.github.com/github/hub/master/etc/hub.bash_completion.sh -O ~/bin/hub.bash_completion.sh && source ~/bin/hub.bash_completion.sh'
+if [ -f ~/bin/hub.bash_completion.sh ]; then
+    source ~/bin/hub.bash_completion.sh
+fi
