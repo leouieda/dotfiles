@@ -123,3 +123,7 @@ alias install-github='curl http://hub.github.com/standalone -sLo ~/bin/hub && ch
 if [ -f ~/bin/hub.bash_completion.sh ]; then
     source ~/bin/hub.bash_completion.sh
 fi
+# Aliases to extract tar files. Because I never remember the flags
+alias untar=`tar -xvf`
+alias untargz=`tar -xzvf`
+alias untarbz=`tar -xjvf`
