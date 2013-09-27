@@ -11,3 +11,4 @@ src
 tmp
 VirtualBox VMs
 .*
+NVIDIA_CUDA-5.0_Samples
