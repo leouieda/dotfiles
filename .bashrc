@@ -127,3 +127,6 @@ fi
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
+# CUDA
+export PATH=${PATH}:/usr/local/cuda-5.0/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.0/lib64:/lib
