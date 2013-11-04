@@ -8,25 +8,46 @@ set encoding=utf-8
 
 " Set identation to 4 spaces
 set noai ts=4 sw=4 expandtab
+
 " Set an 80 char column
 set colorcolumn=80
+
 " Line numbers
 set number
 highlight LineNr ctermfg=DarkGrey
 highlight SignColumn ctermbg=black
+
 " Rule for Makefiles to use tab
 autocmd BufEnter ?akefile* set noet ts=4 sw=4
+
+" Syntax highlighting
+syntax on
+set background=dark
+
 " Configure files to syntax highlight as python
 autocmd BufNewFile,BufRead *.ipy set filetype=python
 autocmd BufNewFile,BufRead *.pyx set filetype=python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
+
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
 " Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " For nerdcommenter
 filetype plugin indent on
-" Spell checking
+
+" Airline config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#symbol = '⎇  '
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" Spell Check
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing \ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
@@ -36,16 +57,6 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sa zg
 " Substitution option for marked word
 map <leader>s? z=
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline config
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#branch#symbol = '⎇  '
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" Spell Check
 let b:myLang=0
 let g:myLangList=["nospell","pt_br","en_us"]
 function! ToggleSpell()
@@ -58,5 +69,4 @@ function! ToggleSpell()
     endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-
 nmap <silent> <F7> :call ToggleSpell()<CR>
