@@ -10,7 +10,7 @@ set encoding=utf-8
 set noai ts=4 sw=4 expandtab
 
 " Set an 80 char column
-set colorcolumn=80
+set colorcolumn=80 textwidth=79
 
 " Line numbers
 set number
