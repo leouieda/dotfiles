@@ -38,6 +38,11 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 " For nerdcommenter
 filetype plugin indent on
 
+" Map F2 to paste mode so that pasting in the terminal doesn't mess idendtation
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " Airline config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_detect_modified=1
