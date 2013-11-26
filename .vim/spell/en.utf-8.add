@@ -15,3 +15,5 @@ numpy
 tesseroid
 CSS
 hessian
+Levemberg
+Marquardt
