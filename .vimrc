@@ -24,10 +24,11 @@ autocmd BufEnter ?akefile* set noet ts=4 sw=4
 syntax on
 set background=dark
 
-" Configure files to syntax highlight as python
+" Configure files to syntax highlight
 autocmd BufNewFile,BufRead *.ipy set filetype=python
 autocmd BufNewFile,BufRead *.pyx set filetype=python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
