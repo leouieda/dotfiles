@@ -108,10 +108,6 @@ export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
 export PYTHONPATH=$HOME/src/fungui:$PYTHONPATH
 # git stuff
 source ~/.bash/gitprompt.sh
-# virtualenvwrapper stuff
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
 # Anaconda stuff
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
