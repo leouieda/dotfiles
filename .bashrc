@@ -126,3 +126,12 @@ alias untarbz='tar -xjvf'
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
+# Convert pdfs to ps with fonts converted to paths for editing in Inkscape
+# Call it as: pdf2ps-nofonts INPUT.pdf OUTPUT.ps
+# Based on the answer to this StackOverlow question:
+# http://stackoverflow.com/questions/7131670/make-bash-alias-that-takes-parameter
+# and this Ubuntu Forums question:
+# http://ubuntuforums.org/showthread.php?t=1781049
+pdf2ps-nofonts() {
+    gs -sDEVICE=pswrite -dNOCACHE -sOutputFile=$2 -q -dbatch -dNOPAUSE $1 -c quit
+}
