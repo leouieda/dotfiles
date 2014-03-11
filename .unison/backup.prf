@@ -1,9 +1,0 @@
-root = /home/leo
-root = /media/backup/leo
-perms = 0
-log = true
-path = bib
-path = Dropbox/doc
-path = Copy/bib
-path = data
-path = tmp
