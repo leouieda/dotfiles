@@ -2,12 +2,18 @@
 	name = Leonardo Uieda
 	email = leouieda@gmail.com
 [github]
-        user = leouieda
+    user = leouieda
 [color]
-        ui = true
+    ui = true
 [core]
 	editor = vim
 [push]
-	default = upstream 
+	default = upstream
 [merge]
-	tool = meld
+    tool = meld
+[difftool.latex]
+    cmd = git-latexdiff "$LOCAL" "$REMOTE"
+[difftool]
+    prompt = false
+[alias]
+    ldiff = difftool -t latex
