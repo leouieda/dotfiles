@@ -133,5 +133,5 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
 # and this Ubuntu Forums question:
 # http://ubuntuforums.org/showthread.php?t=1781049
 pdf2ps-nofonts() {
-    gs -sDEVICE=pswrite -dNOCACHE -sOutputFile=$2 -q -dbatch -dNOPAUSE $1 -c quit
+    gs -sDEVICE=ps2write -dNOCACHE -sOutputFile=$2 -q -dbatch -dNOPAUSE $1 -c quit
 }
