@@ -105,6 +105,8 @@ export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
 export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
+export PYTHONPATH=$HOME/src/simpeg:$PYTHONPATH
+export PYTHONPATH=$HOME/src/simpegpf:$PYTHONPATH
 export PYTHONPATH=$HOME/src/fungui:$PYTHONPATH
 # git stuff
 source ~/.bash/gitprompt.sh
