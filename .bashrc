@@ -108,6 +108,8 @@ export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
 export PYTHONPATH=$HOME/src/simpeg:$PYTHONPATH
 export PYTHONPATH=$HOME/src/simpegpf:$PYTHONPATH
 export PYTHONPATH=$HOME/src/fungui:$PYTHONPATH
+# Misc alias definitions
+alias ipynb='ipython notebook --browser=chromium-browser'
 # git stuff
 source ~/.bash/gitprompt.sh
 # Anaconda stuff
