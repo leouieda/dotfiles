@@ -139,3 +139,6 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
 pdf2ps-nofonts() {
     gs -sDEVICE=ps2write -dNOCACHE -sOutputFile=$2 -q -dbatch -dNOPAUSE $1 -c quit
 }
+
+# added by travis gem
+[ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
