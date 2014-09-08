@@ -56,7 +56,7 @@ let g:airline_right_sep = ''
 " Spell Check
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing \ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :call ToggleSpell()<cr>
 " ]s and [s to move down-up marked words
 " Shortcuts using <leader> (\)
 " Add word to dictionary
