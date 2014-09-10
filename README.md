@@ -4,7 +4,17 @@ This is a repo to keep my ``.*rc`` and other config files versioned.
 Just clone it to some directory and copy files to your home to try them out.
 **Don't forget to backup your personal files before!**
 
-# Subtree
+
+## Fonts
+
+This repo includes a `.fonts` folder with some TrueType fonts from
+[Google fonts](http://www.google.com/fonts#). To make them system accessible,
+run:
+
+    sudo fc-cache -f -v
+
+
+## Subtree
 
 This repo uses `git subtree` to manage external dependecies.
 You didn't need to know that, but I do.
