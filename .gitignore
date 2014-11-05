@@ -10,6 +10,7 @@ media
 pub
 src
 tmp
+course
 VirtualBox VMs
 .*
 NVIDIA_CUDA-5.0_Samples
