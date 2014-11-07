@@ -105,11 +105,8 @@ export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
 export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
-export PYTHONPATH=$HOME/src/simpeg:$PYTHONPATH
-export PYTHONPATH=$HOME/src/simpegpf:$PYTHONPATH
-export PYTHONPATH=$HOME/src/fungui:$PYTHONPATH
 # Misc alias definitions
-alias nb='ipython notebook'
+alias nb='ipython notebook --no-browser'
 # git stuff
 source ~/.bash/gitprompt.sh
 # Anaconda stuff
