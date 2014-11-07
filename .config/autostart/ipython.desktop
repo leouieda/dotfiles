@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=IPython notebook server
+GenericName=ipython
+Comment=Start a notebook server with no browser autostart
+Exec=/home/leo/bin/anaconda/bin/ipython notebook --no-browser
+Terminal=false
+Type=Application
+Icon=
+Categories=
+StartupNotify=false
+
