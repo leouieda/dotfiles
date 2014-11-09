@@ -127,6 +127,9 @@ alias untarbz='tar -xjvf'
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
+# added by travis gem
+[ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
+# FUNCTIONS TO EDIT PDFS
 # Convert pdfs to ps with fonts converted to paths for editing in Inkscape
 # Call it as: pdf2ps-nofonts INPUT.pdf OUTPUT.ps
 # Based on the answer to this StackOverlow question:
@@ -136,6 +139,12 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
 pdf2ps-nofonts() {
     gs -sDEVICE=ps2write -dNOCACHE -sOutputFile=$2 -q -dbatch -dNOPAUSE $1 -c quit
 }
+# Convert a PDF from RGB to CMYK
+# Call it as: pdfcmyk INPUT.pdf OUTPUT.pdf
+# Based on http://zeroset.mnim.org/2014/07/14/save-a-pdf-to-cmyk-with-inkscape/
+pdfcmyk() {
+    gs -dSAFER -dBATCH -dNOPAUSE -dNOCACHE -sDEVICE=pdfwrite \
+        -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
+        -sOutputFile=$2 $1
+}
 
-# added by travis gem
-[ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
