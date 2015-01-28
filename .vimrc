@@ -1,10 +1,33 @@
 " Start pathogen to load the plugins in .vim/bundle
+filetype off
 execute pathogen#infect()
 
+" The following is taken from Steve Losh:
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+set nocompatible
+set modelines=0
+set autoindent
+set showmode
+set showcmd
+set visualbell
+set cursorline
+set ruler
+set undofile
+set ignorecase
+set smartcase
+au FocusLost * :wa
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+set encoding=utf-8
+
+" Some more config
 set laststatus=2
 set t_Co=256
 set ttimeoutlen=50
-set encoding=utf-8
 
 " Set identation to 4 spaces
 set noai ts=4 sw=4 expandtab
@@ -80,5 +103,3 @@ nmap <silent> <F7> :call ToggleSpell()<CR>
 " Jedi autocompletion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:jedi#auto_initialization = 0
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
