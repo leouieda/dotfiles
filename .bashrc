@@ -107,6 +107,7 @@ export PATH=/usr/lib/gmt/bin:$PATH
 export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
 # Misc alias definitions
 alias nb='ipython notebook --no-browser'
+alias copy='xclip -sel clip'
 # git stuff
 source ~/.bash/gitprompt.sh
 # Anaconda stuff
