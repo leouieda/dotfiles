@@ -104,6 +104,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
+export PATH=$HOME/bin/anaconda/bin:$PATH
 export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
 # Misc alias definitions
 alias nb='ipython notebook --no-browser'
@@ -148,4 +149,6 @@ pdfcmyk() {
         -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
         -sOutputFile=$2 $1
 }
-
+# The Fuck (https://github.com/nvbn/thefuck)
+alias fuck='eval $(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
