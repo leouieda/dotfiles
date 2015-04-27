@@ -106,6 +106,8 @@ export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
 export PATH=$HOME/bin/anaconda/bin:$PATH
 export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
+# To avoid the QString error with Mayavi
+export QT_API=pyqt
 # Misc alias definitions
 alias nb='ipython notebook --no-browser'
 alias copy='xclip -sel clip'
