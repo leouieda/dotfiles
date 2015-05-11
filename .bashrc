@@ -111,6 +111,7 @@ export QT_API=pyqt
 # Misc alias definitions
 alias nb='ipython notebook --no-browser'
 alias copy='xclip -sel clip'
+alias nose='nosetests -v --with-doctest'
 # git stuff
 source ~/.bash/gitprompt.sh
 # Anaconda stuff
