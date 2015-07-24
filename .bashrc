@@ -105,7 +105,11 @@ export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
 export PATH=$HOME/bin/anaconda/bin:$PATH
-export PYTHONPATH=$HOME/src/fatiando:$PYTHONPATH
+export PYTHONPATH_BACK=$PYTHONPATH
+export PYTHONPATH_FATIANDO=$HOME/src/fatiando:$PYTHONPATH
+alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
+alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
+fatoff
 # To avoid the QString error with Mayavi
 export QT_API=pyqt
 # Misc alias definitions
@@ -120,6 +124,8 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
+alias cenv='source activate'
+alias cenv-off='source deactivate'
 # Github
 alias install-github='curl http://hub.github.com/standalone -sLo ~/bin/hub && chmod +x ~/bin/hub && wget https://raw.github.com/github/hub/master/etc/hub.bash_completion.sh -O ~/bin/hub.bash_completion.sh && source ~/bin/hub.bash_completion.sh'
 if [ -f ~/bin/hub.bash_completion.sh ]; then
