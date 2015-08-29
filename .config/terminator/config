@@ -1,9 +1,10 @@
 [global_config]
   window_state = maximise
-  enabled_plugins = ,
+  handle_size = 0
   title_hide_sizetext = True
   title_inactive_fg_color = "#333333"
   borderless = True
+  enabled_plugins = ,
   title_transmit_bg_color = "#333333"
   inactive_color_offset = 1.0
 [keybindings]
@@ -23,6 +24,7 @@
     cursor_color = "#fffb62"
     foreground_color = "#839496"
     icon_bell = False
+    show_titlebar = False
     cursor_shape = underline
     font = Ubuntu Mono 12
     background_color = "#002b36"
