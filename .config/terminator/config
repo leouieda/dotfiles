@@ -15,16 +15,17 @@
   new_tab = <Alt>t
 [profiles]
   [[default]]
-    background_image = None
+    use_system_font = False
     copy_on_selection = True
     background_darkness = 0.17
     background_type = transparent
-    foreground_color = "#ffffff"
+    background_image = None
+    cursor_color = "#fffb62"
+    foreground_color = "#839496"
     icon_bell = False
     cursor_shape = underline
     font = Ubuntu Mono 12
-    background_color = "#300a24"
-    cursor_blink = False
+    background_color = "#002b36"
     scrollback_infinite = True
 [layouts]
   [[default]]
