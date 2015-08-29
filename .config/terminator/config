@@ -11,7 +11,7 @@
   next_tab = <Primary>Up
   split_horiz = <Primary><Shift>t
   prev_tab = <Primary>Down
-  close_term = <Primary>w
+  close_term = <Primary><Shift>w
   split_vert = <Primary>t
   new_tab = <Alt>t
 [profiles]
