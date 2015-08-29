@@ -1,6 +1,6 @@
 [global_config]
   window_state = maximise
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  enabled_plugins = ,
   title_hide_sizetext = True
   title_inactive_fg_color = "#333333"
   borderless = True
@@ -15,15 +15,16 @@
   new_tab = <Alt>t
 [profiles]
   [[default]]
-    use_system_font = False
-    visible_bell = True
+    background_image = None
+    copy_on_selection = True
     background_darkness = 0.17
     background_type = transparent
-    background_image = None
+    foreground_color = "#ffffff"
     icon_bell = False
-    show_titlebar = False
     cursor_shape = underline
     font = Ubuntu Mono 12
+    background_color = "#300a24"
+    cursor_blink = False
     scrollback_infinite = True
 [layouts]
   [[default]]
