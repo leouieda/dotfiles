@@ -20,8 +20,8 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
+"nnoremap <tab> %
+"vnoremap <tab> %
 set encoding=utf-8
 
 " Some more config
@@ -34,6 +34,9 @@ set noai ts=4 sw=4 expandtab
 
 " Set an 80 char column
 set colorcolumn=80 textwidth=79
+
+" Map Ctrl+Tab to completion (usually Ctrl+P)
+imap <Tab> <C-P>
 
 " Line numbers
 set number
