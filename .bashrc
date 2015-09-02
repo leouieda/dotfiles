@@ -100,6 +100,11 @@ fi
 
 # These are my personal changes
 ##############################################################################
+
+# Make the prompt pretty and show git branch information
+source ~/.bash/gitprompt.sh
+
+# Set env variables
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
@@ -107,20 +112,19 @@ export PATH=/usr/lib/gmt/bin:$PATH
 export PATH=$HOME/bin/anaconda/bin:$PATH
 export PYTHONPATH_BACK=$PYTHONPATH
 export PYTHONPATH_FATIANDO=$HOME/src/fatiando:$PYTHONPATH
-alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
-alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
-fatoff
-# To avoid the QString error with Mayavi
-export QT_API=pyqt
-# Misc alias definitions
-alias nb='ipython notebook --no-browser'
-alias copy='xclip -sel clip'
-alias nose='nosetests -v --with-doctest'
-# git stuff
-source ~/.bash/gitprompt.sh
 # Anaconda stuff
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
+# To avoid the QString error with Mayavi
+export QT_API=pyqt
+
+# Alias definitions
+alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
+alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
+fatoff
+alias nb='ipython notebook --no-browser'
+alias copy='xclip -sel clip'
+alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
@@ -135,11 +139,17 @@ fi
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
+# The Fuck (https://github.com/nvbn/thefuck)
+alias fuck='eval $(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
+
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
+
 # added by travis gem
 [ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
+
 # FUNCTIONS TO EDIT PDFS
 # Convert pdfs to ps with fonts converted to paths for editing in Inkscape
 # Call it as: pdf2ps-nofonts INPUT.pdf OUTPUT.ps
@@ -158,6 +168,4 @@ pdfcmyk() {
         -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
         -sOutputFile=$2 $1
 }
-# The Fuck (https://github.com/nvbn/thefuck)
-alias fuck='eval $(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
+
