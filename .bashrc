@@ -122,7 +122,7 @@ export QT_API=pyqt
 alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
 alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
 fatoff
-alias nb='ipython notebook --no-browser'
+alias nb='jupyter notebook --no-browser'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
