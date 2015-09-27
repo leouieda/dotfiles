@@ -17,17 +17,14 @@
 [profiles]
   [[default]]
     use_system_font = False
-    copy_on_selection = True
-    background_darkness = 0.17
-    background_type = transparent
+    font = Ubuntu Mono 12
+    background_darkness = 0.92
+    cursor_shape = underline
     background_image = None
     cursor_color = "#fffb62"
-    foreground_color = "#839496"
     icon_bell = False
     show_titlebar = False
-    cursor_shape = underline
-    font = Ubuntu Mono 12
-    background_color = "#002b36"
+    copy_on_selection = True
     scrollback_infinite = True
 [layouts]
   [[default]]
