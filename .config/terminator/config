@@ -18,12 +18,13 @@
   [[default]]
     use_system_font = False
     font = Ubuntu Mono 12
-    cursor_shape = underline
+    background_darkness = 0.7
     background_type = transparent
     background_image = None
     cursor_color = "#fffb62"
     icon_bell = False
     show_titlebar = False
+    cursor_shape = underline
     copy_on_selection = True
     scrollback_infinite = True
 [layouts]
