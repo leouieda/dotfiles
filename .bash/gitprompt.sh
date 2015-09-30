@@ -12,6 +12,7 @@ Red="\[\033[0;31m\]"          # Red
 Yellow="\[\033[0;33m\]"       # Yellow
 Blue="\[\033[0;34m\]"         # Blue
 WHITE='\[\033[37m\]'
+Cyan='\[\033[0;36m\]'         # Cyan
 
 # Bold
 BGreen="\[\033[1;32m\]"       # Green
@@ -45,7 +46,7 @@ PROMPT_END="$WHITE$ResetColor$ "
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
     local gitstatus="${__GIT_PROMPT_DIR}/gitstatus.py"
-    
+
     _GIT_STATUS=$(python $gitstatus)
     __CURRENT_GIT_STATUS=($_GIT_STATUS)
 	GIT_BRANCH=${__CURRENT_GIT_STATUS[0]}
@@ -90,18 +91,18 @@ function setGitPrompt() {
 	  fi
 	  STATUS="$STATUS$ResetColor$GIT_PROMPT_SUFFIX"
 
-	  PS1="$PYTHON_VIRTUALENV$PROMPT_START$STATUS$PROMPT_END"
+	  PS1="$PROMPT_START$STATUS$PYTHON_VIRTUALENV$PROMPT_END"
 	else
 	  PS1="$PROMPT_START$PROMPT_END"
 	fi
 }
 
-# Determine active Python virtualenv details.
+# Determine active Python conda env details.
 function set_virtualenv () {
-  if test -z "$VIRTUAL_ENV" ; then
+  if test -z "$CONDA_DEFAULT_ENV" ; then
       PYTHON_VIRTUALENV=""
   else
-      PYTHON_VIRTUALENV="${BLUE}(`basename \"$VIRTUAL_ENV\"`)${ResetColor} "
+      PYTHON_VIRTUALENV="{${Cyan}`basename \"$CONDA_DEFAULT_ENV\"`$ResetColor}"
   fi
 }
 
