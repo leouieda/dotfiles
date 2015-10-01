@@ -24,7 +24,6 @@
     cursor_color = "#ffff58"
     icon_bell = False
     show_titlebar = False
-    cursor_shape = ibeam
     copy_on_selection = True
     scrollback_infinite = True
 [layouts]
