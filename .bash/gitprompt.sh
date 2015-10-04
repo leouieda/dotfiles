@@ -13,6 +13,9 @@ Yellow="\[\033[0;33m\]"       # Yellow
 Blue="\[\033[0;34m\]"         # Blue
 WHITE='\[\033[37m\]'
 Cyan='\[\033[0;36m\]'         # Cyan
+Green='\e[0;32m'        # Green
+Purple='\e[0;35m'       # Purple
+
 
 # Bold
 BGreen="\[\033[1;32m\]"       # Green
@@ -25,13 +28,13 @@ Magenta="\[\033[1;95m\]"     # Purple
 
 # Various variables you might want for your PS1 prompt instead
 Time12a="\@"
-PathShort="\W"
+PathShort="\w"
 
 # Default values for the appearance of the prompt. Configure at will.
 GIT_PROMPT_PREFIX="["
 GIT_PROMPT_SUFFIX="]"
 GIT_PROMPT_SEPARATOR="|"
-GIT_PROMPT_BRANCH="${Magenta}"
+GIT_PROMPT_BRANCH="🔀 ${Magenta}"
 GIT_PROMPT_STAGED="${Red}● "
 GIT_PROMPT_CONFLICTS="${Red}✖ "
 GIT_PROMPT_CHANGED="${Blue}✚ "
@@ -39,8 +42,9 @@ GIT_PROMPT_REMOTE=" "
 GIT_PROMPT_UNTRACKED="…"
 GIT_PROMPT_CLEAN="${BGreen}✔"
 
-PROMPT_START="$Yellow$PathShort$ResetColor"
-PROMPT_END="$WHITE$ResetColor$ "
+PROMPT_START="💻 "
+PROMPT_PATH="in $Yellow$PathShort$ResetColor"
+PROMPT_END="$WHITE$ResetColor$"
 
 
 function update_current_git_vars() {
@@ -66,7 +70,7 @@ function setGitPrompt() {
 	set_virtualenv
 
 	if [ -n "$__CURRENT_GIT_STATUS" ]; then
-	  STATUS=" $GIT_PROMPT_PREFIX$GIT_PROMPT_BRANCH$GIT_BRANCH$ResetColor"
+	  STATUS="$GIT_PROMPT_PREFIX$GIT_PROMPT_BRANCH$GIT_BRANCH$ResetColor"
 
 	  if [ -n "$GIT_REMOTE" ]; then
 		  STATUS="$STATUS$GIT_PROMPT_REMOTE$GIT_REMOTE$ResetColor"
@@ -91,9 +95,9 @@ function setGitPrompt() {
 	  fi
 	  STATUS="$STATUS$ResetColor$GIT_PROMPT_SUFFIX"
 
-	  PS1="$PROMPT_START$STATUS$PYTHON_VIRTUALENV$PROMPT_END"
+	  PS1="$PROMPT_START:$STATUS$PYTHON_VIRTUALENV $PROMPT_PATH $PROMPT_END "
 	else
-	  PS1="$PROMPT_START$PROMPT_END"
+	  PS1="$PROMPT_START:$PROMPT_PATH $PROMPT_END "
 	fi
 }
 
