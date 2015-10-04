@@ -89,7 +89,7 @@ ${color1}${alignr 62}${voffset 7}${execi 300 grep "yweather:wind" ~/.cache/weath
 # Clock + calendar #
 \
 ${voffset -117}${font Droid Sans Mono :size=22}${alignc}${color2}${time %H:%M}${font}${color}
-${voffset 4}${font Droid Sans :size=10}${alignc}${color6}${time %A, %B %d}${font}${color}
+${voffset 4}${font Droid Sans :size=10}${alignc}${color6}${time %A, %d de %B}${font}${color}
 \
 # Cpu, memory, uptime, and load graph #
 \
