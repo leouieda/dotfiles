@@ -3,8 +3,9 @@
 
 from __future__ import print_function
 
-# change those symbols to whatever you prefer
-symbols = {'ahead of': '↑·', 'behind': '↓·', 'prehash':':'}
+# Return code for ahead or behind the remote. gitprompt.sh will use this to
+# set the correct symbol.
+symbols = {'ahead of': 'a', 'behind': 'b', 'prehash':':'}
 
 from subprocess import Popen, PIPE
 
@@ -62,12 +63,12 @@ else:
 	ahead = len([x for x in behead if x[0]=='>'])
 	behind = len(behead) - ahead
 	if behind:
-		remote += '%s%s' % (symbols['behind'], behind)
+		remote += '%s %s' % (symbols['behind'], behind)
 	if ahead:
-		remote += '%s%s' % (symbols['ahead of'], ahead)
+		remote += '%s %s' % (symbols['ahead of'], ahead)
 
 if remote == "":
-	remote = '.'
+	remote = '. 0'
 
 out = '\n'.join([
 	str(branch),
