@@ -128,13 +128,8 @@ alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
-alias cenv='source activate'
-alias cenv-off='source deactivate'
-# Github
-alias install-github='curl http://hub.github.com/standalone -sLo ~/bin/hub && chmod +x ~/bin/hub && wget https://raw.github.com/github/hub/master/etc/hub.bash_completion.sh -O ~/bin/hub.bash_completion.sh && source ~/bin/hub.bash_completion.sh'
-if [ -f ~/bin/hub.bash_completion.sh ]; then
-    source ~/bin/hub.bash_completion.sh
-fi
+alias work='source activate'
+alias off='source deactivate'
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
