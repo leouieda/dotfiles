@@ -23,7 +23,7 @@ GIT_PROMPT_CLEAN=""
 
 PROMPT_START="\e[0;97;104m `whoami`|`hostname` "
 PROMPT_PATH="\e[0;97;100m $PathShort "
-PROMPT_END="\e[0m $ "
+PROMPT_END="\e[0m \$ "
 
 PYTHON_ENV_STYLE="\e[1;30;103m"
 
