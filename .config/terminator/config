@@ -22,6 +22,7 @@
     background_type = transparent
     background_image = None
     cursor_color = "#ffff58"
+    scroll_on_output = False
     icon_bell = False
     show_titlebar = False
     copy_on_selection = True
