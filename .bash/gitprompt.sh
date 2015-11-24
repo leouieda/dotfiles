@@ -22,8 +22,8 @@ GIT_PROMPT_REMOTE_BEHIND="$GIT_PROMPT_STYLE↓ "
 GIT_PROMPT_UNTRACKED="$GIT_PROMPT_STYLE …"
 GIT_PROMPT_CLEAN=""
 
-PROMPT_START="\[\e[0;97;100m `whoami` at `hostname` \]"
-PROMPT_PATH="\[\e[0;97;100m $PathShort \]"
+PROMPT_START="\[\e[0;97;100m\] `whoami` at `hostname` "
+PROMPT_PATH="\[\e[0;97;100m\] $PathShort "
 PROMPT_END="$ResetColor $ "
 
 PYTHON_ENV_STYLE="\[\e[0;30;103m\]"
