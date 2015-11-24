@@ -130,6 +130,7 @@ alias condaoff='export PATH=$PATHBACK'
 condaon
 alias work='source activate'
 alias off='source deactivate'
+off 2> /dev/null
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
