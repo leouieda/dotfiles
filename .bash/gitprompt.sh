@@ -92,10 +92,12 @@ function setGitPrompt() {
 # Determine active Python conda env details.
 function set_virtualenv () {
   if test -z "$CONDA_DEFAULT_ENV" ; then
-      PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE root "
+      PYTHON_ENV_NAME="root"
   else
-      PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE `basename \"$CONDA_DEFAULT_ENV\"` "
+      PYTHON_ENV_NAME="`basename \"$CONDA_DEFAULT_ENV\"`"
   fi
+  PYTHON_VERSION="`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`"
+  PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE $PYTHON_ENV_NAME-$PYTHON_VERSION "
 }
 
 PROMPT_COMMAND=setGitPrompt
