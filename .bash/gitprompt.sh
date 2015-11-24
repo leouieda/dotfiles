@@ -9,24 +9,24 @@ PathShort="\w"
 ResetColor="\[\033[0m\]"
 
 # Default values for the appearance of the prompt. Configure at will.
-GIT_PROMPT_STYLE="\[\e[0;97;42m\]"
+GIT_PROMPT_STYLE="\[\e[0;97;104m\]"
 GIT_PROMPT_PREFIX="$GIT_PROMPT_STYLE "
 GIT_PROMPT_SUFFIX=" "
 GIT_PROMPT_SEPARATOR=""
 GIT_PROMPT_BRANCH="$GIT_PROMPT_STYLE⎇  "
-GIT_PROMPT_STAGED="\[\e[0;91;42m\] ● "
-GIT_PROMPT_CONFLICTS="\[\e[0;91;42m\] ✖ "
-GIT_PROMPT_CHANGED="\[\e[0;93;42m\] ✚ "
+GIT_PROMPT_STAGED="\[\e[0;91;104m\] ● "
+GIT_PROMPT_CONFLICTS="\[\e[0;91;104m\] ✖ "
+GIT_PROMPT_CHANGED="\[\e[0;93;104m\] ✚ "
 GIT_PROMPT_REMOTE_AHEAD="$GIT_PROMPT_STYLE↑ "
 GIT_PROMPT_REMOTE_BEHIND="$GIT_PROMPT_STYLE↓ "
 GIT_PROMPT_UNTRACKED="$GIT_PROMPT_STYLE …"
 GIT_PROMPT_CLEAN=""
 
-PROMPT_START="\[\e[0;97;104m `whoami`|`hostname` \]"
+PROMPT_START="\[\e[0;97;100m `whoami` at `hostname` \]"
 PROMPT_PATH="\[\e[0;97;100m $PathShort \]"
 PROMPT_END="$ResetColor $ "
 
-PYTHON_ENV_STYLE="\[\e[1;30;103m\]"
+PYTHON_ENV_STYLE="\[\e[0;30;103m\]"
 
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
@@ -92,7 +92,7 @@ function setGitPrompt() {
 # Determine active Python conda env details.
 function set_virtualenv () {
   if test -z "$CONDA_DEFAULT_ENV" ; then
-      PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE default "
+      PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE root "
   else
       PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE `basename \"$CONDA_DEFAULT_ENV\"` "
   fi
