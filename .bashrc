@@ -138,6 +138,8 @@ alias untarbz='tar -xjvf'
 # The Fuck (https://github.com/nvbn/thefuck)
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
+# Clean git merged branches
+alias git-trim='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
