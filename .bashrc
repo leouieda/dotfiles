@@ -121,7 +121,7 @@ export QT_API=pyqt
 # Alias definitions
 alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
 alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
-faton
+fatoff
 alias nb='jupyter notebook --no-browser'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
