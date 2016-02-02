@@ -1,0 +1,15 @@
+"*":
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    excludeVcsIgnoredPaths: false
+  editor:
+    backUpBeforeSaving: true
+    fontSize: 15
+    invisibles: {}
+    showIndentGuide: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "0af629b9-8682-6356-57f5-e49a6e5e5f48"
+  welcome:
+    showOnStartup: false
