@@ -109,7 +109,6 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/Copy:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
-export PATH=$HOME/bin/anaconda/bin:$PATH
 export PYTHONPATH_BACK=$PYTHONPATH
 export PYTHONPATH_FATIANDO=$HOME/src/fatiando:$PYTHONPATH
 # Anaconda stuff
@@ -166,4 +165,3 @@ pdfcmyk() {
         -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
         -sOutputFile=$2 $1
 }
-
