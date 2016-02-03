@@ -7,6 +7,7 @@
     invisibles: {}
     showIndentGuide: true
     tabLength: 4
+    fontSize: 15
   "exception-reporting":
     userId: "0af629b9-8682-6356-57f5-e49a6e5e5f48"
   "status-bar": {}
