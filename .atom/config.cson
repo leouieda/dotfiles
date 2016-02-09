@@ -4,6 +4,7 @@
     autoHideMenuBar: true
     packagesWithKeymapsDisabled: [
       "spell-check"
+      "autocomplete-plus"
     ]
   editor:
     backUpBeforeSaving: true
@@ -26,3 +27,7 @@
       "text.git-commit"
       "text.tex.latex"
     ]
+  "autocomplete-plus": {}
+  latexer: {}
+  whitespace:
+    keepMarkdownLineBreakWhitespace: false
