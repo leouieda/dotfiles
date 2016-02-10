@@ -27,7 +27,9 @@
       "text.git-commit"
       "text.tex.latex"
     ]
-  "autocomplete-plus": {}
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
+    defaultProvider: "Fuzzy"
   latexer: {}
   whitespace:
     keepMarkdownLineBreakWhitespace: false
