@@ -35,9 +35,6 @@ set noai ts=4 sw=4 expandtab
 " Set an 80 char column
 set colorcolumn=80 textwidth=79
 
-" Map Ctrl+Tab to completion (usually Ctrl+P)
-imap <Tab> <C-P>
-
 " Line numbers
 set number
 highlight LineNr ctermfg=DarkGrey
@@ -103,6 +100,8 @@ function! ToggleSpell()
 endfunction
 nmap <silent> <F7> :call ToggleSpell()<CR>
 
-" Jedi autocompletion
+" Vimtex
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:jedi#auto_initialization = 0
+let g:vimtex_enabled=1
+let g:vimtex_complete_enabled=1
+let g:vimtex_complete_close_braces=1
