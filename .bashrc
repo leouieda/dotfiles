@@ -106,7 +106,7 @@ source ~/.bash/gitprompt.sh
 
 # Set env variables
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/bin/Copy:$PATH
+export PATH=$HOME/bin/hub/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
 export PYTHONPATH_BACK=$PYTHONPATH
@@ -118,6 +118,7 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 export QT_API=pyqt
 
 # Alias definitions
+alias git=hub
 alias nb='jupyter notebook --no-browser'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
