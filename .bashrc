@@ -118,9 +118,6 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 export QT_API=pyqt
 
 # Alias definitions
-alias faton='export PYTHONPATH=$PYTHONPATH_FATIANDO'
-alias fatoff='export PYTHONPATH=$PYTHONPATH_BACK'
-fatoff
 alias nb='jupyter notebook --no-browser'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
@@ -165,3 +162,6 @@ pdfcmyk() {
         -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
         -sOutputFile=$2 $1
 }
+
+# Autoenv config
+source ~/.autoenv/activate.sh
