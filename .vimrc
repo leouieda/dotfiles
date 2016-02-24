@@ -99,6 +99,8 @@ function! ToggleSpell()
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
 nmap <silent> <F7> :call ToggleSpell()<CR>
+" Spelling always on for some files
+autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal spell
 
 " Vimtex
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
