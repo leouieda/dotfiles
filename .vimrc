@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
+Plug 'tweekmonster/braceless.vim', {'for': ['python', 'yaml']}
 
 call plug#end()
 
@@ -56,11 +57,12 @@ highlight SignColumn ctermbg=black
 autocmd BufEnter ?akefile* set noet ts=4 sw=4
 " Syntax highlighting
 syntax on
-set background=dark
 autocmd BufNewFile,BufRead *.ipy set filetype=python
 autocmd BufNewFile,BufRead *.pyx set filetype=python
 autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+" Color scheme
+set background=dark
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 " Git commits
@@ -97,10 +99,10 @@ autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal
 
 " PLUGIN CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" For nerdcommenter
+" nerdcommenter
 filetype plugin indent on
 
-" Airline config
+" airline
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline#extensions#syntastic#enabled = 1
@@ -108,7 +110,10 @@ let g:airline#extensions#branch#symbol = '⎇  '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" Vimtex
+" vimtex
 let g:vimtex_enabled=1
 let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
+
+" braceless.vim
+autocmd FileType python,yaml BracelessEnable +indent +highlight
