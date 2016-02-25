@@ -73,14 +73,7 @@ set pastetoggle=<F2>
 set showmode
 
 " Spell Check
-" Pressing \ss will toggle and untoggle spell checking
-map <leader>ss :call ToggleSpell()<cr>
-" ]s and [s to move down-up marked words
-" Shortcuts using <leader> (\)
-" Add word to dictionary
-map <leader>sa zg
-" Substitution option for marked word
-map <leader>s? z=
+" Function to rotate the spell language that is used
 let b:myLang=0
 let g:myLangList=["nospell","pt_br","en_us"]
 function! ToggleSpell()
@@ -93,9 +86,24 @@ function! ToggleSpell()
     endif
     echo "spell checking language:" g:myLangList[b:myLang]
 endfunction
-nmap <silent> <F7> :call ToggleSpell()<CR>
+" Pressing \ss will toggle and untoggle spell checking
+map <leader>ss :call ToggleSpell()<cr>
+" ]s and [s to move down-up marked words
+" Shortcuts using <leader> (\)
+" Add word to dictionary
+map <leader>sa zg
+" Substitution option for marked word
+map <leader>s? z=
 " Spelling always on for some files
 autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal spell
+
+" Run 'make' on save
+function! EnableRunMakeOnSave()
+    autocmd BufWritePost * silent! execute "!make >/dev/null 2>&1" | redraw!
+    echo "Running 'make' on save enabled."
+endfunction
+map <leader>m :call EnableRunMakeOnSave()<cr>
+
 
 " PLUGIN CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
