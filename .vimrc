@@ -99,7 +99,7 @@ autocmd BufNewFile,BufRead *.ipy,*.py,*.md,*.tex,*.rst,*.c,*.h,Makefile setlocal
 
 " Run 'make' on save
 function! EnableRunMakeOnSave()
-    autocmd BufWritePost * silent! execute "!make >/dev/null 2>&1" | redraw!
+    autocmd BufWritePost * silent! execute "!make >/dev/null 2>&1" | redraw! | echo "Done: make finished."
     echo "Running 'make' on save enabled."
 endfunction
 map <leader>m :call EnableRunMakeOnSave()<cr>
