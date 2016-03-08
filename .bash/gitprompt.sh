@@ -22,7 +22,7 @@ GIT_PROMPT_REMOTE_BEHIND="$GIT_PROMPT_STYLE↓ "
 GIT_PROMPT_UNTRACKED="$GIT_PROMPT_STYLE …"
 GIT_PROMPT_CLEAN=""
 
-PROMPT_START="\[\e[0;97;100m\] `whoami` at `hostname` "
+#PROMPT_START="\[\e[0;97;100m\] `whoami` at `hostname` "
 PROMPT_PATH="\[\e[0;97;100m\] $PathShort "
 PROMPT_END="$ResetColor $ "
 
@@ -97,7 +97,7 @@ function set_virtualenv () {
       PYTHON_ENV_NAME="`basename \"$CONDA_DEFAULT_ENV\"`"
   fi
   PYTHON_VERSION="`python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))'`"
-  PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE $PYTHON_ENV_NAME-$PYTHON_VERSION "
+  PYTHON_VIRTUALENV="$PYTHON_ENV_STYLE env:$PYTHON_ENV_NAME-$PYTHON_VERSION "
 }
 
 PROMPT_COMMAND=setGitPrompt
