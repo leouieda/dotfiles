@@ -109,8 +109,6 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/hub/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=/usr/lib/gmt/bin:$PATH
-export PYTHONPATH_BACK=$PYTHONPATH
-export PYTHONPATH_FATIANDO=$HOME/src/fatiando:$PYTHONPATH
 # Anaconda stuff
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
