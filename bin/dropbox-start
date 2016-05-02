@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dropbox stop -i && DBUS_SESSION_BUS_ADDRESS="" dropbox start -i
