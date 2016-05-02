@@ -116,7 +116,6 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 export QT_API=pyqt
 
 # Alias definitions
-alias git=hub
 alias nb='jupyter notebook --no-browser'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
