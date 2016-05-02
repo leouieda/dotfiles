@@ -4,6 +4,14 @@ This is a repo to keep my ``.*rc`` and other config files versioned.
 Just clone it to some directory and copy files to your home to try them out.
 **Don't forget to backup your personal files before!**
 
+## Setting up a new computer
+
+I never remember this so I thought I'd write it down:
+
+    cd ~
+    git clone git@github.com:leouieda/dotfiles.git
+    cp -Rf $(HOME)/dotfiles/. $(HOME)/
+    rm -rf dotfiles
 
 ## Fonts
 
