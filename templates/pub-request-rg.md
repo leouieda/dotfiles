@@ -2,6 +2,8 @@
 
 Dear XXX,
 
+First of all, thank you for your interest in my work!
+
 I do not upload my work to ResearchGate because they are a for-profit organization. They have the practice of sometimes inserting advertisement into the uploaded PDFs. I find this unacceptable.
 
 I keep a copy of all my works on my website: http://www.leouieda.com/
