@@ -13,6 +13,16 @@ I never remember this so I thought I'd write it down:
     cp -Rf $(HOME)/dotfiles/. $(HOME)/
     rm -rf dotfiles
 
+## Installing bumblebee
+
+Laptops with NVidia cards that use Optimus won't work with the normal drivers.
+Either they will be on all the time and kill battery life, or they will be off
+always. Installing [bumblebee](http://bumblebee-project.org/) can fix this but
+it's a pain to install and the official docs don't provide all the
+instructions. This is the best I've found:
+
+https://lenovolinux.blogspot.com.br/2016/05/bumblebee-on-lenovo-t440p-nvidia-gt.html
+
 ## Fonts
 
 This repo includes a `.fonts` folder with some TrueType fonts from
