@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEV="git vim meld"
-VIS="gimp inkcape shutter"
+VIS="gimp inkscape shutter"
 TXT="texlive-full libreoffice-impress"
 MISC="gnome-do xclip"
 ADM="gparted"
