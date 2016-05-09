@@ -122,6 +122,7 @@ alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
+alias cup='conda update --all && conda clean -pity'
 alias work='source activate'
 alias off='source deactivate'
 off 2> /dev/null
