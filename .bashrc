@@ -140,6 +140,11 @@ alias git-trim='git branch --merged master | grep -v "\* master" | xargs -n 1 gi
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
 
+# To make JabRef fonts not horrible
+# http://crunchbang.org/forums/viewtopic.php?pid=248580#p248580
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+alias jabref='nohup jabref > /dev/null 2>&1 &'
+
 # added by travis gem
 [ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
 
