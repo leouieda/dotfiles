@@ -117,6 +117,7 @@ export QT_API=pyqt
 
 # Alias definitions
 alias nb='jupyter notebook --no-browser'
+alias v='vim'
 alias copy='xclip -sel clip'
 alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
