@@ -16,7 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
-Plug 'tweekmonster/braceless.vim', {'for': ['python', 'yaml']}
+Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 
 call plug#end()
 
@@ -124,4 +124,4 @@ let g:vimtex_complete_enabled=1
 let g:vimtex_complete_close_braces=1
 
 " braceless.vim
-autocmd FileType python,yaml BracelessEnable +indent +highlight
+autocmd FileType python BracelessEnable +indent +highlight
