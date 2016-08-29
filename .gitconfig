@@ -6,9 +6,9 @@
 [color]
     ui = true
 [core]
-	editor = vim
+    editor = vim
 [push]
-	default = upstream
+    default = upstream
 [merge]
     tool = meld
 [difftool.latex]
