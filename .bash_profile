@@ -172,6 +172,6 @@ pdfcmyk() {
 source ~/.autoenv/activate.sh
 
 # Enable git bash completions on OSX
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    #. $(brew --prefix)/etc/bash_completion
+#fi
