@@ -6,18 +6,22 @@
   borderless = True
   enabled_plugins = ,
   title_transmit_bg_color = "#333333"
+  tab_position = hidden
   inactive_color_offset = 1.0
 [keybindings]
-  next_tab = <Primary>Up
+  next_tab = <Primary>Tab
   split_horiz = <Primary><Shift>t
-  prev_tab = <Primary>Down
+  new_window = <Primary>n
+  prev_tab = <Primary><Shift>Tab
+  move_tab_right = None
   close_term = <Primary><Shift>w
+  move_tab_left = None
   split_vert = <Primary>t
-  new_tab = <Alt>t
+  new_tab = <Primary>t
 [profiles]
   [[default]]
     use_system_font = False
-    font = Droid Sans Mono 10
+    font = Droid Sans Mono 11
     background_darkness = 0.91
     background_type = transparent
     background_image = None
