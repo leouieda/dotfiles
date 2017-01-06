@@ -104,6 +104,16 @@ function! EnableRunMakeOnSave()
 endfunction
 map <leader>m :call EnableRunMakeOnSave()<cr>
 
+" Replace Esc with Ctrl+L to make this work better on Termux.
+" Android uses Esc as a shortcut for the home screen.
+" Use solution in:
+" http://vim.wikia.com/wiki/Avoid_the_escape_key
+" This is a variation on the previous mapping that additionally checks for
+" the popup menu (present when doing completions). During completions, <C-L>
+" adds a character from the current match, so this mapping will preserve that
+" behavior. See :help popupmenu-keys for more.
+:inoremap <expr> <C-L> (pumvisible() <bar><bar> &insertmode) ? '<C-L>' : '<Esc>'
+
 
 " PLUGIN CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
