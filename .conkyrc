@@ -38,7 +38,7 @@ maximum_width 230
 gap_x 20    ### left | right
 gap_y 45    ### up | down
 
-alignment tr
+alignment tl
 #######################  End Window Settings  ###
 ###  Font Settings  #############################
 # Use Xft (anti-aliased font and stuff)
