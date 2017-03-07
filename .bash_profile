@@ -108,7 +108,8 @@ source ~/.bash/gitprompt.sh
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/hub/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
-export PATH=/home/leo/bin/gmt/bin:$PATH
+export PATH=$HOME/bin/gmt/bin:$PATH
+export PATH=$HOME/bin/julia/bin:$PATH
 # Anaconda stuff
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
