@@ -6,7 +6,7 @@
 # ID 1
 rounded = 1
 border_width = 0
-background_color = #282828 100
+background_color = #282828 50
 border_color = #000000 0
 
 # ID 2
@@ -18,7 +18,7 @@ border_color = #CCCCCC 40
 # Panel
 panel_monitor = all
 panel_position = top center horizontal
-panel_size = 100% 15
+panel_size = 100% 20
 panel_margin = 0 0
 panel_padding = 3 0 3
 panel_dock = 0
