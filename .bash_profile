@@ -141,7 +141,7 @@ alias pull='git pull'
 alias fat='cd ~/src/fatiando/fatiando'
 alias gmt='cd ~/src/gmt/trunk'
 alias gmtpy='cd ~/src/gmt/gmt-python'
-
+alias web='cd ~/src/website/ && killall urubu && (make serve 2> /dev/null > /dev/null &)'
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
