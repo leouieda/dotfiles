@@ -129,7 +129,6 @@ alias nb='jupyter notebook --no-browser'
 alias v='vim'
 alias copy='xclip -sel clip'
 alias pt='pytest --doctest-modules -v --pyargs'
-alias fat='cd ~/src/fatiando/fatiando'
 alias co='git checkout'
 alias b='git checkout -b'
 alias cm='git commit'
@@ -137,6 +136,11 @@ alias ga='git add'
 alias st='git status'
 alias push='git push'
 alias pull='git pull'
+
+# Shortcuts for projects
+alias fat='cd ~/src/fatiando/fatiando'
+alias gmt='cd ~/src/gmt/trunk'
+alias gmtpy='cd ~/src/gmt/gmt-python'
 
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
