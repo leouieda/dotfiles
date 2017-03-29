@@ -36,12 +36,12 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -54,11 +54,11 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -98,49 +98,65 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
 # These are my personal changes
 ##############################################################################
 
 # Make the prompt pretty and show git branch information
 source ~/.bash/gitprompt.sh
 
-# Set env variables
+# Set PATH variables
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/bin/hub/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=$HOME/bin/gmt/bin:$PATH
 export PATH=$HOME/bin/julia/bin:$PATH
-# Anaconda stuff
+
+# Turn Anaconda on and off
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
-# To avoid the QString error with Mayavi
-export QT_API=pyqt
-
-# Alias definitions
-alias nb='jupyter notebook --no-browser'
-alias v='vim'
-alias copy='xclip -sel clip'
-alias nose='nosetests -v --with-doctest'
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
-alias conda-faxina='conda update --all && conda clean -pity'
-alias work='source activate'
+alias ce='source activate'
 alias off='source deactivate'
 off 2> /dev/null
+# Clean conda packages and cache
+alias conda-clean='conda update --all && conda clean -pity'
+
+# Useful aliases
+alias nb='jupyter notebook --no-browser'
+alias v='vim'
+alias copy='xclip -sel clip'
+alias pt='pytest --doctest-modules -v --pyargs'
+alias fat='cd ~/src/fatiando/fatiando'
+alias co='git checkout'
+alias b='git checkout -b'
+alias cm='git commit'
+alias ga='git add'
+alias st='git status'
+alias push='git push'
+alias pull='git pull'
+
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
+
 # The Fuck (https://github.com/nvbn/thefuck)
 alias fuck='eval $(thefuck $(fc -ln -1))'
+alias fk='fuck'
 alias FUCK='fuck'
+
 # Clean git merged branches
-alias git-trim='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias git-clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
+
+# To avoid the QString error with Mayavi
+export QT_API=pyqt
 
 # To make JabRef fonts not horrible
 # http://crunchbang.org/forums/viewtopic.php?pid=248580#p248580
@@ -174,5 +190,5 @@ source ~/.autoenv/activate.sh
 
 # Enable git bash completions on OSX
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    #. $(brew --prefix)/etc/bash_completion
+#. $(brew --prefix)/etc/bash_completion
 #fi
