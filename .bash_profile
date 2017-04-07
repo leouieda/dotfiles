@@ -64,13 +64,13 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
@@ -115,10 +115,10 @@ export PATH=$HOME/bin/julia/bin:$PATH
 # Turn Anaconda on and off
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/bin/anaconda/bin
-alias con='export PATH=$CONDAPATH:$PATH'
-alias cof='export PATH=$PATHBACK'
-con
-alias ce='source activate'
+alias condaon='export PATH=$CONDAPATH:$PATH'
+alias condaoff='export PATH=$PATHBACK'
+condaon
+alias cenv='source activate'
 alias off='source deactivate'
 off 2> /dev/null
 # Clean conda packages and cache
@@ -128,20 +128,7 @@ alias conda-clean='conda update --all && conda clean -pity'
 alias nb='jupyter notebook --no-browser'
 alias v='vim'
 alias copy='xclip -sel clip'
-alias pt='pytest --doctest-modules -v --pyargs'
-alias co='git checkout'
-alias b='git checkout -b'
-alias cm='git commit'
-alias ga='git add'
-alias st='git status'
-alias push='git push'
-alias pull='git pull'
 
-# Shortcuts for projects
-alias fat='cd ~/src/fatiando/fatiando'
-alias gmt='cd ~/src/gmt/trunk'
-alias gmtpy='cd ~/src/gmt/gmt-python'
-alias web='cd ~/src/website/ && make serve'
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'

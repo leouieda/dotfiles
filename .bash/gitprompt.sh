@@ -61,16 +61,13 @@ function setGitPrompt()
 
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
         STATUS="$GIT_PROMPT_PREFIX$GIT_PROMPT_BRANCH$GIT_BRANCH"
-
         if [ -n "$GIT_REMOTE" ]; then
             STATUS="$STATUS$GIT_PROMPT_REMOTE$GIT_REMOTE"
         fi
-
         STATUS="$STATUS$GIT_PROMPT_SEPARATOR"
         if [ "$GIT_STAGED" -ne "0" ]; then
             STATUS="$STATUS$GIT_PROMPT_STAGED$GIT_STAGED"
         fi
-
         if [ "$GIT_CONFLICTS" -ne "0" ]; then
             STATUS="$STATUS$GIT_PROMPT_CONFLICTS$GIT_CONFLICTS"
         fi
@@ -79,9 +76,6 @@ function setGitPrompt()
         fi
         if [ "$GIT_UNTRACKED" -ne "0" ]; then
             STATUS="$STATUS$GIT_PROMPT_UNTRACKED$GIT_UNTRACKED"
-        fi
-        if [ "$GIT_CLEAN" -eq "1" ]; then
-            STATUS="$STATUS$GIT_PROMPT_CLEAN"
         fi
         STATUS="$STATUS$GIT_PROMPT_SUFFIX"
 
