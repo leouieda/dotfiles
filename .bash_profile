@@ -103,7 +103,10 @@ fi
 ##############################################################################
 
 # Make the prompt pretty and show git branch information
-source ~/.bash/gitprompt.sh
+source ~/.bash/prompt_config.sh
+
+# Autoenv config
+source ~/.autoenv/activate.sh
 
 # Set PATH variables
 export PATH=$HOME/bin:$PATH
@@ -118,7 +121,24 @@ export CONDAPATH=$HOME/bin/anaconda/bin
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
-alias cenv='source activate'
+# Aliases for working with conda
+get_env_name() {
+    # Get the environment name from a conda yml file
+    grep "name: *" $1 | sed -n -e 's/name: //p'
+}
+activate_conda_env() {
+    # Activate the env from an environment.yml file if no argument is provided
+    if [[ $# -eq 0 ]]; then
+        if [[ -e "environment.yml" ]]; then
+            source activate `get_env_name environment.yml`;
+        else
+            echo "No environment.yml found" && exit 1;
+        fi
+    else
+        source activate "$@";
+    fi
+}
+alias cenv='activate_conda_env'
 alias off='source deactivate'
 off 2> /dev/null
 # Clean conda packages and cache
@@ -172,9 +192,6 @@ pdfcmyk() {
         -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
         -sOutputFile=$2 $1
 }
-
-# Autoenv config
-source ~/.autoenv/activate.sh
 
 # Enable git bash completions on OSX
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then
