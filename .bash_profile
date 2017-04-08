@@ -103,7 +103,7 @@ fi
 ##############################################################################
 
 # Make the prompt pretty and show git branch information
-source ~/.bash/gitprompt.sh
+source ~/.bash/prompt_config.sh
 
 # Autoenv config
 source ~/.autoenv/activate.sh
