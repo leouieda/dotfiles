@@ -10,7 +10,7 @@ I never remember this so I thought I'd write it down:
 
     cd ~
     git clone git@github.com:leouieda/dotfiles.git
-    cp -Rf $(HOME)/dotfiles/. $(HOME)/
+    cp -Rf $HOME/dotfiles/. $HOME/
     rm -rf dotfiles
 
 ## Installing bumblebee
