@@ -148,6 +148,7 @@ alias conda-clean='conda update --all && conda clean -pity'
 alias nb='jupyter notebook --no-browser'
 alias v='vim'
 alias copy='xclip -sel clip'
+alias cal='cal -3'
 
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
