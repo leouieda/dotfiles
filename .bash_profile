@@ -145,7 +145,7 @@ off 2> /dev/null
 alias conda-clean='conda update --all && conda clean -pity'
 
 # Useful aliases
-alias nb='jupyter notebook --no-browser'
+alias nb='jupyter notebook'
 alias v='vim'
 alias copy='xclip -sel clip'
 alias cal='cal -3'
