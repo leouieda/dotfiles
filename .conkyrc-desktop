@@ -157,8 +157,6 @@ ${top_mem name 7}${alignr}${top_mem mem_res 7}
 ${top_mem name 8}${alignr}${top_mem mem_res 8}
 ${top_mem name 9}${alignr}${top_mem mem_res 9}
 ${top_mem name 10}${alignr}${top_mem mem_res 10}
-${top_mem name 11}${alignr}${top_mem mem_res 11}
-${top_mem name 12}${alignr}${top_mem mem_res 12}
 
 Process${alignr}CPU
 ${hr}
@@ -172,5 +170,3 @@ ${top name 7}${alignr}${top cpu 7}%
 ${top name 8}${alignr}${top cpu 8}%
 ${top name 9}${alignr}${top cpu 9}%
 ${top name 10}${alignr}${top cpu 10}%
-${top name 11}${alignr}${top cpu 11}%
-${top name 12}${alignr}${top cpu 12}%
