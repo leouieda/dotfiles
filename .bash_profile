@@ -171,6 +171,9 @@ export QT_API=pyqt
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 alias jabref='nohup jabref > /dev/null 2>&1 &'
 
+# Open the IRPF 2017 app
+alias irpf2017='sudo _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on" java -jar /home/leo/bin/IRPF2017/irpf.jar'
+
 # added by travis gem
 [ -f /home/leo/.travis/travis.sh ] && source /home/leo/.travis/travis.sh
 
