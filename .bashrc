@@ -148,6 +148,7 @@ alias v='vim'
 alias copy='xclip -sel clip'
 alias cal='cal -3'
 alias du='du -sh'
+alias up='sudo apt-get update && sudo apt-get upgrade -y; alert'
 
 # Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
