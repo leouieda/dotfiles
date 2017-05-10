@@ -133,7 +133,11 @@ activate_conda_env() {
             echo "No environment.yml found" && exit 1;
         fi
     else
-        source activate "$@";
+        if [[ $1 -eq "remove" ]]; then
+            conda env remove --name "$2";
+        else
+            source activate "$@";
+        fi
     fi
 }
 alias cenv='activate_conda_env'
