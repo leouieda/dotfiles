@@ -8,6 +8,7 @@
 [core]
     editor = vim
 	fscache = true
+	excludesfile = ~/.gitignore_global
 [push]
     default = upstream
 [merge]

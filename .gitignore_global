@@ -1,0 +1,9 @@
+# Vim undo and swap files
+.*~
+.*.swp
+
+# Jupyter notebook cache
+.ipynb_checkpoints
+
+# Python compiled files
+*.pyc
