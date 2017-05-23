@@ -130,7 +130,7 @@ activate_conda_env() {
         if [[ -e "environment.yml" ]]; then
             source activate `get_env_name environment.yml`;
         else
-            echo "No environment.yml found" && exit 1;
+            echo "No environment.yml found";
         fi
     else
         if [[ $1 -eq "remove" ]]; then
