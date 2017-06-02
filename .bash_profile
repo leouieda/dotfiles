@@ -115,7 +115,7 @@ export PATH=$HOME/bin/julia/bin:$PATH
 
 # Turn Anaconda on and off
 export PATHBACK=$PATH
-export CONDAPATH=$HOME/bin/anaconda/bin
+export CONDAPATH=$HOME/miniconda3/bin
 alias condaon='export PATH=$CONDAPATH:$PATH'
 alias condaoff='export PATH=$PATHBACK'
 condaon
