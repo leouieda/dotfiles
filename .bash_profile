@@ -126,18 +126,22 @@ get_env_name() {
 }
 activate_conda_env() {
     # Activate the env from an environment.yml file if no argument is provided
-    if [[ $# -eq 0 ]]; then
+    if [[ $# == 0 ]]; then
         if [[ -e "environment.yml" ]]; then
-            source activate `get_env_name environment.yml`;
+            envname=`get_env_name environment.yml`
+            echo "Activating environment '$envname'"
+            source activate $envname;
         else
             echo "No environment.yml found";
         fi
+    elif [[ $# == 1 ]]; then
+        echo "Activating environment '$@'"
+        source activate "$@";
+    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
+        echo "Removing environment '$2'"
+        conda env remove --name "$2";
     else
-        if [[ $1 -eq "remove" ]]; then
-            conda env remove --name "$2";
-        else
-            source activate "$@";
-        fi
+        echo "Invalid argument(s): $@"
     fi
 }
 alias cenv='activate_conda_env'
