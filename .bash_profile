@@ -128,14 +128,11 @@ activate_conda_env() {
     # Activate the env from an environment.yml file if no argument is provided
     if [[ $# == 0 ]]; then
         if [[ -e "environment.yml" ]]; then
-            envname=`get_env_name environment.yml`
-            echo "Activating environment '$envname'"
-            source activate $envname;
+            source activate `get_env_name environment.yml`;
         else
             echo "No environment.yml found";
         fi
     elif [[ $# == 1 ]]; then
-        echo "Activating environment '$@'"
         source activate "$@";
     elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
         echo "Removing environment '$2'"
