@@ -103,17 +103,78 @@ fi
 # Make the prompt pretty and show git branch information
 source ~/.bash/prompt_config.sh
 
-# Autoenv config
-source ~/.autoenv/activate.sh
-
 # Set PATH variables
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/bin/hub/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=$HOME/bin/gmt/bin:$PATH
-export PATH=$HOME/bin/julia/bin:$PATH
 
-# Turn Anaconda on and off
+# GMT configuration and building
+export GMT_INSTALL_PREFIX=$HOME/bin/gmt
+export GMT_DATA_PREFIX=$HOME/data/coastlines
+alias gmtclean='rm -rf $GMT_INSTALL_PREFIX'
+alias gmttest='make -C build check; alert'
+gmtbuild() {
+    # Builds GMT and install to the prefix.
+    # Needs to be run from the SVN repository.
+    if [[ -d "$GMT_INSTALL_PREFIX" ]]; then
+        echo "Cleaning previous install"
+        echo "----------------------------------------------------"
+        gmtclean
+        echo ""
+    fi
+    echo "Installing GMT from source to $GMT_INSTALL_PREFIX"
+    echo "----------------------------------------------------"
+    # Download coastline data if it's not yet present
+    if [[ ! -d "$GMT_DATA_PREFIX" ]]; then
+        echo "Downloading coastline data to $GMT_DATA_PREFIX"
+        echo "----------------------------------------------------"
+        mkdir $GMT_DATA_PREFIX
+        # GSHHG (coastlines, rivers, and political boundaries):
+        EXT="tar.gz"
+        GSHHG="gshhg-gmt-2.3.6"
+        URL="ftp://ftp.soest.hawaii.edu/gmt/$GSHHG.$EXT"
+        curl $URL > $GSHHG.$EXT
+        tar xzf $GSHHG.$EXT
+        cp $GSHHG/* $GMT_DATA_PREFIX/
+        rm -r $GSHHG $GSHHG.$EXT
+        # DCW (country polygons):
+        DCW="dcw-gmt-1.1.2"
+        URL="ftp://ftp.soest.hawaii.edu/gmt/$DCW.$EXT"
+        curl $URL > $DCW.$EXT
+        tar xzf $DCW.$EXT
+        cp $DCW/* $GMT_DATA_PREFIX
+        rm -r $DCW $DCW.$EXT
+    fi
+    cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
+    # Turn on modern mode compilation flag
+    echo "add_definitions(-DTEST_MODERN)" >> cmake/ConfigUser.cmake
+    # Enable testing
+    echo "enable_testing()" >> cmake/ConfigUser.cmake
+    echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
+    echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
+    # Clean the build dir
+    if [[ -d build ]]; then
+        rm -r build
+    fi
+    mkdir -p build && cd build
+    echo ""
+    echo "Running cmake"
+    echo "----------------------------------------------------"
+    cmake -D CMAKE_INSTALL_PREFIX=$GMT_INSTALL_PREFIX \
+          -D GMT_LIBDIR=$GMT_INSTALL_PREFIX/lib \
+          -D DCW_ROOT=$GMT_DATA_PREFIX \
+          -D GSHHG_ROOT=$GMT_DATA_PREFIX \
+          ..
+    echo ""
+    echo "Build and install"
+    echo "----------------------------------------------------"
+    make -j`nproc` && make install
+    cd ..
+    echo "Done"
+    alert
+}
+
+# Anaconda configuration
 export PATHBACK=$PATH
 export CONDAPATH=$HOME/miniconda3/bin
 alias condaon='export PATH=$CONDAPATH:$PATH'
@@ -154,8 +215,6 @@ alias copy='xclip -sel clip'
 alias cal='cal -3'
 alias du='du -sh'
 alias up='sudo apt-get update && sudo apt-get upgrade -y; alert'
-
-# Aliases to extract tar files. Because I never remember the flags
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
