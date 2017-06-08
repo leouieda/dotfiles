@@ -106,11 +106,11 @@ source ~/.bash/prompt_config.sh
 # Set PATH variables
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
-export PATH=$HOME/bin/gmt/bin:$PATH
 
 # GMT configuration and building
 export GMT_INSTALL_PREFIX=$HOME/bin/gmt
 export GMT_DATA_PREFIX=$HOME/data/coastlines
+export PATH=$GMT_INSTALL_PREFIX/bin:$PATH
 alias gmtclean='rm -rf $GMT_INSTALL_PREFIX'
 alias gmttest='make -C build check; alert'
 gmtbuild() {
@@ -152,6 +152,7 @@ gmtbuild() {
     echo "enable_testing()" >> cmake/ConfigUser.cmake
     echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
     echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
+    echo "set (N_TEST_JOBS `nproc`)" >> cmake/ConfigUser.cmake
     # Clean the build dir
     if [[ -d build ]]; then
         rm -r build
