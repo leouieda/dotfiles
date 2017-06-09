@@ -104,19 +104,61 @@ fi
 source ~/.bash/prompt_config.sh
 
 # Set PATH variables
-export PATH=$HOME/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
+export PATH=$HOME/pkg/bin:$PATH
+
+# Anaconda configuration
+export CONDA_PREFIX=$HOME/miniconda3
+alias condaon='export PATH=$CONDA_PREFIX/bin:$PATH'
+condaoff() {
+    export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
+}
+condaon
+# Aliases for working with conda
+get_env_name() {
+    # Get the environment name from a conda yml file
+    grep "name: *" $1 | sed -n -e 's/name: //p'
+}
+activate_conda_env() {
+    # Activate the env from an environment.yml file if no argument is provided
+    if [[ $# == 0 ]]; then
+        if [[ -e "environment.yml" ]]; then
+            source activate `get_env_name environment.yml`;
+        else
+            echo "No environment.yml found";
+        fi
+    elif [[ $# == 1 ]]; then
+        source activate "$@";
+    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
+        echo "Removing environment '$2'"
+        conda env remove --name "$2";
+    else
+        echo "Invalid argument(s): $@"
+    fi
+}
+alias cenv='activate_conda_env'
+alias off='source deactivate'
+off 2> /dev/null
+# Clean conda packages and cache
+alias conda-clean='conda update --all && conda clean -pity'
+
 
 # GMT configuration and building
-export GMT_INSTALL_PREFIX=$HOME/bin/gmt
+export GMT_INSTALL_PREFIX=$HOME/pkg
+export GMT_INSTALL_MANIFEST=$GMT_INSTALL_PREFIX/gmt_install_manifest.txt
+export GMT_LIB_PATH=$GMT_INSTALL_PREFIX/lib
 export GMT_DATA_PREFIX=$HOME/data/coastlines
-export PATH=$GMT_INSTALL_PREFIX/bin:$PATH
-alias gmtclean='rm -rf $GMT_INSTALL_PREFIX'
 alias gmttest='make -C build check; alert'
+gmtclean() {
+    for f in $(cat $GMT_INSTALL_MANIFEST); do
+        rm -rf "$f"
+    done
+    rm $GMT_INSTALL_MANIFEST
+}
 gmtbuild() {
     # Builds GMT and install to the prefix.
     # Needs to be run from the SVN repository.
-    if [[ -d "$GMT_INSTALL_PREFIX" ]]; then
+    if [[ -e "$GMT_INSTALL_MANIFEST" ]]; then
         echo "Cleaning previous install"
         echo "----------------------------------------------------"
         gmtclean
@@ -162,7 +204,11 @@ gmtbuild() {
     echo "Running cmake"
     echo "----------------------------------------------------"
     cmake -D CMAKE_INSTALL_PREFIX=$GMT_INSTALL_PREFIX \
-          -D GMT_LIBDIR=$GMT_INSTALL_PREFIX/lib \
+          -D GDAL_ROOT=$CONDA_PREFIX \
+          -D NETCDF_ROOT=$CONDA_PREFIX \
+          -D PCRE_ROOT=$CONDA_PREFIX \
+          -D FFTW3_ROOT=$CONDA_PREFIX \
+          -D ZLIB_ROOT=$CONDA_PREFIX \
           -D DCW_ROOT=$GMT_DATA_PREFIX \
           -D GSHHG_ROOT=$GMT_DATA_PREFIX \
           ..
@@ -170,44 +216,11 @@ gmtbuild() {
     echo "Build and install"
     echo "----------------------------------------------------"
     make -j`nproc` && make install
+    cp install_manifest.txt $GMT_INSTALL_MANIFEST
     cd ..
     echo "Done"
     alert
 }
-
-# Anaconda configuration
-export PATHBACK=$PATH
-export CONDAPATH=$HOME/miniconda3/bin
-alias condaon='export PATH=$CONDAPATH:$PATH'
-alias condaoff='export PATH=$PATHBACK'
-condaon
-# Aliases for working with conda
-get_env_name() {
-    # Get the environment name from a conda yml file
-    grep "name: *" $1 | sed -n -e 's/name: //p'
-}
-activate_conda_env() {
-    # Activate the env from an environment.yml file if no argument is provided
-    if [[ $# == 0 ]]; then
-        if [[ -e "environment.yml" ]]; then
-            source activate `get_env_name environment.yml`;
-        else
-            echo "No environment.yml found";
-        fi
-    elif [[ $# == 1 ]]; then
-        source activate "$@";
-    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
-        echo "Removing environment '$2'"
-        conda env remove --name "$2";
-    else
-        echo "Invalid argument(s): $@"
-    fi
-}
-alias cenv='activate_conda_env'
-alias off='source deactivate'
-off 2> /dev/null
-# Clean conda packages and cache
-alias conda-clean='conda update --all && conda clean -pity'
 
 # Useful aliases
 alias nb='jupyter notebook'
@@ -227,7 +240,7 @@ alias FUCK='fuck'
 
 # CUDA
 export PATH=${PATH}:/usr/local/cuda-5.5/bin
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-5.5/lib64:/lib
+export LD_LIBRARY_PATH=/usr/local/cuda-5.5/lib64:/lib:$LD_LIBRARY_PATH
 
 # To avoid the QString error with Mayavi
 export QT_API=pyqt
