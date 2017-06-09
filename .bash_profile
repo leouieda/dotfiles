@@ -146,7 +146,6 @@ alias conda-clean='conda update --all && conda clean -pity'
 # GMT configuration and building
 export GMT_INSTALL_PREFIX=$HOME/pkg
 export GMT_INSTALL_MANIFEST=$GMT_INSTALL_PREFIX/gmt_install_manifest.txt
-export GMT_LIB_PATH=$GMT_INSTALL_PREFIX/lib
 export GMT_DATA_PREFIX=$HOME/data/coastlines
 alias gmttest='make -C build check; alert'
 gmtclean() {
