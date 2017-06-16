@@ -187,8 +187,6 @@ gmtbuild() {
         rm -r $DCW $DCW.$EXT
     fi
     cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
-    # Turn on modern mode compilation flag
-    echo "add_definitions(-DTEST_MODERN)" >> cmake/ConfigUser.cmake
     # Enable testing
     echo "enable_testing()" >> cmake/ConfigUser.cmake
     echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
