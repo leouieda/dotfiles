@@ -110,6 +110,7 @@ export LD_LIBRARY_PATH=$HOME/pkg/lib:$LD_LIBRARY_PATH
 
 # Anaconda configuration
 export CONDA_PREFIX=$HOME/miniconda3
+export LD_LIBRARY_PATH=$HOME/miniconda3/lib:$LD_LIBRARY_PATH
 alias condaon='export PATH=$CONDA_PREFIX/bin:$PATH'
 condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
