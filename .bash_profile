@@ -231,6 +231,7 @@ alias up='sudo apt-get update && sudo apt-get upgrade -y; alert'
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
+alias pytest_mpl_gen='pytest --mpl-generate-path=baseline'
 
 # The Fuck (https://github.com/nvbn/thefuck)
 alias fuck='eval $(thefuck $(fc -ln -1))'
