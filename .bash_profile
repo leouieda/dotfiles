@@ -148,7 +148,7 @@ alias conda-clean='conda update --all && conda clean -pity'
 # GMT configuration and building
 export GMT_INSTALL_PREFIX=$HOME/pkg
 export GMT_INSTALL_MANIFEST=$GMT_INSTALL_PREFIX/gmt_install_manifest.txt
-export GMT_DATA_PREFIX=$HOME/data/coastlines
+export GMT_DATA_PREFIX=$GMT_INSTALL_PREFIX/share/coast
 alias gmttest='make -C build check; alert'
 gmtclean() {
     for f in $(cat $GMT_INSTALL_MANIFEST); do
@@ -190,6 +190,7 @@ gmtbuild() {
     fi
     cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
     # Enable testing
+    # cmake is ignoring this option
     echo "enable_testing()" >> cmake/ConfigUser.cmake
     echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
     echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
@@ -210,6 +211,7 @@ gmtbuild() {
           -D ZLIB_ROOT=$CONDA_PREFIX \
           -D DCW_ROOT=$GMT_DATA_PREFIX \
           -D GSHHG_ROOT=$GMT_DATA_PREFIX \
+          -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
           ..
     echo ""
     echo "Build and install"
