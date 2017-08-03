@@ -224,6 +224,7 @@ gmtbuild() {
 }
 
 # Useful aliases
+alias open='xdg-open'
 alias nb='jupyter notebook'
 alias v='vim'
 alias copy='xclip -sel clip'
