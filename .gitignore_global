@@ -2,8 +2,12 @@
 .*~
 .*.swp
 
-# Jupyter notebook cache
+# Jupyter notebook
 .ipynb_checkpoints
+Untitled*.ipynb
 
 # Python compiled files
 *.pyc
+
+# Original files during merge conflict resolution
+*.orig
