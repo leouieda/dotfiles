@@ -235,6 +235,9 @@ alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
 alias pytest_mpl_gen='pytest --mpl-generate-path=baseline'
+alias tmux='TERM=xterm-256color tmux'
+alias ta='tmux attach -t'
+alias tls='tmux list-sessions'
 
 # The Fuck (https://github.com/nvbn/thefuck)
 alias fuck='eval $(thefuck $(fc -ln -1))'
