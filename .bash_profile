@@ -106,6 +106,7 @@ source ~/.bash/prompt_config.sh
 # Set PATH variables
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=$HOME/pkg/bin:$PATH
+export PATH=$HOME/bin/zotero:$PATH
 export LD_LIBRARY_PATH=$HOME/pkg/lib:$LD_LIBRARY_PATH
 
 # Anaconda configuration
