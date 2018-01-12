@@ -4,9 +4,9 @@ Dear XXX,
 
 First of all, thank you for your interest in my work!
 
-I do not upload my work to ResearchGate because they are a for-profit organization. They have the practice of sometimes inserting advertisement into the uploaded PDFs. I find this unacceptable.
+I do not upload my work to ResearchGate because it is often illegal to do so since they are a for-profit organization. Furthermore, they have the practice of sometimes inserting an extra page advertising their site into the uploaded PDFs. I find this unacceptable.
 
-I keep a copy of all my works on my website: http://www.leouieda.com/
+I keep a copy of all my works on my website: http://www.leouieda.com
 
 There you will also find links to related works and other resources like source code, presentations, data, etc.
 
