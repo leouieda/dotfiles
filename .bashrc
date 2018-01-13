@@ -286,3 +286,11 @@ pdfcmyk() {
 #if [ -f $(brew --prefix)/etc/bash_completion ]; then
 #. $(brew --prefix)/etc/bash_completion
 #fi
+
+# Start ssh-agent automatically if it hasn't been started alredy
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
