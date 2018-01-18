@@ -104,14 +104,13 @@ fi
 source ~/.bash/prompt_config.sh
 
 # Set PATH variables
+export PATH=$HOME/bin:$PATH
 export PATH=$HOME/src/tesseroids/bin:$PATH
 export PATH=$HOME/pkg/bin:$PATH
 export PATH=$HOME/bin/zotero:$PATH
-export LD_LIBRARY_PATH=$HOME/pkg/lib:$LD_LIBRARY_PATH
 
 # Anaconda configuration
 export CONDA_PREFIX=$HOME/miniconda3
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/miniconda3/lib
 alias condaon='export PATH=$CONDA_PREFIX/bin:$PATH'
 condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
@@ -148,6 +147,7 @@ alias conda-clean='conda update --all && conda clean -pity'
 
 # GMT configuration and building
 export GMT_INSTALL_PREFIX=$HOME/pkg
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GMT_INSTALL_PREFIX/lib
 export GMT_INSTALL_MANIFEST=$GMT_INSTALL_PREFIX/gmt_install_manifest.txt
 export GMT_DATA_PREFIX=$GMT_INSTALL_PREFIX/share/coast
 alias gmttest='make -C build check; alert'
@@ -244,10 +244,6 @@ alias tls='tmux list-sessions'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias fk='fuck'
 alias FUCK='fuck'
-
-# CUDA
-export PATH=${PATH}:/usr/local/cuda-5.5/bin
-export LD_LIBRARY_PATH=/usr/local/cuda-5.5/lib64:/lib:$LD_LIBRARY_PATH
 
 # To avoid the QString error with Mayavi
 export QT_API=pyqt
