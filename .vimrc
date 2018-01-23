@@ -22,9 +22,10 @@ call plug#end()
 
 " GENERAL CONGIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"The following is taken from Steve Losh:
-"http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+" Some of the following is taken from Steve Losh:
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 set nocompatible
+set nojoinspaces
 set laststatus=2
 set modelines=0
 set autoindent
