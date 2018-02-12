@@ -36,7 +36,8 @@ default_shade_color 000000
 draw_outline no # amplifies text if yes
 default_outline_color 000000
 
-default_color C0C0C0 # Silver
+#default_color C0C0C0 # Silver
+default_color FFFFFF
 color0 B0E0E6 # PowderBlue
 color1 778899 # LightSlateGray
 color2 D8BFD8 # Thistle
