@@ -1,10 +1,9 @@
 # Enviornment variable definitions
 
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/pkg/bin:$PATH
-export PATH=$HOME/bin/zotero:$PATH
-export PATH=$HOME/src/tesseroids/bin:$PATH
-export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
+# Include the PATH definitions
+if [ -f $HOME/.bash/path.sh ]; then
+    source $HOME/.bash/path.sh
+fi
 
 export CONDA_PREFIX=$HOME/miniconda3
 
