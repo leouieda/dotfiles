@@ -5,13 +5,18 @@ understood the paper.
 
 General comments on the quality of the submission and my overall thoughts.
 Outline major strengths and flaws.
-What should be done to address them?
+Be sure to say something positive as well!
+What should be done to address the problems?
+Always give constructive feedback.
+
+Thinks to check;
 * Use of English
 * Structure of the paper
 * Novelty
-* Cited proper references?
 * Correctness of the method
+* Enough detail in methods to reproduce findings
 * Conclusions backed by results?
+* Cited proper references?
 
 Some comments about the figures:
 * Is the resolution good?
@@ -56,8 +61,7 @@ Below I provide more detailed comments.
 Sincerely,
 
 Leonardo Uieda
-Visiting research scholar - University of Hawaii, USA
-Professor (on leave) - Universidade do Estado do Rio de Janeiro, Brazil
+Visiting Researcher - University of Hawaii at Manoa, USA
 
 
 ## Corrections and comments
