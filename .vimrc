@@ -64,6 +64,8 @@ autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Color scheme
 set background=dark
+hi clear SpellBad
+hi SpellBad cterm=underline ctermbg=9 ctermfg=white
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 " Git commits
