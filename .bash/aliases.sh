@@ -25,6 +25,7 @@ alias jabref='nohup jabref > /dev/null 2>&1 &'
 # Open the IRPF 2017 app
 alias irpf2017='sudo _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on" java -jar /home/leo/bin/IRPF2017/irpf.jar'
 
+
 alias ll='ls -lh'
 alias la='ls -A'
 alias open='xdg-open'
@@ -37,8 +38,8 @@ alias up='sudo apt-get update && sudo apt-get upgrade -y; alert'
 alias untar='tar -xvf'
 alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
-alias pytest_mpl_gen='pytest --mpl-generate-path=baseline'
 alias tmux='TERM=xterm-256color tmux'
 alias ta='tmux attach -t'
 alias tls='tmux list-sessions'
-
+alias pt_gen='pytest --mpl-generate-path=baseline'
+alias pt='pytest -v --doctest-modules'
