@@ -70,7 +70,7 @@ hi SpellBad cterm=underline ctermbg=9 ctermfg=white
 autocmd BufWritePre * :%s/\s\+$//e
 " Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72
-" Map F2 to paste mode so that pasting in the terminal doesn't mess idendtation
+" Map F2 to paste mode so that pasting in the terminal doesn't mess identation
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
