@@ -5,6 +5,8 @@ if [ -f $HOME/.bash/path.sh ]; then
     source $HOME/.bash/path.sh
 fi
 
+export EDITOR=vim
+
 export CONDA_PREFIX=$HOME/miniconda3
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/pkg/lib
