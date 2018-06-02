@@ -100,6 +100,13 @@ gmtbuild() {
     echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
     echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
     echo "set (N_TEST_JOBS `nproc`)" >> cmake/ConfigUser.cmake
+    #set (CMAKE_BUILD_TYPE Debug)
+    echo "add_definitions(-DDEBUG)" >> cmake/ConfigUser.cmake
+    #set (CMAKE_C_FLAGS "-Wall -Wdeclaration-after-statement") # recommended even for release build
+    #set (CMAKE_C_FLAGS "-Wextra ${CMAKE_C_FLAGS}")            # extra warnings
+    # gdb debugging symbols
+    echo "set (CMAKE_C_FLAGS_DEBUG -ggdb3)" >> cmake/ConfigUser.cmake
+    #set (CMAKE_LINK_DEPENDS_DEBUG_MODE TRUE)                  # debug link dependencies
     # Clean the build dir
     if [[ -d build ]]; then
         rm -r build
@@ -117,6 +124,7 @@ gmtbuild() {
           -D DCW_ROOT=$GMT_DATA_PREFIX \
           -D GSHHG_ROOT=$GMT_DATA_PREFIX \
           -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
+          -D CMAKE_BUILD_TYPE=Debug \
           ..
     echo ""
     echo "Build and install"
