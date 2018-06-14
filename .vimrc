@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
+Plug 'ambv/black',
 
 call plug#end()
 
@@ -49,7 +50,9 @@ set ttimeoutlen=50
 " Set identation to 4 spaces
 set noai ts=4 sw=4 expandtab
 " Set an 80 char column
-set colorcolumn=80 textwidth=79
+set textwidth=88
+set colorcolumn=89
+highlight ColorColumn ctermbg=black
 " Line numbers
 set number
 highlight LineNr ctermfg=DarkGrey
