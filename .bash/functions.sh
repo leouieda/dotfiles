@@ -10,46 +10,69 @@ condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
 }
 
-get_env_name() {
-    # Get the environment name from a conda yml file
-    grep "name: *" $1 | sed -n -e 's/name: //p'
-}
-
-cenv() {
-    # Makes conda env commands easier. Can find the env name from an
-    # environment.yml file in the current directory.
-    # Usage:
-    #   1. To activate the environment from the current directory:
-    #      $ cenv
-    #   2. To activate from a given enviroment file:
-    #      $ cenv my_env_file.yml
-    #   3. To delete an environment based on a file:
-    if [[ $# == 0 ]]; then
-        if [[ -e "environment.yml" ]]; then
-            source activate `get_env_name environment.yml`;
-        else
-            echo "No environment.yml found";
-        fi
-    elif [[ $# == 1 ]]; then
-        source activate `get_env_name $1`;
-    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
-        envname=`get_env_name $2`
-        echo "Removing environment '$envname'"
-        conda env remove --name "$envname";
-    else
-        echo "Invalid argument(s): $@"
-    fi
+condaclean() {
+    # Clean conda packages and the cache
+    conda update --all && conda clean -pity
 }
 
 coff() {
     # Deactivate the conda environment
     source deactivate
 }
+
+get_conda_env_name() {
+    # Get the environment name from a conda yml file
+    grep "name: *" $1 | sed -n -e 's/name: //p'
+}
+
+cenv() {
+    # Activate and delete conda environments using the yml files.
+    # Finds the env name from the environment file (given or assumes environment.yml in
+    # current directory).
+    # Usage:
+    #   1. Activate using the environment.yml in the current directory:
+    #      $ cenv
+    #   2. Activate using the given enviroment file:
+    #      $ cenv my_env_file.yml
+    #   3. Delete an environment using the given file (deactivates environments first):
+    #      $ cenv rm my_env_file.yml
+
+    if [ $# == 0 ]; then
+        envfile="environment.yml"
+        cmd="activate"
+    elif [ $# == 1 ]; then
+        envfile="$1"
+        cmd="activate"
+    elif [ $# == 2 ] && [ "$1" == "rm" ]; then
+        envfile="$2"
+        cmd="delete"
+    else
+        errcho "Invalid argument(s): $@";
+        return 1;
+    fi
+
+    # Check if the file exists
+    if [ ! -e "$envfile" ]; then
+        errcho "Environment file not found:" $envfile;
+        return 1;
+    fi
+
+    envname=$(get_conda_env_name $envfile)
+
+    if [ $cmd == "activate"]; then
+        source activate "$envname";
+    elif [ $cmd == "delete" ]; then
+        errcho "Removing environment:" $envname;
+        coff;
+        conda env remove --name "$envname";
+    fi
+}
 ###############################################################################
 
 
 ## GMT
 ###############################################################################
+
 gmttest() {
     make -C build check; alert
 }
