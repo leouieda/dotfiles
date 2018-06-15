@@ -7,12 +7,12 @@ if [ -f ~/.bash/prompt.sh ]; then
     source ~/.bash/prompt.sh
 fi
 
-if [ -f ~/.bash/functions.sh ]; then
-    source ~/.bash/functions.sh
-fi
-
 if [ -f ~/.bash/aliases.sh ]; then
     source ~/.bash/aliases.sh
+fi
+
+if [ -f ~/.bash/functions.sh ]; then
+    source ~/.bash/functions.sh
 fi
 
 # Include conda in the PATH by default

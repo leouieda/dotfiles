@@ -89,7 +89,7 @@ PROMPT_COMMAND=set_prompt
 get_conda_env ()
 {
     # Determine active conda env details
-    local env_name="root"
+    local env_name="base"
     if [[ ! -z $CONDA_DEFAULT_ENV ]]; then
         local env_name="`basename \"$CONDA_DEFAULT_ENV\"`"
     fi
