@@ -20,11 +20,6 @@ coff() {
     source deactivate
 }
 
-get_conda_env_name() {
-    # Get the environment name from a conda yml file
-    grep "name: *" $1 | sed -n -e 's/name: //p'
-}
-
 cenv() {
     # Activate and delete conda environments using the yml files.
     # Finds the env name from the environment file (given or assumes environment.yml in
@@ -37,13 +32,13 @@ cenv() {
     #   3. Delete an environment using the given file (deactivates environments first):
     #      $ cenv rm my_env_file.yml
 
-    if [ $# == 0 ]; then
+    if [[ $# == 0 ]]; then
         envfile="environment.yml"
         cmd="activate"
-    elif [ $# == 1 ]; then
+    elif [[ $# == 1 ]]; then
         envfile="$1"
         cmd="activate"
-    elif [ $# == 2 ] && [ "$1" == "rm" ]; then
+    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
         envfile="$2"
         cmd="delete"
     else
@@ -52,18 +47,19 @@ cenv() {
     fi
 
     # Check if the file exists
-    if [ ! -e "$envfile" ]; then
+    if [[ ! -e "$envfile" ]]; then
         errcho "Environment file not found:" $envfile;
         return 1;
     fi
 
-    envname=$(get_conda_env_name $envfile)
+    # Get the environment name from a conda yml file
+    envname=$(grep "name: *" $envfile | sed -n -e 's/name: //p')
 
-    if [ $cmd == "activate"]; then
+    if [[ $cmd == "activate" ]]; then
         source activate "$envname";
-    elif [ $cmd == "delete" ]; then
+    elif [[ $cmd == "delete" ]]; then
         errcho "Removing environment:" $envname;
-        coff;
+        source deactivate;
         conda env remove --name "$envname";
     fi
 }
