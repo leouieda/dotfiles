@@ -68,6 +68,13 @@ cenv() {
 
 ## GMT
 ###############################################################################
+gmttrunk(){
+    export GMT_LIBRARY_PATH=$GMT_INSTALL_PREFIX/lib64
+}
+
+gmtconda() {
+    unset GMT_LIBRARY_PATH
+}
 
 gmttest() {
     make -C build check; alert
