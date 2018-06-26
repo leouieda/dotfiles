@@ -33,6 +33,10 @@ set showmode
 set showcmd
 set visualbell
 set cursorline
+" Remove the underline from enabling cursorline
+highlight Cursorline cterm=none
+" Set line numbering to red background:
+highlight CursorLineNR cterm=bold ctermbg=yellow ctermfg=black
 set ruler
 set undofile
 set ignorecase
@@ -66,8 +70,8 @@ autocmd BufNewFile,BufRead SConstruct set filetype=python
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Color scheme
 set background=dark
-hi clear SpellBad
-hi SpellBad cterm=underline ctermbg=9 ctermfg=white
+highlight clear SpellBad
+highlight SpellBad cterm=underline,bold ctermbg=none ctermfg=red
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 " Git commits
