@@ -177,6 +177,7 @@ gmtbuild() {
           -D PCRE_ROOT=$CONDA_PREFIX \
           -D FFTW3_ROOT=$CONDA_PREFIX \
           -D ZLIB_ROOT=$CONDA_PREFIX \
+          -D LIBCURL_ROOT=$CONDA_PREFIX \
           -D DCW_ROOT=$GMT_DATA_PREFIX \
           -D GSHHG_ROOT=$GMT_DATA_PREFIX \
           -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
