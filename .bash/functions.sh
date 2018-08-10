@@ -216,3 +216,14 @@ pdfcmyk() {
         -sOutputFile=$2 $1
 }
 ###############################################################################
+
+
+## DOCKER
+###############################################################################
+dockerclean() {
+    docker system prune -a -f;
+    docker rm -v $(sudo docker ps -a -q -f status=exited);
+    docker rmi -f  $(sudo docker images -f "dangling=true" -q);
+    docker volume ls -qf dangling=true | xargs -r docker volume rm;
+}
+###############################################################################
