@@ -80,6 +80,8 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+" Disable folding. It's really annoying and I never remeber the commands.
+set nofoldenable
 
 " Spell Check
 " Function to rotate the spell language that is used
