@@ -17,6 +17,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
+Plug 'vim-syntastic/syntastic'
+
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'zchee/deoplete-jedi'
+else
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+	Plug 'davidhalter/jedi-vim'
+endif
 
 call plug#end()
 
@@ -82,6 +93,11 @@ set pastetoggle=<F2>
 set showmode
 " Disable folding. It's really annoying and I never remeber the commands.
 set nofoldenable
+" Ommit the <C-W> when moving between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Spell Check
 " Function to rotate the spell language that is used
@@ -146,3 +162,19 @@ let g:vimtex_complete_close_braces=1
 
 " braceless.vim
 autocmd FileType python BracelessEnable +indent +highlight
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+" Escape: exit autocompletion, go to Normal mode
+inoremap <silent><expr> <Esc> pumvisible() ? "<C-e><Esc>" : "<Esc>"
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+

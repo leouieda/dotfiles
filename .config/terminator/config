@@ -13,7 +13,7 @@
   move_tab_left = None
   move_tab_right = None
   new_tab = <Primary>t
-  new_window = <Primary>n
+  new_window = <Primary>Return
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
   split_horiz = <Primary><Shift>t
