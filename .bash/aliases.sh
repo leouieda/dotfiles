@@ -41,6 +41,7 @@ alias ta='tmux attach -t'
 alias tls='tmux list-sessions'
 alias pt='pytest -v --doctest-modules'
 alias ptmpl='pytest --mpl-generate-path=baseline'
+alias doc='open doc/_build/html/index.html'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
