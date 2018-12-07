@@ -1,5 +1,24 @@
 # Useful bash functions
 
+# Jupyter
+###############################################################################
+nbtunnel() {
+    # Start an SSH tunnel to a remove Jupyter server
+    if [[ $# -le 0 ]]; then
+        echo "Usage: nbtunnel LOCAL_PORT REMOTE_PORT REMOTE_HOST"
+        echo ""
+        echo "Create an SSH tunnel and open the browser to localhost:LOCAL_PORT"
+    else
+        local_port=$1
+        remote_port=$2
+        host=$3
+        open http://localhost:$local_port
+        echo "Tunneling '$host:$remote_port' to 'localhost:$local_port'..."
+        ssh -N -L localhost:$local_port:localhost:$remote_port $host
+    fi
+}
+
+
 ## Git
 ###############################################################################
 git-poda() {
