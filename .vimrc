@@ -86,7 +86,7 @@ highlight SpellBad cterm=underline,bold ctermbg=none ctermfg=red
 " Remove trailing spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 " Git commits
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal spell
 " Map F2 to paste mode so that pasting in the terminal doesn't mess identation
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
