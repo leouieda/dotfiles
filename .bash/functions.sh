@@ -59,7 +59,7 @@ condaoff() {
     export PATH=`echo $PATH | sed -n -e 's@'"$CONDA_PREFIX"'/bin:@@p'`
 }
 
-condaclean() {
+conda-clean() {
     # Clean conda packages and the cache
     conda update --all && conda clean -pity
 }
@@ -70,26 +70,43 @@ coff() {
 }
 
 cenv() {
-    # Activate and delete conda environments using the yml files.
-    # Finds the env name from the environment file (given or assumes environment.yml in
-    # current directory).
-    # Usage:
-    #   1. Activate using the environment.yml in the current directory:
-    #      $ cenv
-    #   2. Activate using the given enviroment file:
-    #      $ cenv my_env_file.yml
-    #   3. Delete an environment using the given file (deactivates environments first):
-    #      $ cenv rm my_env_file.yml
+read -r -d '' CENV_HELP <<-'EOF'
+Usage: cenv [COMMAND] [FILE]
 
-    if [[ $# == 0 ]]; then
-        envfile="environment.yml"
+Detect, activate, delete, and update conda environments.
+FILE should be a conda .yml environment file.
+If FILE is not given, assumes it is environment.yml.
+Automatically finds the environment name from FILE.
+
+Commands:
+
+  None     Activates the environment
+  rm       Delete the environment
+  up       Update the environment
+
+EOF
+    envfile="environment.yml"
+    if [[ $# -gt 2 ]]; then
+        errcho "Invalid argument(s): $@";
+        return 1;
+    elif [[ $# == 0 ]]; then
         cmd="activate"
+    elif [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+        echo "$CENV_HELP";
+        return 0;
+    elif [[ "$1" == "rm" ]]; then
+        cmd="delete"
+        if [[ $# == 2 ]]; then
+            envfile="$2"
+        fi
+    elif [[ "$1" == "up" ]]; then
+        cmd="update"
+        if [[ $# == 2 ]]; then
+            envfile="$2"
+        fi
     elif [[ $# == 1 ]]; then
         envfile="$1"
         cmd="activate"
-    elif [[ $# == 2 ]] && [[ "$1" == "rm" ]]; then
-        envfile="$2"
-        cmd="delete"
     else
         errcho "Invalid argument(s): $@";
         return 1;
@@ -106,6 +123,10 @@ cenv() {
 
     if [[ $cmd == "activate" ]]; then
         source activate "$envname";
+    elif [[ $cmd == "update" ]]; then
+        errcho "Updating environment:" $envname;
+        source activate "$envname";
+        conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         errcho "Removing environment:" $envname;
         source deactivate;
