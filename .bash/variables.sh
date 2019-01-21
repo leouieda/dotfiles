@@ -9,7 +9,7 @@ export EDITOR=vim
 
 export CONDA_PREFIX=$HOME/miniconda3
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/pkg/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/pkg/lib64
 
 export GMT_INSTALL_PREFIX=$HOME/pkg
 export GMT_INSTALL_MANIFEST=$GMT_INSTALL_PREFIX/gmt_install_manifest.txt

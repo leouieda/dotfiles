@@ -66,7 +66,7 @@ conda-clean() {
 
 coff() {
     # Deactivate the conda environment
-    source deactivate
+    conda deactivate
 }
 
 cenv() {
@@ -122,14 +122,14 @@ EOF
     envname=$(grep "name: *" $envfile | sed -n -e 's/name: //p')
 
     if [[ $cmd == "activate" ]]; then
-        source activate "$envname";
+        conda activate "$envname";
     elif [[ $cmd == "update" ]]; then
         errcho "Updating environment:" $envname;
-        source activate "$envname";
+        conda activate "$envname";
         conda env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         errcho "Removing environment:" $envname;
-        source deactivate;
+        conda deactivate;
         conda env remove --name "$envname";
     fi
 }
@@ -160,12 +160,12 @@ gmtclean() {
 gmtbuild() {
     # Builds GMT and install to the prefix.
     # Needs to be run from the SVN repository.
-    if [[ -e "$GMT_INSTALL_MANIFEST" ]]; then
-        echo "Cleaning previous install"
-        echo "----------------------------------------------------"
-        gmtclean
-        echo ""
-    fi
+    #if [[ -e "$GMT_INSTALL_MANIFEST" ]]; then
+        #echo "Cleaning previous install"
+        #echo "----------------------------------------------------"
+        #gmtclean
+        #echo ""
+    #fi
     echo "Installing GMT from source to $GMT_INSTALL_PREFIX"
     echo "----------------------------------------------------"
     # Download coastline data if it's not yet present
