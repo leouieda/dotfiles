@@ -28,18 +28,8 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/leo/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/leo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/leo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/leo/miniconda3/bin:$PATH"
-    fi
+# Setup and activate the conda package manager
+if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
+    source "$HOME/miniconda3/etc/profile.d/conda.sh"
+    conda activate
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
