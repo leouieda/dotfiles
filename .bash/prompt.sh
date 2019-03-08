@@ -20,7 +20,7 @@ set_prompt()
     local diverged="$style⑂"
 
     # Basic first part of the PS1 prompt
-    local host="\[\e[0;97;100m\] `whoami`@`hostname` "
+    local host="\[\e[0;97;100m\] `hostname` "
     local python_env="\[\e[0;30;103m\] `get_conda_env` "
 
     PS1="$host$python_env"
@@ -94,7 +94,7 @@ get_conda_env ()
         local env_name="`basename \"$CONDA_DEFAULT_ENV\"`"
     fi
     local python_version="$(python -c 'from __future__ import print_function; import sys; print(".".join(map(str, sys.version_info[:2])))')"
-    echo "$env_name-$python_version"
+    echo "$env_name|$python_version"
 }
 
 
