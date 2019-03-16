@@ -33,3 +33,5 @@ if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
     source "$HOME/miniconda3/etc/profile.d/conda.sh"
     conda activate
 fi
+# Activate my default environment to keep the base env clean
+cenv $HOME/environment.yml
