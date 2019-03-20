@@ -4,10 +4,12 @@ channels:
 dependencies:
     - python=3.7
     - pip
-    - numpy=1.16
-    - scipy=1.2
+    - numpy
+    - scipy
     - jupyter
-    - nb_conda=2.2
-    - matplotlib=3.0
-    - conda-smithy
-    - conda-forge-pinning
+    - ipython
+    - nb_conda
+    - matplotlib
+    - xarray
+    - netcdf4
+    - cartopy
