@@ -13,3 +13,4 @@ dependencies:
     - xarray
     - netcdf4
     - cartopy
+    - pyjokes

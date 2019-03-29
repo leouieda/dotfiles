@@ -35,3 +35,8 @@ if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
 fi
 # Activate my default environment to keep the base env clean
 cenv $HOME/environment.yml
+
+# If pyjoke is installed, start the terminal with a random joke. Because why not?
+if hash pyjoke 2>/dev/null; then
+    printf "... $(pyjoke) 🥁\n"
+fi
