@@ -6,7 +6,7 @@
 [color]
     ui = true
 [core]
-    editor = vim
+    editor = nvim
 	fscache = true
 	excludesfile = ~/.gitignore_global
 [push]
