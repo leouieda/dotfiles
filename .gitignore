@@ -22,6 +22,7 @@ VirtualBox VMs
 NVIDIA_CUDA-5.0_Samples
 ProgramasRFB
 .pypirc
+.gitconfig
 kdenlive
 Zotero
 virtualbox-vms/

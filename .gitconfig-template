@@ -1,8 +1,7 @@
 [user]
     name = Leonardo Uieda
     email = leouieda@gmail.com
-[github]
-    user = leouieda
+	#signingkey =
 [color]
     ui = true
 [core]
@@ -17,3 +16,7 @@
     cmd = latexdiff "$LOCAL" "$REMOTE"
 [alias]
     ldiff = difftool -y -t latex
+#[commit]
+#	gpgsign = true
+#[tag]
+#	forceSignAnnotated = true
