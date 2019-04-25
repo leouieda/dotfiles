@@ -7,6 +7,7 @@ dependencies:
     - numpy
     - scipy
     - jupyter
+    - jupyterlab
     - ipython
     - nb_conda
     - matplotlib
