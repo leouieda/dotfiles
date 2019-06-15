@@ -18,3 +18,6 @@ export GMT_DATA_PREFIX=$GMT_INSTALL_PREFIX/share/coast
 # To make JabRef fonts not horrible
 # http://crunchbang.org/forums/viewtopic.php?pid=248580#p248580
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+
+# Limit the maximum number of openmp threads so that I can still use multiprocessing
+export OMP_NUM_THREADS=4
