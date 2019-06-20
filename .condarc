@@ -8,7 +8,7 @@ add_pip_as_python_dependency: true
 
 # strict priority and conda-forge at the top will ensure
 # that all of your packages will be from conda-forge unless they only exist on defaults
-channel_priority: strict
+#channel_priority: strict
 channels:
   - conda-forge
   - defaults
