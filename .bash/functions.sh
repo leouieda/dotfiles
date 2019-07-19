@@ -147,25 +147,32 @@ gmtconda() {
 }
 
 gmttest() {
-    make -C build check; alert
+    cd build; cmake --build . --target check; cd ..; alert
+}
+
+gmtdocs() {
+    cd build
+    cmake --build . --target docs_html_depends
+    cmake --build . --target animation
+    cmake --build . --target docs_html
+    cd ..
+    alert
 }
 
 gmtclean() {
-    for f in $(cat $GMT_INSTALL_MANIFEST); do
-        rm -rf "$f"
-    done
-    rm $GMT_INSTALL_MANIFEST
+    if [[ -e "$GMT_INSTALL_MANIFEST" ]]; then
+        for f in $(cat $GMT_INSTALL_MANIFEST); do
+            rm -rf "$f"
+        done
+        rm $GMT_INSTALL_MANIFEST
+    else
+        echo "Nothing to clean"
+    fi
 }
 
 gmtbuild() {
     # Builds GMT and install to the prefix.
-    # Needs to be run from the SVN repository.
-    #if [[ -e "$GMT_INSTALL_MANIFEST" ]]; then
-        #echo "Cleaning previous install"
-        #echo "----------------------------------------------------"
-        #gmtclean
-        #echo ""
-    #fi
+    # Needs to be run from the git repository.
     echo "Installing GMT from source to $GMT_INSTALL_PREFIX"
     echo "----------------------------------------------------"
     # Download coastline data if it's not yet present
@@ -195,14 +202,10 @@ gmtbuild() {
     echo "enable_testing()" >> cmake/ConfigUser.cmake
     echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
     echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
+    echo "set (DO_ANIMATIONS TRUE)" >> cmake/ConfigUser.cmake
+    echo "set (DO_API_TESTS ON)" >> cmake/ConfigUser.cmake
+    echo "set (SUPPORT_EXEC_IN_BINARY_DIR TRUE)" >> cmake/ConfigUser.cmake
     echo "set (N_TEST_JOBS `nproc`)" >> cmake/ConfigUser.cmake
-    #set (CMAKE_BUILD_TYPE Debug)
-    echo "add_definitions(-DDEBUG)" >> cmake/ConfigUser.cmake
-    #set (CMAKE_C_FLAGS "-Wall -Wdeclaration-after-statement") # recommended even for release build
-    #set (CMAKE_C_FLAGS "-Wextra ${CMAKE_C_FLAGS}")            # extra warnings
-    # gdb debugging symbols
-    echo "set (CMAKE_C_FLAGS_DEBUG -ggdb3)" >> cmake/ConfigUser.cmake
-    #set (CMAKE_LINK_DEPENDS_DEBUG_MODE TRUE)                  # debug link dependencies
     # Clean the build dir
     if [[ -d build ]]; then
         rm -r build
@@ -217,17 +220,17 @@ gmtbuild() {
           -D PCRE_ROOT=$CONDA_PREFIX \
           -D FFTW3_ROOT=$CONDA_PREFIX \
           -D ZLIB_ROOT=$CONDA_PREFIX \
-          -D LIBCURL_ROOT=$CONDA_PREFIX \
+          -D CURL_ROOT=$CONDA_PREFIX \
           -D DCW_ROOT=$GMT_DATA_PREFIX \
           -D GSHHG_ROOT=$GMT_DATA_PREFIX \
           -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
-          -D CMAKE_BUILD_TYPE=Debug \
           ..
     echo ""
     echo "Build and install"
     echo "----------------------------------------------------"
-    make -j`nproc` && make install
-    cp install_manifest.txt $GMT_INSTALL_MANIFEST
+    cmake --parallel `nproc` --build . \
+        && cmake --build . --target install \
+        && cp install_manifest.txt $GMT_INSTALL_MANIFEST
     cd ..
     echo "Done"
     alert

@@ -15,3 +15,12 @@ dependencies:
     - netcdf4
     - cartopy
     - pyjokes
+    - fftw
+    - gdal
+    - ghostscript
+    - libnetcdf
+    - hdf5
+    - zlib
+    - curl
+    - pcre
+    - sphinx
