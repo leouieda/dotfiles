@@ -198,38 +198,39 @@ gmtbuild() {
     fi
     cp cmake/ConfigUserTemplate.cmake cmake/ConfigUser.cmake
     # Enable testing
-    # cmake is ignoring this option
-    echo "enable_testing()" >> cmake/ConfigUser.cmake
-    echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
-    echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
-    echo "set (DO_ANIMATIONS TRUE)" >> cmake/ConfigUser.cmake
-    echo "set (DO_API_TESTS ON)" >> cmake/ConfigUser.cmake
-    echo "set (SUPPORT_EXEC_IN_BINARY_DIR TRUE)" >> cmake/ConfigUser.cmake
-    echo "set (N_TEST_JOBS `nproc`)" >> cmake/ConfigUser.cmake
+    #echo "enable_testing()" >> cmake/ConfigUser.cmake
+    #echo "set (DO_EXAMPLES TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (DO_TESTS TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (DO_ANIMATIONS TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (DO_API_TESTS ON)" >> cmake/ConfigUser.cmake
+    #echo "set (SUPPORT_EXEC_IN_BINARY_DIR TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (GMT_USE_THREADS TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (GMT_ENABLE_OPENMP TRUE)" >> cmake/ConfigUser.cmake
+    #echo "set (CMAKE_C_FLAGS "-Wall -Wdeclaration-after-statement ${CMAKE_C_FLAGS}")" >> cmake/ConfigUser.cmake
     # Clean the build dir
-    if [[ -d build ]]; then
-        rm -r build
-    fi
+    #if [[ -d build ]]; then
+        #rm -r build
+    #fi
     mkdir -p build && cd build
     echo ""
     echo "Running cmake"
     echo "----------------------------------------------------"
-    cmake -D CMAKE_INSTALL_PREFIX=$GMT_INSTALL_PREFIX \
-          -D GDAL_ROOT=$CONDA_PREFIX \
-          -D NETCDF_ROOT=$CONDA_PREFIX \
-          -D PCRE_ROOT=$CONDA_PREFIX \
-          -D FFTW3_ROOT=$CONDA_PREFIX \
-          -D ZLIB_ROOT=$CONDA_PREFIX \
-          -D CURL_ROOT=$CONDA_PREFIX \
-          -D DCW_ROOT=$GMT_DATA_PREFIX \
-          -D GSHHG_ROOT=$GMT_DATA_PREFIX \
-          -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
-          ..
+    cmake \
+        -D CMAKE_INSTALL_PREFIX=$GMT_INSTALL_PREFIX \
+        -D GDAL_ROOT=$CONDA_PREFIX \
+        -D NETCDF_ROOT=$CONDA_PREFIX \
+        -D PCRE_ROOT=$CONDA_PREFIX \
+        -D FFTW3_ROOT=$CONDA_PREFIX \
+        -D ZLIB_ROOT=$CONDA_PREFIX \
+        -D CURL_ROOT=$CONDA_PREFIX \
+        -D DCW_ROOT=$GMT_DATA_PREFIX \
+        -D GSHHG_ROOT=$GMT_DATA_PREFIX \
+        -D GMT_INSTALL_MODULE_LINKS:BOOL=FALSE \
+        ..
     echo ""
     echo "Build and install"
     echo "----------------------------------------------------"
-    cmake --parallel `nproc` --build . \
-        && cmake --build . --target install \
+    cmake --build . && cmake --build . --target install \
         && cp install_manifest.txt $GMT_INSTALL_MANIFEST
     cd ..
     echo "Done"
