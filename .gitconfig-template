@@ -1,13 +1,13 @@
 [user]
     name = Leonardo Uieda
     email = leouieda@gmail.com
-	#signingkey =
+    #signingkey =
 [color]
     ui = true
 [core]
     editor = nvim
-	fscache = true
-	excludesfile = ~/.gitignore_global
+    fscache = true
+    excludesfile = ~/.gitignore_global
 [push]
     default = upstream
 [merge]
@@ -17,6 +17,6 @@
 [alias]
     ldiff = difftool -y -t latex
 #[commit]
-#	gpgsign = true
+#    gpgsign = true
 #[tag]
-#	forceSignAnnotated = true
+#    forceSignAnnotated = true
