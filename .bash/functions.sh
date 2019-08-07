@@ -152,6 +152,14 @@ gmttest() {
 
 gmtdocs() {
     cd build
+    cmake --build . --target docs_html
+    cd ..
+    alert
+}
+
+
+gmtdocs-full() {
+    cd build
     cmake --build . --target docs_html_depends
     cmake --build . --target animation
     cmake --build . --target docs_html
