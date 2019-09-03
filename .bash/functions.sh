@@ -18,6 +18,17 @@ nbtunnel() {
     fi
 }
 
+# Display configuration for multiple monitors
+###############################################################################
+monitor-setup() {
+    if [[ $# == 1 ]]; then
+        direction=$1
+    else
+        direction=right
+    fi
+    xrandr --output eDP1 --auto --output DP1 --auto --scale 1.8x1.8 --$direction-of eDP1
+}
+
 
 ## Git
 ###############################################################################
