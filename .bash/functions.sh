@@ -26,7 +26,18 @@ monitor-setup() {
     else
         direction=right
     fi
-    xrandr --output eDP1 --auto --output DP1 --auto --scale 1.8x1.8 --$direction-of eDP1
+    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale 1.8x1.8 --$direction-of eDP1
+}
+monitor-off() {
+    xrandr --output eDP1 --auto --output DP1 --off
+}
+projector-setup() {
+    if [[ $# == 1 ]]; then
+        scale=$1
+    else
+        scale=1.67
+    fi
+    xrandr --output eDP1 --auto --primary --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
 }
 
 
