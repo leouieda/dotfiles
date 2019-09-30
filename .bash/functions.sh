@@ -26,7 +26,8 @@ monitor-setup() {
     else
         direction=right
     fi
-    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale 1.8x1.8 --$direction-of eDP1
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale 1.67x1.67 --same-as eDP1
+    #xrandr --output eDP1 --auto --output DP1 --auto --primary --scale 1.8x1.8 --$direction-of eDP1
 }
 monitor-off() {
     xrandr --output eDP1 --auto --output DP1 --off
