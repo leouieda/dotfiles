@@ -8,6 +8,7 @@ dependencies:
     - scipy
     - jupyter
     - jupyterlab
+    - nodejs # needed by jupyterlab
     - ipython
     - nb_conda
     - matplotlib
@@ -24,3 +25,5 @@ dependencies:
     - curl
     - pcre
     - sphinx
+    - dask
+    - numba
