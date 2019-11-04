@@ -2,7 +2,7 @@
   borderless = True
   enabled_plugins = ,
   handle_size = 0
-  inactive_color_offset = 0.703910614525
+  inactive_color_offset = 0.802469135802
   tab_position = hidden
   title_hide_sizetext = True
   title_inactive_fg_color = "#333333"
