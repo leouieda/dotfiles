@@ -3,7 +3,6 @@ if [ -f ~/.bash/variables.sh ]; then
 fi
 
 if [ -f ~/.bash/prompt.sh ]; then
-    # Make the prompt pretty and show git branch information
     source ~/.bash/prompt.sh
 fi
 
@@ -13,6 +12,10 @@ fi
 
 if [ -f ~/.bash/functions.sh ]; then
     source ~/.bash/functions.sh
+fi
+
+if [ -f ~/.bash/extra.sh ]; then
+    source ~/.bash/extra.sh
 fi
 
 # added by travis gem
