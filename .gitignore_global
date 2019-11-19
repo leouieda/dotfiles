@@ -11,3 +11,6 @@ Untitled*.ipynb
 
 # Original files during merge conflict resolution
 *.orig
+
+# Temporary files from Dask distrubuted
+dask-worker-space/
