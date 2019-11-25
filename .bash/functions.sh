@@ -1,13 +1,13 @@
 # Useful bash functions
 
-# Jupyter
+# SSH
 ###############################################################################
-nbtunnel() {
-    # Start an SSH tunnel to a remove Jupyter server
+tunnel() {
+    # Start an SSH tunnel to a remote local server
     if [[ $# -le 0 ]]; then
-        echo "Usage: nbtunnel LOCAL_PORT REMOTE_PORT REMOTE_HOST"
+        echo "Usage: tunnel LOCAL_PORT REMOTE_PORT REMOTE_HOST"
         echo ""
-        echo "Create an SSH tunnel and open the browser to localhost:LOCAL_PORT"
+        echo "Create an SSH tunnel to a remote local server"
     else
         local_port=$1
         remote_port=$2
