@@ -23,15 +23,6 @@ instructions. This is the best I've found:
 
 https://lenovolinux.blogspot.com.br/2016/05/bumblebee-on-lenovo-t440p-nvidia-gt.html
 
-## Fonts
-
-This repo includes a `.fonts` folder with some TrueType fonts from
-[Google fonts](http://www.google.com/fonts#). To make them system accessible,
-run:
-
-    sudo fc-cache -f -v
-
-
 ## Subtree
 
 This repo uses `git subtree` to manage external dependecies.
