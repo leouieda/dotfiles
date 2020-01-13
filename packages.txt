@@ -1,0 +1,24 @@
+numpy
+scipy
+jupyter
+jupyterlab
+nodejs # needed by jupyterlab
+ipython
+nb_conda
+jupytext
+matplotlib
+xarray
+netcdf4
+cartopy
+pyjokes
+fftw
+gdal
+ghostscript
+libnetcdf
+hdf5
+zlib
+curl
+pcre
+sphinx
+dask
+numba
