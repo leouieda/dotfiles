@@ -1,0 +1,16 @@
+# Text for my email signature
+
+Just in case I need to copy and paste this somewhere.
+
+```
+--
+Leonardo Uieda
+
+Lecturer in Geophysics
+Department of Earth, Ocean and Ecological Sciences
+School of Environmental Sciences
+University of Liverpool, UK
+ORCID: https://orcid.org/0000-0001-6123-9515
+Research group: https://www.compgeolab.org
+Website: https://www.leouieda.com
+```
