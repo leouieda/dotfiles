@@ -1,8 +1,3 @@
-# Text for my email signature
-
-Just in case I need to copy and paste this somewhere.
-
-```
 --
 Leonardo Uieda
 
@@ -13,4 +8,3 @@ University of Liverpool, UK
 ORCID: https://orcid.org/0000-0001-6123-9515
 Research group: https://www.compgeolab.org
 Website: https://www.leouieda.com
-```
