@@ -17,6 +17,7 @@ grant
 src
 tmp
 course
+teaching
 VirtualBox VMs
 .*
 NVIDIA_CUDA-5.0_Samples
