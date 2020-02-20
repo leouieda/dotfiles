@@ -1,0 +1,17 @@
+Dear XXXX,
+
+Thank you for considering EarthArXiv to host your preprint. Your manuscript currently does not conform to the criteria outlined by our moderation policy: https://eartharxiv.github.io/moderation.html
+
+Specifically, your manuscript must clearly state that this is a non-peer reviewed pre-print submitted to EarthArXiv or a post-print of a published manuscript with the journal name and DOI clearly indicated.
+
+We recommend either of two options for supplying this information:
+
+1. Include a coversheet listing the title, authors (with affiliations and email addresses), and a brief statement indicating the paper is a non-peer reviewed preprint submitted to EarthArXiv. If the submission is a post-print the journal in which it is published and the DOI should be included in the coversheet statement.
+
+2. Alternatively, authors may choose to include a header on each page of the submission identifying the paper as a non-peer reviewed EarthArXiv preprint.
+
+If you update the PDF in your OSF project page (keeping the same filename), then we will be happy to archive your manuscript. If you have any questions, please feel free to contact me directly at Leonardo.Uieda@liverpool.ac.uk.
+
+Best regards,
+
+Leonardo Uieda, on behalf of EarthArXiv
