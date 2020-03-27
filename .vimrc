@@ -18,6 +18,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'vim-syntastic/syntastic'
+Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -186,3 +187,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_tex_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
+
+" black
+" run on every save
+autocmd BufWritePre *.py execute ':Black'
