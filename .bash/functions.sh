@@ -14,7 +14,7 @@ tunnel() {
         host=$3
         open http://localhost:$local_port
         echo "Tunneling '$host:$remote_port' to 'localhost:$local_port'..."
-        ssh -N -L localhost:$local_port:localhost:$remote_port $host
+        autossh -M 0 -o "ServerAliveInterval 5" -o "ServerAliveCountMax 2" -o ExitOnForwardFailure=yes -N -L localhost:$local_port:localhost:$remote_port $host
     fi
 }
 
