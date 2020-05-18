@@ -8,7 +8,7 @@ it, clone it to some directory and copy files to your home to try them out.
 
 I never remember this so I thought I'd write it down.
 
-1. Clone the repository:    
+1. Clone the repository:
    ```bash
    git clone git@github.com:leouieda/dotfiles.git
    ```
@@ -20,3 +20,12 @@ I never remember this so I thought I'd write it down.
    ```bash
    rm -rf dotfiles
    ```
+
+## Using Audacity
+
+For some reason, when I start Audacity my ALSA gets messed up and my headphones
+don't work. Running this fixes the issue:
+
+```
+alsactl restore
+```
