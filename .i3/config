@@ -355,11 +355,11 @@ bar {
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
-#	tray_output eDP1
+    tray_output eDP1
 
 	bindsym button4 nop
 	bindsym button5 nop
-	font xft:Noto Sans 10.5
+	font xft:Noto Sans 11
 	strip_workspace_numbers yes
 
 	colors {
