@@ -26,7 +26,7 @@ display-horizontal() {
     else
         scale=1.67
     fi
-    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale ${scale}x${scale} --right-of eDP1
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
 }
 display-vertical() {
     if [[ $# == 1 ]]; then
@@ -34,7 +34,7 @@ display-vertical() {
     else
         scale=1.67
     fi
-    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale ${scale}x${scale} --right-of eDP1 --rotate right
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate right
 }
 display-mirror() {
     if [[ $# == 1 ]]; then
@@ -42,10 +42,10 @@ display-mirror() {
     else
         scale=1.67
     fi
-    xrandr --output eDP1 --auto --primary --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
 }
 display-off() {
-    xrandr --output eDP1 --auto --output DP1 --off
+    xrandr --output eDP1 --primary --auto --output DP1 --off
 }
 
 
