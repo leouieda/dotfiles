@@ -20,25 +20,32 @@ tunnel() {
 
 # Display configuration for multiple monitors
 ###############################################################################
-monitor-setup() {
+display-horizontal() {
     if [[ $# == 1 ]]; then
-        direction=$1
+        scale=$1
     else
-        direction=right
+        scale=1.67
     fi
-    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale 1.67x1.67 --same-as eDP1
-    #xrandr --output eDP1 --auto --output DP1 --auto --primary --scale 1.8x1.8 --$direction-of eDP1
+    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale ${scale}x${scale} --right-of eDP1
 }
-monitor-off() {
-    xrandr --output eDP1 --auto --output DP1 --off
+display-vertical() {
+    if [[ $# == 1 ]]; then
+        scale=$1
+    else
+        scale=1.67
+    fi
+    xrandr --output eDP1 --auto --output DP1 --auto --primary --scale ${scale}x${scale} --right-of eDP1 --rotate right
 }
-projector-setup() {
+display-mirror() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
         scale=1.67
     fi
     xrandr --output eDP1 --auto --primary --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
+}
+display-off() {
+    xrandr --output eDP1 --auto --output DP1 --off
 }
 
 
