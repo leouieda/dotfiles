@@ -20,32 +20,35 @@ tunnel() {
 
 # Display configuration for multiple monitors
 ###############################################################################
+display-off() {
+    xrandr --output eDP1 --primary --auto --output DP1 --off
+}
 display-horizontal() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.67
+        scale=1.6
     fi
+    display-off
     xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
 }
 display-vertical() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.67
+        scale=1.5
     fi
+    display-off
     xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate right
 }
 display-mirror() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.67
+        scale=1.6
     fi
+    display-off
     xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
-}
-display-off() {
-    xrandr --output eDP1 --primary --auto --output DP1 --off
 }
 
 
