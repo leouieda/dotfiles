@@ -21,6 +21,25 @@ I never remember this so I thought I'd write it down.
    rm -rf dotfiles
    ```
 
+## HiDPI
+
+My Dell XPS13 has an HiDPI screen (3200 x 1800) and some apps and i3 itself
+look way too small by default. Here are some resources for dealing with that.
+
+### i3
+
+The general processes is to edit `~/.Xresources` and set:
+
+```
+Xft.dpi:       170
+```
+
+See https://wiki.archlinux.org/index.php/HiDPI#X_Resources
+
+### Zoom
+
+Set `scaleFactor` in `~/.config/zoomus.conf`.
+
 ## Using Audacity
 
 For some reason, when I start Audacity my ALSA gets messed up and my headphones
