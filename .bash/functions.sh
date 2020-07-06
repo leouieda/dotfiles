@@ -94,7 +94,7 @@ condaoff() {
 
 conda-clean() {
     # Clean conda packages and the cache
-    conda update --all && conda clean -pity
+    conda deactivate && conda update --all && conda clean -ay
 }
 
 coff() {
