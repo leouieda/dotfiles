@@ -43,6 +43,6 @@ if [ -f $HOME/environment.yml ]; then
 fi
 
 # If pyjoke is installed, start the terminal with a random joke. Because why not?
-if hash pyjoke 2>/dev/null; then
-    printf "... $(pyjoke) 🥁\n"
-fi
+#if hash pyjoke 2>/dev/null; then
+    #printf "... $(pyjoke) 🥁\n"
+#fi
