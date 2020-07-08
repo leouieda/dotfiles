@@ -14,11 +14,18 @@ set_prompt()
     local reset_color="\[\033[0m\]"
 
     # Basic first part of the PS1 prompt
-    local host="\[\e[38;5;196;1m\]`hostname`$reset_color"
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
+    local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
     local path="\[\e[38;5;254;1m\]`pwd`$reset_color"
     local end=" $\[\e[1;37m\]\n> $reset_color"
+    local start="\n"
 
+    # Add a note to the start of the line if connecting through SSH
+    if [[ -n `is_remote` ]]; then
+        local start="\n\[\e[38;5;208;1m\]⚡REMOTE⚡ $reset_color"
+    fi
+
+    # Status part of the prompt with Python env, git, etc
     local status=""
 
     # Python environment name and version
@@ -33,11 +40,23 @@ set_prompt()
         local status="$status on $git_status$reset_color"
     fi
 
-    PS1="\n$user at $host$status in $path$end"
+    PS1="$start$user at $host$status in $path$end"
 }
 
 
 PROMPT_COMMAND=set_prompt
+
+
+is_remote ()
+{
+    # See https://unix.stackexchange.com/questions/9605/how-can-i-detect-if-the-shell-is-controlled-from-ssh
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        echo "true"
+    else
+        echo ""
+    fi
+}
+
 
 make_python_prompt ()
 {
@@ -48,6 +67,7 @@ make_python_prompt ()
         echo ""
     fi
 }
+
 
 make_git_prompt ()
 {
