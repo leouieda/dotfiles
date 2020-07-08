@@ -1,5 +1,5 @@
 [global_config]
-  handle_size = 0
+  handle_size = 2
   window_state = maximise
   borderless = True
   tab_position = hidden
@@ -8,6 +8,8 @@
   title_inactive_fg_color = "#333333"
   inactive_color_offset = 0.802469135802
   enabled_plugins = ,
+  title_use_system_font = False
+  title_font = Noto Sans Mono 11
 [keybindings]
   new_tab = <Primary>t
   split_horiz = <Primary><Shift>s
@@ -22,13 +24,14 @@
   [[default]]
     icon_bell = False
     background_darkness = 1.0
-    cursor_color = "#ffff58"
-    font = Droid Sans Mono 10
+    cursor_shape = underline
+    cursor_color = "#ffffff"
+    cursor_color_fg = False
+    font = Droid Sans Mono 11
     show_titlebar = False
     scrollback_infinite = True
     use_system_font = False
     copy_on_selection = True
-    rewrap_on_resize = False
 [layouts]
   [[default]]
     [[[child1]]]
