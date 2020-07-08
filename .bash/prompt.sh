@@ -17,36 +17,40 @@ set_prompt()
     local host="\[\e[38;5;196;1m\]`hostname`$reset_color"
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
     local path="\[\e[38;5;254;1m\]`pwd`$reset_color"
-    local end="\n\[\e[1;37m\]> $reset_color"
+    local end=" $\[\e[1;37m\]\n> $reset_color"
+
+    local status=""
 
     # Python environment name and version
-    local python_env="\[\e[38;5;221;1m\]py:`get_python_version`"
-    local python_env_name=`get_conda_env`
-    if [[ -n $python_env_name ]]; then
-       local python_env="$python_env|$python_env_name"
+    local python_status="`make_python_prompt`"
+    if [[ -n $python_status ]]; then
+        local status="$status env $python_status$reset_color"
     fi
-    local python_env="$python_env$reset_color"
 
     # Git repository status
-    local git_prompt="`make_git_prompt`"
-
-    local status="$python_env"
-
-    if [[ -n $git_prompt ]]; then
-        local status="$status $git_prompt"
+    local git_status="`make_git_prompt`"
+    if [[ -n $git_status ]]; then
+        local status="$status on $git_status$reset_color"
     fi
 
-    PS1="\e[1;37m\]($status\e[1;37m\])$reset_color $user at $host in $path$end"
+    PS1="\n$user at $host$status in $path$end"
 }
 
 
 PROMPT_COMMAND=set_prompt
 
+make_python_prompt ()
+{
+    local python_env="`get_conda_env`"
+    if [[ -n $python_env ]]; then
+        echo "\[\e[38;5;221;1m\]$python_env\[\e[33;0m\]\[\e[38;5;221m\]:`get_python_version`"
+    else
+        echo ""
+    fi
+}
 
 make_git_prompt ()
 {
-    local reset_color="\[\033[0m\]"
-
     if inside_git_repo; then
         # Default values for the appearance of the prompt.
         local style="\[\e[38;5;33;1m\]"
@@ -54,10 +58,10 @@ make_git_prompt ()
         local staged="\[\e[1;91m\]•"
         local untracked="\[\e[1;37m\]?"
         local conflict="\[\e[1;91m\]x"
-        local ahead="$style↑"
-        local behind="$style↓"
-        local diverged="$style⑂"
-        local sep="$style."
+        local ahead="\[\e[38;5;40;1m\]↑"
+        local behind="\[\e[38;5;33;1m\]↓"
+        local diverged="\[\e[38;5;92;1m\]⑂"
+        local sep="\[\e[38;5;243m\]."
 
         # Construct the status info (how many files changed, etc)
         local status=""
@@ -116,10 +120,10 @@ make_git_prompt ()
         # Append the git info to the PS1
         local git_prompt="$style⎇ $branch"
         if [[ -n $status ]]; then
-            local git_prompt="$git_prompt|$status"
+            local git_prompt="$git_prompt{$status$style}"
         fi
 
-        echo "$git_prompt$reset_color"
+        echo "$git_prompt"
     else
         echo ""
     fi
