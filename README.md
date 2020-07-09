@@ -38,7 +38,8 @@ See https://wiki.archlinux.org/index.php/HiDPI#X_Resources
 
 ### Zoom
 
-Set `scaleFactor` in `~/.config/zoomus.conf`.
+Set `scaleFactor=1.5` and `autoScale=false` in `~/.config/zoomus.conf`.
+See https://superuser.com/questions/1381054/how-to-enable-hidpi-support-on-zoom-us-linux-client
 
 ## Using Audacity
 
