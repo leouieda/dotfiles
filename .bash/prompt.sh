@@ -79,8 +79,7 @@ make_git_prompt ()
         local untracked="\[\e[1;37m\]?"
         local conflict="\[\e[1;91m\]x"
         local ahead="\[\e[38;5;40;1m\]↑"
-        local behind="\[\e[38;5;33;1m\]↓"
-        local diverged="\[\e[38;5;92;1m\]⑂"
+        local behind="\[\e[38;5;201;1m\]↓"
         local sep="\[\e[38;5;243m\]."
 
         # Construct the status info (how many files changed, etc)
@@ -118,21 +117,20 @@ make_git_prompt ()
             local status="$status$untracked$files_untracked"
         fi
 
-        local remote_status=`get_git_remote_status`
-        if [[ $remote_status == "ahead" ]]; then
-            local remote="$ahead"
-        elif [[ $remote_status == "behind" ]]; then
-            local remote="$behind"
-        elif [[ $remote_status == "diverged" ]]; then
-            local remote="$diverged"
-        else
-            local remote=""
-        fi
-        if [[ -n $remote ]]; then
+        local remote_status=`git rev-list --left-right --count @{u}...HEAD`
+        local remote_behind=$(echo $remote_status | cut -f 1 -d " ")
+        local remote_ahead=$(echo $remote_status | cut -f 2 -d " ")
+        if [[ $remote_ahead -gt 0 ]]; then
             if [[ -n $status ]]; then
                 local status="$status$sep"
             fi
-            local status="$status$remote"
+            local status="$status$ahead$remote_ahead"
+        fi
+        if [[ $remote_behind -gt 0 ]]; then
+            if [[ -n $status ]]; then
+                local status="$status$sep"
+            fi
+            local status="$status$behind$remote_behind"
         fi
 
         local branch=`get_git_branch`
@@ -174,26 +172,6 @@ get_git_branch()
     else
         # In case of detached head, get the commit hash
         echo $branch | sed -n -e "s/(detached from //p" | sed -n -e "s/)//p";
-    fi
-}
-
-
-get_git_remote_status()
-{
-    # Get the status regarding the remote
-    local upstream=${1:-'@{u}'}
-    local local=$(git rev-parse @ 2> /dev/null)
-    local remote=$(git rev-parse "$upstream" 2> /dev/null)
-    local base=$(git merge-base @ "$upstream" 2> /dev/null)
-
-    if [[ $local == $remote ]]; then
-        echo "updated"
-    elif [[ $local == $base ]]; then
-        echo "behind"
-    elif [[ $remote == $base ]]; then
-        echo "ahead"
-    else
-        echo "diverged"
     fi
 }
 
