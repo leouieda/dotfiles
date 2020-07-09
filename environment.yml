@@ -28,6 +28,8 @@ dependencies:
   - rockhound
   - boule
   # GMT stuff
+  - gmt
+  - pygmt
   - fftw
   - gdal
   - ghostscript
