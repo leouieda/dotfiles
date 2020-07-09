@@ -80,6 +80,7 @@ make_git_prompt ()
         local conflict="\[\e[1;91m\]x"
         local ahead="\[\e[38;5;40;1m\]↑"
         local behind="\[\e[38;5;201;1m\]↓"
+        local noremote="\[\e[1;37m\]⑂"
         local sep="\[\e[38;5;243m\]."
 
         # Construct the status info (how many files changed, etc)
@@ -117,9 +118,15 @@ make_git_prompt ()
             local status="$status$untracked$files_untracked"
         fi
 
-        local remote_status=`git rev-list --left-right --count @{u}...HEAD`
+        local remote_status=`git rev-list --left-right --count @{u}...HEAD 2> /dev/null`
         local remote_behind=$(echo $remote_status | cut -f 1 -d " ")
         local remote_ahead=$(echo $remote_status | cut -f 2 -d " ")
+        if [[ -z $remote_status ]]; then
+            if [[ -n $status ]]; then
+                local status="$status$sep"
+            fi
+            local status="$status$noremote"
+        fi
         if [[ $remote_ahead -gt 0 ]]; then
             if [[ -n $status ]]; then
                 local status="$status$sep"
