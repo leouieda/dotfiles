@@ -16,7 +16,7 @@ set_prompt()
     # Basic first part of the PS1 prompt
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
     local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
-    local path="\[\e[38;5;254;1m\]`pwd`$reset_color"
+    local path="\[\e[38;5;254;1m\]\w/$reset_color"
     local end=" $\[\e[1;37m\]\n> $reset_color"
     local start="\n"
 
