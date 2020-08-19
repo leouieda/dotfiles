@@ -17,7 +17,8 @@ set_prompt()
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
     local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
     local path="\[\e[38;5;254;1m\]\w/$reset_color"
-    local end=" $\[\e[1;37m\]\n> $reset_color"
+    local end="\n\[\e[38;5;11;1m\]⚡$reset_color"
+    #local end="\n\[\e[38;5;254;1m\]:$reset_color"
     local start="\n"
 
     # Add a note to the start of the line if connecting through SSH
@@ -40,7 +41,7 @@ set_prompt()
         local status="$status on $git_status$reset_color"
     fi
 
-    PS1="$start$user at $host$status in $path$end"
+    PS1="$start$user at $host$status in $path $end "
 }
 
 
