@@ -39,7 +39,7 @@ display-vertical() {
         scale=1.5
     fi
     display-off
-    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate right
+    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
 }
 display-mirror() {
     if [[ $# == 1 ]]; then
