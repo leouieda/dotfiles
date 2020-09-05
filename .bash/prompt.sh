@@ -32,7 +32,7 @@ set_prompt()
     # Python environment name and version
     local python_status="`make_python_prompt`"
     if [[ -n $python_status ]]; then
-        local status="$status env $python_status$reset_color"
+        local status="$status with $python_status$reset_color"
     fi
 
     # Git repository status
@@ -63,7 +63,7 @@ make_python_prompt ()
 {
     local python_env="`get_conda_env`"
     if [[ -n $python_env ]]; then
-        echo "\[\e[38;5;221;1m\]$python_env\[\e[33;0m\]\[\e[38;5;221m\]:`get_python_version`"
+        echo "\[\e[38;5;221m\]python`get_python_version`:\[\e[38;5;221;1m\]$python_env\[\e[33;0m\]"
     else
         echo ""
     fi
