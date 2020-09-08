@@ -94,7 +94,7 @@ condaoff() {
 
 conda-clean() {
     # Clean conda packages and the cache
-    conda deactivate && conda update --all && conda clean -ay
+    conda deactivate && mamba update --all && conda clean -ay
 }
 
 coff() {
@@ -164,6 +164,17 @@ EOF
         errcho "Removing environment:" $envname;
         conda deactivate;
         conda env remove --name "$envname";
+    fi
+}
+
+cd_env () {
+    # Change directory and activate a conda environment if it's present.
+    # Use command to ignore the aliasing of cd
+    command cd $1;
+    if [[ -e "environment.yml" ]]; then
+        cenv;
+    else
+        cenv $HOME/environment.yml;
     fi
 }
 ###############################################################################
