@@ -21,6 +21,7 @@ dependencies:
   - cartopy
   - dask
   - numba
+  - livereload # for previewing websites/slides
   # Fatiando
   - pooch
   - verde
