@@ -159,7 +159,7 @@ EOF
     elif [[ $cmd == "update" ]]; then
         errcho "Updating environment:" $envname;
         conda activate "$envname";
-        conda env update -f "$envfile"
+        mamba env update -f "$envfile"
     elif [[ $cmd == "delete" ]]; then
         errcho "Removing environment:" $envname;
         conda deactivate;
