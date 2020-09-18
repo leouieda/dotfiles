@@ -18,7 +18,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'vim-syntastic/syntastic'
-Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+Plug 'psf/black', {'branch': 'stable'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
