@@ -24,7 +24,6 @@
   [[default]]
     icon_bell = False
     background_darkness = 1.0
-    cursor_shape = underline
     cursor_color = "#ffffff"
     cursor_color_fg = False
     font = Droid Sans Mono 11
