@@ -57,6 +57,8 @@ set ttimeoutlen=50
 set noai ts=4 sts=4 sw=4 expandtab
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 " Set an 80 char column
 set textwidth=79
 set colorcolumn=80
