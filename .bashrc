@@ -37,9 +37,15 @@ if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
     conda activate
 fi
 
-# Activate the conda default environment
-if [ -f $HOME/environment.yml ]; then
-    cenv $HOME/environment.yml
+# Activate the conda environment
+if [ -f environment.yml ]; then
+    cenv environment.yml
+fi
+
+# Activate nox tab completetion if it's installed
+# (https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script)
+if command -v nox >/dev/null 2>&1; then
+    eval "$(register-python-argcomplete nox)"
 fi
 
 # If pyjoke is installed, start the terminal with a random joke. Because why not?
