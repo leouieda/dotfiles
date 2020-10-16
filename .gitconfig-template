@@ -1,22 +1,22 @@
 [user]
-    name =
-    email =
-    #signingkey =
+	name = "Leonardo Uieda"
+	email = "leouieda@gmail.com"
+	#signingkey =
 [color]
-    ui = true
+	ui = true
 [core]
-    editor = nvim
-    fscache = true
-    excludesfile = ~/.gitignore_global
+	editor = vim
+	fscache = true
+	excludesfile = ~/.gitignore_global
 [push]
-    default = upstream
+	default = upstream
 [merge]
-    tool = meld
+	tool = meld
 [difftool.latex]
-    cmd = latexdiff "$LOCAL" "$REMOTE"
+	cmd = latexdiff "$LOCAL" "$REMOTE"
 [alias]
-    ldiff = difftool -y -t latex
+	ldiff = difftool -y -t latex
 #[commit]
-#    gpgsign = true
+#	 gpgsign = true
 #[tag]
-#    forceSignAnnotated = true
+#	 forceSignAnnotated = true
