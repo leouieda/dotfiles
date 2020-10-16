@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'vim-syntastic/syntastic'
-Plug 'psf/black', {'tag': '19.10b0'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -60,6 +59,9 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType bib setlocal ts=2 sts=2 sw=2 expandtab
+" Rules for files that use tabs instead of spaces
+autocmd FileType make setlocal ts=4 sw=4 noexpandtab
+autocmd BufEnter .gitconfig set ts=4 sw=4 noexpandtab
 " Set an 80 char column
 set textwidth=79
 set colorcolumn=80
@@ -68,8 +70,6 @@ highlight ColorColumn ctermbg=black
 set number
 highlight LineNr ctermfg=DarkGrey
 highlight SignColumn ctermbg=black
-" Rule for Makefiles to use tab
-autocmd BufEnter ?akefile* set noet ts=4 sw=4
 " Syntax highlighting
 syntax on
 autocmd BufNewFile,BufRead *.ipy set filetype=python
@@ -192,7 +192,3 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_tex_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
-
-" black
-" run on every save
-autocmd BufWritePre *.py execute ':Black'
