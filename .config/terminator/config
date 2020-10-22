@@ -2,7 +2,6 @@
   handle_size = 2
   window_state = maximise
   borderless = True
-  tab_position = hidden
   title_hide_sizetext = True
   title_transmit_bg_color = "#333333"
   title_inactive_fg_color = "#333333"
@@ -29,6 +28,7 @@
     font = Droid Sans Mono 11
     show_titlebar = False
     scrollback_infinite = True
+    custom_command = bash
     use_system_font = False
     copy_on_selection = True
 [layouts]
