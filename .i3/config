@@ -8,7 +8,7 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 1
+new_window pixel 3
 new_float normal
 
 # Hide borders
@@ -338,7 +338,7 @@ set $i3_color4          #16a085
 set $i3_color5          #fdf6e3
 set $i3_color6          #eee8d5
 set $i3_color7          #e5201d
-set $i3_color8          #808380
+set $i3_color8          #255d9d
 set $i3_color9          #434745
 set $i3_color10         #454948
 set $i3_color11         #80fff9
@@ -353,7 +353,7 @@ set $i3_color17         #0c0c0c
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position bottom
+	position top
 	mode dock
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
