@@ -34,10 +34,12 @@ display-horizontal() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.6
+        scale=1.65
     fi
     display-off
-    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
+    xrandr \
+        --output eDP1 --primary --auto \
+        --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
     background=`random-background`
     nitrogen --set-zoom-fill --head=0 $background
     nitrogen --set-zoom-fill --head=1 $background
@@ -49,7 +51,9 @@ display-vertical() {
         scale=1.5
     fi
     display-off
-    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
+    xrandr \
+        --output eDP1 --primary --auto \
+        --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
     background=`random-background`
     nitrogen --set-zoom-fill --head=0 $background
     nitrogen --set-zoom-fill --head=1 $background
