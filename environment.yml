@@ -14,13 +14,17 @@ dependencies:
   - ipython
   - nb_conda
   - matplotlib
+  - cmocean
+  - cartopy
   - xarray
   - netcdf4
+  - pyproj
   - dask
   - numba
   - livereload # for previewing websites/slides
   - black
   - flake8
+  - nox
   # Fatiando
   - pooch
   - verde
@@ -38,5 +42,3 @@ dependencies:
   - zlib
   - curl
   - pcre
-  - pip:
-    - nox
