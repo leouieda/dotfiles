@@ -62,9 +62,12 @@ autocmd FileType bib setlocal ts=2 sts=2 sw=2 expandtab
 " Rules for files that use tabs instead of spaces
 autocmd FileType make setlocal ts=4 sw=4 noexpandtab
 autocmd BufEnter .gitconfig set ts=4 sw=4 noexpandtab
-" Set an 80 char column
-set textwidth=79
+" Set a visual 80 char column
 set colorcolumn=80
+" Remove the text width so that vim doesn't automatically break lines
+set textwidth=0
+" Set visual wrapping of lines so I can still read them
+set wrap
 highlight ColorColumn ctermbg=black
 " Line numbers
 set number
