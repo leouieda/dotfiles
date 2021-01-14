@@ -22,6 +22,7 @@ dependencies:
   - dask
   - numba
   - livereload # for previewing websites/slides
+  - tqdm
   - black
   - flake8
   - nox
