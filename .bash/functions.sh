@@ -1,5 +1,19 @@
 # Useful bash functions
 
+# Setup my usual working environment
+###############################################################################
+setup() {
+    display-horizontal;
+    wacom;
+}
+
+# Wacom One tablet setup
+###############################################################################
+wacom() {
+    # Only map the tablet to the main screen to avoid distortions
+    xsetwacom set "Wacom One by Wacom M Pen stylus" MapToOutput 3200x1800+0+0;
+}
+
 # SSH
 ###############################################################################
 tunnel() {
@@ -34,7 +48,7 @@ display-horizontal() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.65
+        scale=1.66666666666666666666666
     fi
     display-off
     xrandr \
