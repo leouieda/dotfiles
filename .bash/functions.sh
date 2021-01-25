@@ -14,6 +14,19 @@ wacom() {
     xsetwacom set "Wacom One by Wacom M Pen stylus" MapToOutput 3200x1800+0+0;
 }
 
+# Get the BibTex from a DOI
+###############################################################################
+doi2bib() {
+    if [[ $# -le 0 ]]; then
+        echo "Usage: doi2bib DOI"
+        echo ""
+        echo "The BibTex entry will be printed to STDOUT."
+    else
+        doi=$1
+        curl -LH "Accept: application/x-bibtex" https://doi.org/$doi
+    fi
+}
+
 # SSH
 ###############################################################################
 tunnel() {
