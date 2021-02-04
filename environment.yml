@@ -7,6 +7,7 @@ dependencies:
   - pip
   - numpy
   - scipy
+  - scikit-image
   - jupyter
   - jupyterlab
   - nodejs # needed by jupyterlab
