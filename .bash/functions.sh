@@ -50,12 +50,15 @@ tunnel() {
 random-background() {
     location=$HOME/Dropbox/leo/wallpapers
     background=`ls $location | sort -R | tail -1`
-    echo $location/$background
+    for ((i=0; i<$(connected-displays); i++)); do
+        nitrogen --set-zoom-fill --head=$i $location/$background
+    done
+}
+connected-displays(){
+    echo $(xrandr --query | grep " connected" --count)
 }
 display-off() {
     xrandr --output eDP1 --primary --auto --output DP1 --off
-    background=`random-background`
-    nitrogen --set-zoom-fill --head=0 $background
 }
 display-horizontal() {
     if [[ $# == 1 ]]; then
@@ -67,9 +70,7 @@ display-horizontal() {
     xrandr \
         --output eDP1 --primary --auto \
         --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
-    background=`random-background`
-    nitrogen --set-zoom-fill --head=0 $background
-    nitrogen --set-zoom-fill --head=1 $background
+    random-background
 }
 display-vertical() {
     if [[ $# == 1 ]]; then
@@ -81,20 +82,17 @@ display-vertical() {
     xrandr \
         --output eDP1 --primary --auto \
         --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
-    background=`random-background`
-    nitrogen --set-zoom-fill --head=0 $background
-    nitrogen --set-zoom-fill --head=1 $background
+    random-background
 }
 display-mirror() {
     if [[ $# == 1 ]]; then
         scale=$1
     else
-        scale=1.6
+        scale=1.6666
     fi
     display-off
     xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
-    background=`random-background`
-    nitrogen --set-zoom-fill --head=0 $background
+    random-background
 }
 
 
