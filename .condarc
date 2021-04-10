@@ -26,3 +26,4 @@ channels:
 # faster (experimental) solver
 #sat_solver: pycryptosat
 #safety_checks: disabled
+ssl_verify: true
