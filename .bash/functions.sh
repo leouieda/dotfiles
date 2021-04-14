@@ -217,8 +217,6 @@ cd_env () {
     command cd $1;
     if [[ -e "environment.yml" ]]; then
         cenv;
-    else
-        cenv $HOME/environment.yml;
     fi
 }
 ###############################################################################
