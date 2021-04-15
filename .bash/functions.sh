@@ -4,6 +4,7 @@
 ###############################################################################
 setup() {
     display-horizontal;
+    random-background;
     wacom;
 }
 
@@ -47,13 +48,6 @@ tunnel() {
 
 # Display configuration for multiple monitors
 ###############################################################################
-random-background() {
-    location=$HOME/Dropbox/leo/wallpapers
-    background=`ls $location | sort -R | tail -1`
-    for ((i=0; i<$(connected-displays); i++)); do
-        nitrogen --set-zoom-fill --head=$i $location/$background
-    done
-}
 connected-displays(){
     echo $(xrandr --query | grep " connected" --count)
 }
@@ -70,7 +64,6 @@ display-horizontal() {
     xrandr \
         --output eDP1 --primary --auto \
         --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
-    random-background
 }
 display-vertical() {
     if [[ $# == 1 ]]; then
@@ -82,7 +75,6 @@ display-vertical() {
     xrandr \
         --output eDP1 --primary --auto \
         --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
-    random-background
 }
 display-mirror() {
     if [[ $# == 1 ]]; then
@@ -92,7 +84,13 @@ display-mirror() {
     fi
     display-off
     xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
-    random-background
+}
+random-background() {
+    location=$HOME/Dropbox/leo/wallpapers
+    background=`ls $location | sort -R | tail -1`
+    for ((i=0; i<$(connected-displays); i++)); do
+        nitrogen --set-zoom-fill --head=$i $location/$background
+    done
 }
 
 
