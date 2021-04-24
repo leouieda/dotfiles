@@ -3,6 +3,7 @@ if [ -f ~/.bash/variables.sh ]; then
 fi
 
 if [ -f ~/.bash/prompt.sh ]; then
+    export PROMPT_SHOW_PYTHON=true
     source ~/.bash/prompt.sh
 fi
 

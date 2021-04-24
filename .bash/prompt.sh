@@ -29,9 +29,11 @@ set_prompt()
     local status=""
 
     # Python environment name and version
-    local python_status="`make_python_prompt`"
-    if [[ -n $python_status ]]; then
-        local status="$status with $python_status$reset_color"
+    if [[ -n $PROMPT_SHOW_PYTHON ]]; then
+        local python_status="`make_python_prompt`"
+        if [[ -n $python_status ]]; then
+            local status="$status with $python_status$reset_color"
+        fi
     fi
 
     # Git repository status
