@@ -17,8 +17,7 @@ set_prompt()
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
     local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
     local path="\[\e[38;5;254;1m\]\w/$reset_color"
-    local end="\[\e[38;5;11;1m\]⚡$reset_color"
-    #local end="\n\[\e[38;5;254;1m\]:$reset_color"
+    local end="\[\e[38;5;11;1m\]\$$reset_color"
     local start="\n"
 
     # Add a note to the line if connecting through SSH
@@ -144,7 +143,7 @@ make_git_prompt ()
         local branch=`get_git_branch`
 
         # Append the git info to the PS1
-        local git_prompt="$style⎇ $branch"
+        local git_prompt="$style$branch"
         if [[ -n $status ]]; then
             local git_prompt="$git_prompt{$status$style}"
         fi
