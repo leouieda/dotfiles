@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python==3.8
+  - python==3.9
   - pip
   - conda-lock
   - numpy
@@ -28,6 +28,7 @@ dependencies:
   - black
   - flake8
   - nox
+  - tectonic # for building latex documents
   # Fatiando
   - pooch
   - verde
