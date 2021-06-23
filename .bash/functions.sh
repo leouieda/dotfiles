@@ -156,6 +156,7 @@ Automatically finds the environment name from FILE.
 Commands:
 
   None     Activates the environment
+  cr       Create the environment
   rm       Delete the environment
   up       Update the environment
 
@@ -179,6 +180,11 @@ EOF
         if [[ $# == 2 ]]; then
             envfile="$2"
         fi
+    elif [[ "$1" == "cr" ]]; then
+        cmd="create"
+        if [[ $# == 2 ]]; then
+            envfile="$2"
+        fi
     elif [[ $# == 1 ]]; then
         envfile="$1"
         cmd="activate"
@@ -198,6 +204,10 @@ EOF
 
     if [[ $cmd == "activate" ]]; then
         conda activate "$envname";
+    elif [[ $cmd == "create" ]]; then
+        errcho "Creating environment:" $envname;
+        conda deactivate;
+        mamba env create -f "$envfile"
     elif [[ $cmd == "update" ]]; then
         errcho "Updating environment:" $envname;
         conda activate "$envname";
