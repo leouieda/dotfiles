@@ -46,3 +46,8 @@ dependencies:
   - zlib
   - curl
   - pcre
+  # for LIDAR data
+  - laspy
+  - laszip # the C lib
+  - pip:
+    - laszip # the Python bindinds
