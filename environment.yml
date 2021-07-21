@@ -17,7 +17,6 @@ dependencies:
   - nb_conda
   - matplotlib
   - cmocean
-  - cartopy
   - xarray
   - netcdf4
   - pyproj
@@ -36,7 +35,7 @@ dependencies:
   - rockhound
   - boule
   # GMT stuff
-  - gmt
+  - gmt>=6.2.0
   - pygmt
   - fftw
   - gdal
