@@ -24,7 +24,7 @@
     background_darkness = 1.0
     cursor_color = "#ffffff"
     cursor_color_fg = False
-    font = Droid Sans Mono 11
+    font = Droid Sans Mono 10
     show_titlebar = False
     scrollback_infinite = True
     custom_command = bash
