@@ -19,11 +19,6 @@ if [ -f ~/.bash/extra.sh ]; then
     source ~/.bash/extra.sh
 fi
 
-# added by travis gem
-if [ -f $HOME/.travis/travis.sh ]; then
-    source $HOME/.travis/travis.sh
-fi
-
 # Start ssh-agent automatically if it hasn't been started alredy
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
@@ -33,8 +28,8 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
 fi
 
 # Setup and activate the conda package manager
-if [ -f $HOME/miniconda3/etc/profile.d/conda.sh ]; then
-    source "$HOME/miniconda3/etc/profile.d/conda.sh"
+if [ -f $HOME/bin/conda/etc/profile.d/conda.sh ]; then
+    source "$HOME/bin/conda/etc/profile.d/conda.sh"
     conda activate
 fi
 
@@ -42,14 +37,3 @@ fi
 if [ -f environment.yml ]; then
     cenv environment.yml
 fi
-
-# Activate nox tab completetion if it's installed
-# (https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script)
-if command -v nox >/dev/null 2>&1; then
-    eval "$(register-python-argcomplete nox)"
-fi
-
-# If pyjoke is installed, start the terminal with a random joke. Because why not?
-#if hash pyjoke 2>/dev/null; then
-    #printf "... $(pyjoke) 🥁\n"
-#fi
