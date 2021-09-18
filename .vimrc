@@ -55,6 +55,7 @@ set ttimeoutlen=50
 " Set identation to 4 spaces in general with some exceptions
 set noai ts=4 sts=4 sw=4 expandtab
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
