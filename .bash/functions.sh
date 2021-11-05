@@ -11,7 +11,7 @@ setup() {
 ###############################################################################
 wacom() {
     # Only map the tablet to the main screen to avoid distortions
-    xsetwacom set "Wacom One by Wacom M Pen stylus" MapToOutput 3200x1800+0+0;
+    xsetwacom set "Wacom One by Wacom M Pen stylus" MapToOutput 3840x2160+3200+0;
 }
 
 # Get the BibTex from a DOI
