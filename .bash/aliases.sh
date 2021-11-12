@@ -46,7 +46,6 @@ alias tls='tmux list-sessions'
 alias pt='pytest --cov-report=term-missing --cov -v --doctest-modules'
 alias ptmpl='pytest --mpl-generate-path=baseline'
 alias doc='open doc/_build/html/index.html'
-alias conda='mamba'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
