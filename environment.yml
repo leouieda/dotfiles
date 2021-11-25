@@ -13,6 +13,7 @@ dependencies:
   - jupyterlab
   - nodejs # needed by jupyterlab
   - jupytext
+  - jupyterlab-spellchecker
   - ipython
   - nb_conda
   - matplotlib
