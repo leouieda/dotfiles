@@ -18,6 +18,7 @@ dependencies:
   - nb_conda
   - matplotlib
   - cmocean
+  - seaborn
   - xarray
   - netcdf4
   - pyproj
