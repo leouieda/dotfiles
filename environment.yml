@@ -14,6 +14,7 @@ dependencies:
   - nodejs # needed by jupyterlab
   - jupytext
   - jupyterlab-spellchecker
+  - pyppeteer
   - ipython
   - nb_conda
   - matplotlib
