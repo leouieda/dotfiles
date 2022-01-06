@@ -58,6 +58,7 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType less setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType bib setlocal ts=2 sts=2 sw=2 expandtab
 " Rules for files that use tabs instead of spaces
