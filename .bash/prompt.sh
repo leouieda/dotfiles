@@ -13,36 +13,42 @@ set_prompt()
 
     local reset_color="\[\033[0m\]"
 
-    # Basic first part of the PS1 prompt
+    # Variables used to configure the prompt
     local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
     local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
+    local time="\[\e[38;5;105m\]`date +%a\.%d\.%b`{\[\e[38;5;254m\]`date +%H:%M`$reset_color\[\e[38;5;105m\]}$reset_color"
     local path="\[\e[38;5;254;1m\]\w/$reset_color"
     local end="\[\e[38;5;11;1m\]\$$reset_color"
     local start="\n"
+    local sep=" ⏵ "
 
-    # Add a note to the line if connecting through SSH
-    if [[ -n `is_remote` ]]; then
-        local end="\[\e[38;5;208;1m\]REMOTE $reset_color$end"
-    fi
-
-    # Status part of the prompt with Python env, git, etc
-    local status=""
+    # Build the prompt one piece at a time
+    local prompt="$start$time$sep$user$sep$host"
 
     # Python environment name and version
     if [[ -n $PROMPT_SHOW_PYTHON ]]; then
         local python_status="`make_python_prompt`"
         if [[ -n $python_status ]]; then
-            local status="$status with $python_status$reset_color"
+            local prompt="$prompt$sep$python_status$reset_color"
         fi
     fi
 
     # Git repository status
     local git_status="`make_git_prompt`"
     if [[ -n $git_status ]]; then
-        local status="$status on $git_status$reset_color"
+        local prompt="$prompt$sep$git_status$reset_color"
     fi
 
-    PS1="$start$user at $host$status in $path\n$end "
+    local prompt="$prompt$sep$path\n"
+
+    # Add a note to the line if connecting through SSH
+    if [[ -n `is_remote` ]]; then
+        local prompt="$prompt\[\e[38;5;208;1m\]SSH $reset_color"
+    fi
+
+    local prompt="$prompt$end "
+
+    PS1="$prompt"
 }
 
 
@@ -64,7 +70,7 @@ make_python_prompt ()
 {
     local python_env="`get_conda_env`"
     if [[ -n $python_env ]]; then
-        echo "\[\e[38;5;221m\]python`get_python_version`:\[\e[38;5;221;1m\]$python_env\[\e[33;0m\]"
+        echo "\[\e[38;5;221m\]python:\[\e[38;5;221;1m\]`get_python_version`{\[\e[33;0m\]\[\e[38;5;221m\]$python_env\[\e[38;5;221;1m\]}\[\e[33;0m\]"
     else
         echo ""
     fi
@@ -145,7 +151,7 @@ make_git_prompt ()
         local branch=`get_git_branch`
 
         # Append the git info to the PS1
-        local git_prompt="$style$branch"
+        local git_prompt="\[\e[38;5;33m\]git:$style$branch"
         if [[ -n $status ]]; then
             local git_prompt="$git_prompt{$status$style}"
         fi
@@ -183,7 +189,6 @@ get_git_branch()
         echo $branch | sed -n -e "s/(detached from //p" | sed -n -e "s/)//p";
     fi
 }
-
 
 inside_git_repo() {
     # Test if inside a git repository. Will fail is not.
