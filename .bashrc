@@ -31,9 +31,8 @@ fi
 if [ -f $HOME/bin/conda/etc/profile.d/conda.sh ]; then
     source "$HOME/bin/conda/etc/profile.d/conda.sh"
     conda activate
-fi
-
-# Activate the conda environment
-if [ -f environment.yml ]; then
-    cenv environment.yml
+    # Activate the conda environment
+    if [ -f environment.yml ]; then
+        cenv environment.yml
+    fi
 fi
