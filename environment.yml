@@ -31,6 +31,7 @@ dependencies:
   - flake8
   - nox
   - tectonic # for building latex documents
+  - pykdtree
   # Fatiando
   - pooch
   - verde
