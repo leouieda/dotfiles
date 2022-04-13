@@ -6,9 +6,7 @@ I do not upload my work to ResearchGate because it is often illegal to do so sin
 
 I keep copies and download links for all my work on my personal website: https://www.leouieda.com
 
-The article you have requested is open-access (https://en.wikipedia.org/wiki/Open_access) and can be freely downloaded from the publisher's website (see DOI link on my website). There you will also find links to related works and other resources like source code, presentations, data, etc.
-
-The paper you have asked for is at: XXXXXX
+There you will also find links to related publications and other resources like source code, presentations, data, etc. If an article is not already open-access, the website includes links to free open-access preprints or postprints (https://en.wikipedia.org/wiki/Preprint) or a link to a PDF if those aren't available.
 
 Best regards,
 
