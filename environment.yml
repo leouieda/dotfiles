@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python==3.9
+  - python==3.10
   - pip
   - conda-lock
   - numpy
@@ -30,6 +30,7 @@ dependencies:
   - black
   - flake8
   - nox
+  - rich
   - tectonic # for building latex documents
   - pykdtree
   # Fatiando
@@ -39,8 +40,8 @@ dependencies:
   - rockhound
   - boule
   # GMT stuff
-  - gmt>=6.2.0
-  - pygmt
+  - gmt>=6.3.0
+  - pygmt>=0.6.0
   - fftw
   - gdal
   - ghostscript
