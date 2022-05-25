@@ -19,6 +19,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'vim-syntastic/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ap/vim-css-color'                " highlight RGB colors
+Plug 'mattn/emmet-vim'                 " for HTML completion
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -30,11 +33,11 @@ set nocompatible
 set nojoinspaces
 set laststatus=2
 set modelines=0
-set autoindent
 set showmode
 set showcmd
 set visualbell
 set cursorline
+set mouse=vn
 " Remove the underline from enabling cursorline
 highlight Cursorline cterm=none
 " Set line numbering to red background:
@@ -53,7 +56,10 @@ set encoding=utf-8
 set t_Co=256
 set ttimeoutlen=50
 " Set identation to 4 spaces in general with some exceptions
-set noai ts=4 sts=4 sw=4 expandtab
+set autoindent ts=4 sts=4 sw=4 expandtab
+set formatoptions+=t,c,r,o,q,n,j
+set formatlistpat="^\s*\(\d\+[.)]\|[-*]\)\s*"
+set breakindent
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -101,6 +107,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Keep searches centered (source: ThePrimeagen)
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Keep cursor fixed when joining lines (source: ThePrimeagen)
+nnoremap J mzJ`z
+
 " Spell Check
 " Function to rotate the spell language that is used
 let b:myLang=0
@@ -132,16 +145,6 @@ function! EnableRunMakeOnSave()
     echo "Running 'make' on save enabled."
 endfunction
 map <leader>m :call EnableRunMakeOnSave()<cr>
-
-" Replace Esc with Ctrl+L to make this work better on Termux.
-" Android uses Esc as a shortcut for the home screen.
-" Use solution in:
-" http://vim.wikia.com/wiki/Avoid_the_escape_key
-" This is a variation on the previous mapping that additionally checks for
-" the popup menu (present when doing completions). During completions, <C-L>
-" adds a character from the current match, so this mapping will preserve that
-" behavior. See :help popupmenu-keys for more.
-:inoremap <expr> <C-L> (pumvisible() <bar><bar> &insertmode) ? '<C-L>' : '<Esc>'
 
 
 " PLUGIN CONFIGURATION
@@ -184,7 +187,7 @@ autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Configure extensions to install
-let g:coc_global_extensions = 'coc-explorer coc-yaml coc-sh coc-python coc-markdownlint coc-css coc-cmake'
+let g:coc_global_extensions = 'coc-explorer coc-yaml coc-sh coc-python coc-markdownlint coc-css coc-cmake coc-html'
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -197,3 +200,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_rst_checkers = ['text/language_check']
 let g:syntastic_tex_checkers = ['text/language_check']
 let g:syntastic_python_checkers = ['flake8']
+
+" limelight
+nnoremap <leader>l :Limelight!!<CR>
+let g:limelight_conceal_ctermfg = 'black'
