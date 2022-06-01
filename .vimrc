@@ -37,7 +37,7 @@ set showmode
 set showcmd
 set visualbell
 set cursorline
-set mouse=vn
+set mouse=vi
 " Remove the underline from enabling cursorline
 highlight Cursorline cterm=none
 " Set line numbering to red background:
@@ -58,7 +58,7 @@ set ttimeoutlen=50
 " Set identation to 4 spaces in general with some exceptions
 set autoindent ts=4 sts=4 sw=4 expandtab
 set formatoptions+=t,c,r,o,q,n,j
-set formatlistpat="^\s*\(\d\+[.)]\|[-*]\)\s*"
+set formatlistpat="^\s*\(\d\+[.)]\|[-*]\(\s\[[ A-Za-z]\]\)*\)\s\+"
 set breakindent
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
