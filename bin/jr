@@ -157,6 +157,12 @@ def end():
     """
     lftm = LFTM()
     lftm.commit(f"Journal entry for {lftm.today}")
+    subprocess.run(
+        'git push origin main',
+        cwd=lftm.folder,
+        shell=True,
+        check=True,
+    )
 
 
 @jr.command()
