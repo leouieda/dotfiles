@@ -145,6 +145,12 @@ def jr(ctx):
     """
     if ctx.invoked_subcommand is None:
         lftm = LFTM()
+        subprocess.run(
+            'git pull origin main',
+            cwd=lftm.folder,
+            shell=True,
+            check=True,
+        )
         if not lftm.current_journal.exists():
             lftm.current_journal.write_text(_new_journal())
         _open_nvim(lftm.current_journal, lftm.todo)
