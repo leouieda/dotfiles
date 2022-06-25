@@ -57,8 +57,17 @@ set t_Co=256
 set ttimeoutlen=50
 " Set identation to 4 spaces in general with some exceptions
 set autoindent ts=4 sts=4 sw=4 expandtab
-set formatoptions+=t,c,r,o,q,n,j
-set formatlistpat="^\s*\(\d\+[.)]\|[-*]\(\s\[[ A-Za-z]\]\)*\)\s\+"
+" Configure format options. From github.com/santisoler/dotfiles
+" Find more about format options with :h fo-table
+" t: auto-wrap text using textwidth
+" c: auto-wrap comments inserting comment leader automatically
+" q: format comments with "gq"
+" j: remove comment leader when joining lines
+set formatoptions=tcqj
+set formatoptions+=r  " insert comment char after hitting enter in Insert mode
+set formatoptions-=o  " don't insert comment char on new line in Normal mode
+set formatoptions+=n  " recognize numbered lists when formatting text
+"set formatlistpat="^\s*\(\d\+[.)]\|[-*]\(\s\[[ A-Za-z]\]\)*\)\s\+"
 set breakindent
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
