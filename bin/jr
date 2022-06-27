@@ -79,7 +79,7 @@ class LFTM():
         """
         today = datetime.date.today()
         weekday = today.weekday()  # Monday is 0
-        monday = today.replace(day=today.day - weekday)
+        monday = _shift_day(today, shift_by=-weekday)
         return monday.isoformat()
 
     @property
@@ -103,6 +103,11 @@ class LFTM():
         )
 
 
+def _shift_day(day, shift_by):
+    "Shift a give datetime by an amount of days."
+    return day + datetime.timedelta(days=shift_by)
+
+
 def _new_journal():
     """
     Create a new journal entry from the template.
@@ -110,7 +115,7 @@ def _new_journal():
     today = datetime.date.today()
     weekday = today.weekday()  # Monday is 0
     week = {
-        name: today.replace(day=today.day - weekday + i).strftime("%a | %d %b")
+        name: _shift_day(today, shift_by=-weekday + i).strftime("%a | %d %b")
         for i, name in enumerate(["mon", "tue", "wed", "thu", "fri"])
     }
     journal = JOURNAL_TEMPLATE.format(
