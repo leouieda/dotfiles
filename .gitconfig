@@ -1,7 +1,7 @@
 [user]
 name = Leonardo Uieda
 email = leouieda@gmail.com
-signingkey = "A1EF9293D26FE3B5"
+signingkey = "7B3F312FB76FB36B"
 
 [commit]
 gpgsign = true
