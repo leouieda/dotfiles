@@ -23,29 +23,9 @@ I never remember this so I thought I'd write it down.
 
 ## HiDPI
 
-My Dell XPS13 has an HiDPI screen (3200 x 1800) and some apps and i3 itself
-look way too small by default. Here are some resources for dealing with that.
+My Dell XPS13 has an HiDPI screen (3200 x 1800) and some things
+look way too small by default. See https://wiki.archlinux.org/index.php/HiDPI
+for resources.
 
-### i3
-
-The general processes is to edit `~/.Xresources` and set:
-
-```
-Xft.dpi:       170
-```
-
-See https://wiki.archlinux.org/index.php/HiDPI#X_Resources
-
-### Zoom
-
-Set `scaleFactor=1.5` and `autoScale=false` in `~/.config/zoomus.conf`.
+**Zoom:** In `~/.config/zoomus.conf` set `scaleFactor=2` and `autoScale=false`.
 See https://superuser.com/questions/1381054/how-to-enable-hidpi-support-on-zoom-us-linux-client
-
-## Using Audacity
-
-For some reason, when I start Audacity my ALSA gets messed up and my headphones
-don't work. Running this fixes the issue:
-
-```
-alsactl restore
-```
