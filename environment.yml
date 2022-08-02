@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python==3.10
+  - python==3.9
   - pip
   - conda-lock
-  - numpy
+  - numpy<=1.21,>=1.18
   - scipy
   - scikit-image
   - jupyter
