@@ -17,6 +17,8 @@ JOURNAL_TEMPLATE = """
 
 ## {fri}
 
+* [ ] Fill in TAS for this week
+
 ## {thu}
 
 ## {wed}
