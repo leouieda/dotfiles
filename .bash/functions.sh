@@ -1,12 +1,5 @@
 # Useful bash functions
 
-# Setup my usual working environment
-###############################################################################
-setup() {
-    display-horizontal;
-    wacom;
-}
-
 # Wacom One tablet setup
 ###############################################################################
 wacom() {
@@ -47,51 +40,31 @@ tunnel() {
 
 # Display configuration for multiple monitors
 ###############################################################################
-connected-displays(){
-    echo $(xrandr --query | grep " connected" --count)
-}
-display-off() {
-    xrandr --output eDP1 --primary --auto --output DP1 --off
-}
-display-horizontal() {
-    if [[ $# == 1 ]]; then
-        scale=$1
+dp(){
+    ndisplays=`xrandr --query | grep " connected" --count`
+    if [[ $# -gt 2 ]]; then
+        errcho "Invalid argument(s): $@";
+        return 1;
+    elif [[ $# == 0 ]]; then
+        xrandr \
+            --output eDP-1 --mode 3200x1800 \
+            --output DP-1-2 --primary --mode 3840x2160 --rate 30 --left-of eDP-1 --rotate left \
+            --output DP-1-3-8 --mode 3840x2160 --rate 30 --left-of DP-1-2 --rotate normal
+    elif [[ "$1" == "list" ]] || [[ "$1" == "l" ]]; then
+        echo $(xrandr --query | grep " connected")
+        return 0;
+    elif [[ "$1" == "background" ]] || [[ "$1" == "b" ]]; then
+        location=$HOME/Dropbox/leo/wallpapers
+        background=`ls $location | sort -R | tail -1`
+        for ((i=0; i<$ndisplays; i++)); do
+            nitrogen --set-zoom-fill --head=$i $location/$background
+        done
+        return 0;
     else
-        scale=1.66666666666666666666666
+        errcho "Invalid argument(s): $@";
+        return 1;
     fi
-    display-off
-    xrandr \
-        --output eDP1 --primary --auto \
-        --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1
 }
-display-vertical() {
-    if [[ $# == 1 ]]; then
-        scale=$1
-    else
-        scale=1.5
-    fi
-    display-off
-    xrandr \
-        --output eDP1 --primary --auto \
-        --output DP1 --auto --scale ${scale}x${scale} --right-of eDP1 --rotate left
-}
-display-mirror() {
-    if [[ $# == 1 ]]; then
-        scale=$1
-    else
-        scale=1.6666
-    fi
-    display-off
-    xrandr --output eDP1 --primary --auto --output DP1 --auto --scale ${scale}x${scale} --same-as eDP1
-}
-random-background() {
-    location=$HOME/Dropbox/leo/wallpapers
-    background=`ls $location | sort -R | tail -1`
-    for ((i=0; i<$(connected-displays); i++)); do
-        nitrogen --set-zoom-fill --head=$i $location/$background
-    done
-}
-
 
 ## Git
 ###############################################################################
