@@ -22,6 +22,7 @@ dependencies:
   - seaborn
   - xarray
   - netcdf4
+  - h5py
   - pyproj
   - dask
   - numba
