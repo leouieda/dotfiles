@@ -53,8 +53,8 @@ dp(){
         elif [[ $ndisplays == 3 ]]; then
             xrandr \
                 --output eDP-1 --mode 3200x1800 \
-                --output DP-1-2 --primary --mode 3840x2160 --rate 30 --left-of eDP-1 --rotate left \
-                --output DP-1-3-8 --mode 3840x2160 --rate 30 --left-of DP-1-2 --rotate normal
+                --output DP-1-3 --primary --mode 3840x2160 --rate 30 --right-of DP-1-1 --rotate left \
+                --output DP-1-1 --mode 3840x2160 --rate 30 --right-of eDP-1 --rotate normal
         fi
     elif [[ "$1" == "list" ]] || [[ "$1" == "l" ]]; then
         echo $(xrandr --query | grep " connected")
