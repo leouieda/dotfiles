@@ -40,6 +40,7 @@ dependencies:
   - harmonica
   - rockhound
   - boule
+  - ensaio
   # GMT stuff
   - gmt>=6.3.0
   - pygmt>=0.6.0
