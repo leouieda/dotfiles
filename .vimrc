@@ -88,6 +88,7 @@ set wrap
 highlight ColorColumn ctermbg=black
 " Line numbers
 set number
+set relativenumber  " Enable relative line numbers
 highlight LineNr ctermfg=DarkGrey
 highlight SignColumn ctermbg=black
 " Syntax highlighting
