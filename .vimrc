@@ -18,7 +18,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 Plug 'tweekmonster/braceless.vim', {'for': ['python']}
 Plug 'vim-syntastic/syntastic'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ap/vim-css-color'                " highlight RGB colors
 Plug 'mattn/emmet-vim'                 " for HTML completion
 Plug 'junegunn/limelight.vim'
