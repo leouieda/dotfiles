@@ -14,32 +14,30 @@ set_prompt()
     local reset_color="\[\033[0m\]"
 
     # Variables used to configure the prompt
-    local user="\[\e[38;5;34;1m\]`whoami`$reset_color"
-    local host="\[\e[38;5;160;1m\]`hostname`$reset_color"
+    local user="\[\e[38;5;34m\]`whoami`:$reset_color\[\e[38;5;34;1m\]`hostname`$reset_color"
     local time="\[\e[38;5;105m\]`date +%a\.%d\.%b`{\[\e[38;5;254m\]`date +%H:%M`$reset_color\[\e[38;5;105m\]}$reset_color"
     local path="\[\e[38;5;254;1m\]\w/$reset_color"
     local end="\[\e[38;5;11;1m\]\$$reset_color"
     local start="\n"
-    local sep=" ⏵ "
 
     # Build the prompt one piece at a time
-    local prompt="$start$time$sep$user$sep$host"
+    local prompt="$start$time $user"
 
     # Python environment name and version
     if [[ -n $PROMPT_SHOW_PYTHON ]]; then
         local python_status="`make_python_prompt`"
         if [[ -n $python_status ]]; then
-            local prompt="$prompt$sep$python_status$reset_color"
+            local prompt="$prompt $python_status$reset_color"
         fi
     fi
 
     # Git repository status
     local git_status="`make_git_prompt`"
     if [[ -n $git_status ]]; then
-        local prompt="$prompt$sep$git_status$reset_color"
+        local prompt="$prompt $git_status$reset_color"
     fi
 
-    local prompt="$prompt$sep$path\n"
+    local prompt="$prompt $path\n"
 
     # Add a note to the line if connecting through SSH
     if [[ -n `is_remote` ]]; then
@@ -70,7 +68,7 @@ make_python_prompt ()
 {
     local python_env="`get_conda_env`"
     if [[ -n $python_env ]]; then
-        echo "\[\e[38;5;221m\]python:\[\e[38;5;221;1m\]`get_python_version`{\[\e[33;0m\]\[\e[38;5;221m\]$python_env\[\e[38;5;221;1m\]}\[\e[33;0m\]"
+        echo "\[\e[38;5;221m\]env:\[\e[38;5;221;1m\]$python_env{\[\e[33;0m\]\[\e[38;5;254m\]`get_python_version`\[\e[38;5;221;1m\]}\[\e[33;0m\]"
     else
         echo ""
     fi

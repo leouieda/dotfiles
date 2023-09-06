@@ -10,21 +10,24 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)" > /dev/null
 fi
 
-# Setup and activate the conda package manager
-__conda_setup="$('$HOME/bin/conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/leo/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/bin/conda/etc/profile.d/conda.sh" ]; then
-        . "$HOME/bin/conda/etc/profile.d/conda.sh"
+    if [ -f "/home/leo/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/leo/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/bin/conda/bin:$PATH"
+        export PATH="/home/leo/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
-if [ -f "$HOME/bin/conda/etc/profile.d/mamba.sh" ]; then
-    . "$HOME/bin/conda/etc/profile.d/mamba.sh"
+
+if [ -f "/home/leo/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/leo/mambaforge/etc/profile.d/mamba.sh"
 fi
+# <<< conda initialize <<<
 
 if [ -f ~/.bash/prompt.sh ]; then
     export PROMPT_SHOW_PYTHON=true
