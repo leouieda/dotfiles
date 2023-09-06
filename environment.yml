@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python==3.9
+  - python==3.10
   - pip
   - conda-lock
-  - numpy<=1.21,>=1.18
+  - numpy
   - scipy
   - scikit-image
   - jupyter
@@ -14,9 +14,9 @@ dependencies:
   - nodejs # needed by jupyterlab
   - jupytext
   - jupyterlab-spellchecker
+  - mamba_gator
   - pyppeteer
   - ipython
-  - nb_conda
   - matplotlib
   - cmocean
   - seaborn
@@ -42,8 +42,8 @@ dependencies:
   - boule
   - ensaio
   # GMT stuff
-  - gmt>=6.3.0
-  - pygmt>=0.6.0
+  - gmt>=6.4.0
+  - pygmt>=0.10.0
   - fftw
   - gdal
   - ghostscript
