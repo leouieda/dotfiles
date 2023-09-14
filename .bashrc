@@ -46,6 +46,11 @@ if [ -f ~/.bash/extra.sh ]; then
     source ~/.bash/extra.sh
 fi
 
+# Enable bash completion
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 # Activate the default conda environment
 if [ -f environment.yml ]; then
     cenv environment.yml
