@@ -34,6 +34,7 @@ dependencies:
   - rich
   - tectonic # for building latex documents
   - pykdtree
+  - xlandsat
   # Fatiando
   - pooch
   - verde
