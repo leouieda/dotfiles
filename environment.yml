@@ -38,6 +38,7 @@ dependencies:
   - h5py
   - pykdtree
   - xlandsat
+  - matplotlib-scalebar
   # Fatiando
   - pooch
   - verde
