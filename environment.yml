@@ -1,38 +1,41 @@
 name: default
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - python==3.10
-  - pip
+  - nodejs
   - conda-lock
+  - pip
+  # Dev
+  - livereload
+  - tqdm
+  - black
+  - flake8
+  - rich
+  # Base Scipy
   - numpy
   - scipy
   - scikit-image
-  - jupyter
-  - jupyterlab
-  - nodejs # needed by jupyterlab
-  - jupytext
-  - jupyterlab-spellchecker
-  - mamba_gator
-  - pyppeteer
-  - ipython
   - matplotlib
   - cmocean
   - seaborn
   - xarray
-  - netcdf4
-  - h5py
-  - pyproj
   - dask
   - numba
-  - livereload # for previewing websites/slides
-  - tqdm
-  - black
-  - flake8
-  - nox
-  - rich
-  - tectonic # for building latex documents
+  # Jupyter
+  - ipython
+  - jupyter
+  - jupyterlab
+  - jupytext
+  - jupyterlab-spellchecker
+  - jupyterlab-myst
+  - jupyter-resource-usage
+  - mamba_gator
+  - nb_conda_kernels
+  # Geo
+  - pyproj
+  - netcdf4
+  - h5py
   - pykdtree
   - xlandsat
   # Fatiando
@@ -42,7 +45,7 @@ dependencies:
   - rockhound
   - boule
   - ensaio
-  # GMT stuff
+  # GMT
   - gmt>=6.4.0
   - pygmt>=0.10.0
   - fftw
@@ -53,8 +56,10 @@ dependencies:
   - zlib
   - curl
   - pcre
-  # for LIDAR data
+  # LIDAR
   - laspy
   - laszip # the C lib
   - pip:
     - laszip # the Python bindinds
+  # Misc
+  - tectonic
