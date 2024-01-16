@@ -1,13 +1,13 @@
 [user]
 name = Leonardo Uieda
 email = leo@uieda.com
-signingkey = ssh-ed25519
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADx+00SiXLyKqjf91amdHxPvGp9YLx4Q2g5UmssPkt3
 
 [gpg]
 format = ssh
 
 [gpg "ssh"]
-program = /opt/1Password/op-ssh-sign
+program = "/opt/1Password/op-ssh-sign"
 
 [commit]
 gpgsign = true
