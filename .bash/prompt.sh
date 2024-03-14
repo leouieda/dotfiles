@@ -1,11 +1,12 @@
 # Set the prompt style to include the conda env and git repository status
 #
-# Started out as an apdaptation of https://github.com/magicmonty/bash-git-prompt
-# but I ended up completely re-implementing everything using only bash.
-# The result is faster and probably won't break between Python versions.
+# Started out as an apdaptation of [1] but I ended up completely rewriting
+# everything using only bash. The result is faster and probably won't break
+# between Python versions.
 #
-# Color codes are for 8-bit ANSI: https://en.wikipedia.org/wiki/ANSI_escape_code
-
+# [1]: https://github.com/magicmonty/bash-git-prompt
+#
+# Find color codes here: https://en.wikipedia.org/wiki/ANSI_escape_code
 
 set_prompt()
 {
@@ -24,11 +25,9 @@ set_prompt()
     local prompt="$start$time $user"
 
     # Python environment name and version
-    if [[ -n $PROMPT_SHOW_PYTHON ]]; then
-        local python_status="`make_python_prompt`"
-        if [[ -n $python_status ]]; then
-            local prompt="$prompt $python_status$reset_color"
-        fi
+    local python_status="`make_python_prompt`"
+    if [[ -n $python_status ]]; then
+        local prompt="$prompt $python_status$reset_color"
     fi
 
     # Git repository status
