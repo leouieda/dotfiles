@@ -2,7 +2,7 @@ name: default
 channels:
   - conda-forge
 dependencies:
-  - python==3.10
+  - python==3.11
   - nodejs
   - conda-lock
   - pip
@@ -24,6 +24,7 @@ dependencies:
   - numba
   # Jupyter
   - ipython
+  - ipywidgets
   - jupyter
   - jupyterlab
   - jupytext
@@ -34,33 +35,16 @@ dependencies:
   - nb_conda_kernels
   # Geo
   - pyproj
-  - netcdf4
-  - h5py
   - pykdtree
   - xlandsat
-  - matplotlib-scalebar
   # Fatiando
   - pooch
   - verde
   - harmonica
-  - rockhound
   - boule
   - ensaio
   # GMT
-  - gmt>=6.4.0
-  - pygmt>=0.10.0
-  - fftw
-  - gdal
-  - ghostscript
-  - libnetcdf
-  - hdf5
-  - zlib
-  - curl
-  - pcre
-  # LIDAR
-  - laspy
-  - laszip # the C lib
-  - pip:
-    - laszip # the Python bindinds
+  - gmt>=6.5.0
+  - pygmt>=0.11.0
   # Misc
   - tectonic
