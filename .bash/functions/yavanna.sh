@@ -5,9 +5,12 @@ Usage: yavanna [COMMAND] [FILE]
 Manager of (conda) environments. Can activate, delete, update, and create conda
 environments based on the presence of an environment yaml file.
 
-By default, will activate the environment found in 'environment.yml'. Pass a
-file name as FILE to activate that environment instead. To perform other
-actions, provide one of the commands below.
+With no arguments, will activate the environment found in 'environment.yml' in
+the current directory. Specify FILE to activate a different environment file
+instead. If FILE is a directory, will look for an 'environment.yml' file there.
+
+Other actions can be performed using the commands below. They can all take the
+FILE argument as well.
 
 Commands:
 
