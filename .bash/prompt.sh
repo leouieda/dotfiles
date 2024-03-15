@@ -16,13 +16,12 @@ set_prompt()
 
     # Variables used to configure the prompt
     local user="\[\e[38;5;34m\]`whoami`:$reset_color\[\e[38;5;34;1m\]`hostname`$reset_color"
-    local time="\[\e[38;5;105m\]`date +%a\.%d\.%b`{\[\e[38;5;254m\]`date +%H:%M`$reset_color\[\e[38;5;105m\]}$reset_color"
     local path="\[\e[38;5;254;1m\]\w/$reset_color"
     local end="\[\e[38;5;11;1m\]\$$reset_color"
     local start="\n"
 
     # Build the prompt one piece at a time
-    local prompt="$start$time $user"
+    local prompt="$start$user"
 
     # Python environment name and version
     local python_status="`make_python_prompt`"
@@ -36,14 +35,14 @@ set_prompt()
         local prompt="$prompt $git_status$reset_color"
     fi
 
-    local prompt="$prompt $path\n"
-
     # Add a note to the line if connecting through SSH
     if [[ -n `is_remote` ]]; then
-        local prompt="$prompt\[\e[38;5;208;1m\]SSH $reset_color"
+        local prompt="$prompt \[\e[38;5;208m\]ssh:$reset_color"
+    else
+        local prompt="$prompt "
     fi
 
-    local prompt="$prompt$end "
+    local prompt="$prompt$path\n$end "
 
     PS1="$prompt"
 }
