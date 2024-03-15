@@ -16,7 +16,6 @@ set_prompt()
 
     # Variables used to configure the prompt
     local user="\[\e[38;5;34m\]`whoami`:$reset_color\[\e[38;5;34;1m\]`hostname`$reset_color"
-    local path="\[\e[38;5;254;1m\]\w/$reset_color"
     local end="\[\e[38;5;11;1m\]\$$reset_color"
     local start="\n"
 
@@ -35,14 +34,13 @@ set_prompt()
         local prompt="$prompt $git_status$reset_color"
     fi
 
-    # Add a note to the line if connecting through SSH
+    # Make the path, including a marker to show that it's running remotely
+    local path="\[\e[38;5;254;1m\]\w/$reset_color"
     if [[ -n `is_remote` ]]; then
-        local prompt="$prompt \[\e[38;5;208m\]ssh:$reset_color"
-    else
-        local prompt="$prompt "
+        local path="\[\e[38;5;208;1m\]ssh:$reset_color$path"
     fi
 
-    local prompt="$prompt$path\n$end "
+    local prompt="$prompt $path\n$end "
 
     PS1="$prompt"
 }
