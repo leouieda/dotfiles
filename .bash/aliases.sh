@@ -18,7 +18,7 @@ alias irpf2017='sudo _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on" java -jar 
 alias ll='ls -lh'
 alias la='ls -A'
 alias du='du -sh'
-alias cd='yv cd'
+alias cd='yavanna cd'
 
 # Typos
 alias cd..='cd ..'
@@ -38,8 +38,10 @@ alias v='nvim'
 alias errcho='>&2 echo'
 
 # Python dev
-alias doc='open doc/_build/html/index.html'
+alias doc='xdg-open doc/_build/html/index.html'
 alias pt='pytest --cov-report=term-missing --cov -v --doctest-modules'
+alias y='yavanna'
+alias yv='yavanna'
 
 # tmux
 alias tmux='TERM=xterm-256color tmux'

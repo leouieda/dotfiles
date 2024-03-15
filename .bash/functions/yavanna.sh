@@ -1,8 +1,8 @@
-yv() {
+yavanna() {
 read -r -d '' HELP <<-'EOF'
 Usage: yavanna [COMMAND] [FILE]
 
-Manager of conda environments. Can activate, delete, update, and create conda
+Manager of (conda) environments. Can activate, delete, update, and create conda
 environments based on the presence of an environment yaml file.
 
 By default, will activate the environment found in 'environment.yml'. Pass a
@@ -19,7 +19,8 @@ Commands:
 To automatically activate environments when cd-ing, add this to your
 '~/.bashrc' file:
 
-alias cd='yv cd'
+alias cd='yavanna cd'
+
 EOF
     # Parse arguments
     envfile="environment.yml"
