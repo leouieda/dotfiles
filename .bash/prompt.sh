@@ -35,7 +35,7 @@ set_prompt()
     fi
 
     # Make the path, including a marker to show that it's running remotely
-    local path="\[\e[38;5;254;1m\]\w/$reset_color"
+    local path="\[\e[38;5;254;1m\]\w$reset_color"
     if [[ -n `is_remote` ]]; then
         local path="\[\e[38;5;208;1m\]ssh:$reset_color$path"
     fi
