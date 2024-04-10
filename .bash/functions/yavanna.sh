@@ -77,7 +77,6 @@ EOF
         if [[ -e "$envfile" ]]; then
             cmd="activate"
         else
-            conda deactivate;
             return 0
         fi
     else
@@ -97,16 +96,16 @@ EOF
     elif [[ $cmd == "create" ]]; then
         >&2 echo "Creating environment:" $envname;
         conda deactivate;
-        conda env create -f "$envfile";
+        mamba env create -f "$envfile";
 
     elif [[ $cmd == "update" ]]; then
         >&2 echo "Updating environment:" $envname;
         conda activate "$envname";
-        conda env update -f "$envfile";
+        mamba env update -f "$envfile";
 
     elif [[ $cmd == "delete" ]]; then
         >&2 echo "Removing environment:" $envname;
         conda deactivate;
-        conda env remove --name "$envname";
+        mamba env remove --name "$envname";
     fi
 }
