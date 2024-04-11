@@ -91,7 +91,9 @@ EOF
 
     # Run the command for each action
     if [[ $cmd == "activate" ]]; then
-        conda activate "$envname";
+        if [[ $CONDA_DEFAULT_ENV != $envname ]]; then
+            conda activate "$envname";
+        fi
 
     elif [[ $cmd == "create" ]]; then
         >&2 echo "Creating environment:" $envname;
