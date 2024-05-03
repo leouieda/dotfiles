@@ -55,7 +55,7 @@ EOF
         if [[ $# == 1 ]]; then
             directory="$HOME"
         else
-            directory=$2
+            directory="$2"
         fi
     elif [[ $# == 1 ]]; then
         envfile="$1"
@@ -73,7 +73,7 @@ EOF
     # If using cd, don't fail if there is no environment file so this can work
     # as an alias for cd
     if [[ $cmd == "changedir" ]]; then
-        command cd $directory;
+        command cd "$directory";
         if [[ -e "$envfile" ]]; then
             cmd="activate"
         else
