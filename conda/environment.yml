@@ -48,3 +48,4 @@ dependencies:
   - pygmt>=0.11.0
   # Misc
   - tectonic
+  - matplotlib-scalebar
