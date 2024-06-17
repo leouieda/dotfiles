@@ -24,6 +24,7 @@ alias cd='yavanna cd'
 alias cd..='cd ..'
 alias gti='git'
 alias gt='git'
+alias mak='make'
 
 # Open and copy
 alias open='xdg-open'
@@ -39,9 +40,10 @@ alias errcho='>&2 echo'
 
 # Python dev
 alias doc='xdg-open doc/_build/html/index.html'
-alias pt='pytest --cov-report=term-missing --cov -v --doctest-modules'
+alias pt='pytest -v --doctest-modules'
 alias y='yavanna'
 alias yv='yavanna'
+alias conda='mamba'
 
 # tmux
 alias tmux='TERM=xterm-256color tmux'
