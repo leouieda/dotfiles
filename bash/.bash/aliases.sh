@@ -36,6 +36,7 @@ alias untargz='tar -xzvf'
 alias untarbz='tar -xjvf'
 alias lab='jupyter lab'
 alias v='nvim'
+alias m='make'
 alias errcho='>&2 echo'
 
 # Python dev
