@@ -18,7 +18,7 @@ fi
 # <<< conda initialize <<<
 
 source ~/.bash/variables.sh
-source ~/.bash/prompt.sh
+#source ~/.bash/prompt.sh
 source ~/.bash/aliases.sh
 for script in ~/.bash/functions/*.sh; do
     source $script
@@ -33,3 +33,5 @@ fi
 if [ -f environment.yml ]; then
     yv
 fi
+
+eval "$(starship init bash)"
