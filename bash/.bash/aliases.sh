@@ -42,6 +42,8 @@ alias errcho='>&2 echo'
 # Python dev
 alias doc='xdg-open doc/_build/html/index.html'
 alias pt='pytest -v --doctest-modules'
+alias p='python'
+alias py='python'
 alias y='yavanna'
 alias yv='yavanna'
 alias conda='mamba'
