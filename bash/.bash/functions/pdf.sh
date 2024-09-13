@@ -11,16 +11,18 @@ pdfcmyk() {
 
 pdfcompress() {
 read -r -d '' PDFCOMPRESS_HELP <<-'EOF'
-Usage: pdfcompress [INPUT] [OUTPUT]
+Usage: pdfcompress [LEVEL] INPUT OUTPUT
 
 Use Ghostscript to lower the DPI of images in a PDF.
 
+LEVEL should be one of: screen [default], default, ebook, printer, prepress
+
 EOF
-    if [[ $# == 0 ]]; then
+    if [[ $# -le 1 ]]; then
         echo "$PDFCOMPRESS_HELP";
-        return 0;
+        return 1;
     fi
-    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen \
        -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages \
        -dCompressFonts=true -sOutputFile=$2 $1
 }
