@@ -74,34 +74,6 @@ set.scrolloff = 10
 -- Use global statusline
 set.laststatus = 3
 
-
--- Configure diagnostics
--- ---------------------
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = false,
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  float = {
-    focusable = true,
-    border = 'rounded',
-    source = 'always',
-    suffix = '',
-    prefix = function(diagnostic)
-        -- Function to show error code in diagnostics
-        -- Idea got from docs (:h diagnostic-quickstart)
-        local condition = (
-          diagnostic.source == "flake8" or diagnostic.source == "Ruff"
-        )
-        if condition then
-          return "[" .. diagnostic.code .. "] "
-        end
-    end,
-    header = '',
-  },
-})
-
 -- Add border to LSP floating windows
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover,
@@ -116,7 +88,3 @@ vim.lsp.handlers["textDocument/signatureHelp"] =
     border = "rounded"
   }
 )
-
--- Define commands to enable/disable diagnostics
-vim.cmd('command DisableDiagnostics lua vim.diagnostic.disable()')
-vim.cmd('command EnableDiagnostics lua vim.diagnostic.enable()')
