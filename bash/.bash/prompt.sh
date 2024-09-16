@@ -15,8 +15,8 @@ set_prompt()
     local reset_color="\[\033[0m\]"
 
     # Variables used to configure the prompt
-    local user="\[\e[38;5;34m\]`whoami`:$reset_color\[\e[38;5;34;1m\]`hostname`$reset_color"
-    local end="\[\e[38;5;11;1m\]\$$reset_color"
+    local user="\[\e[38;2;166;227;161m\]`whoami`:$reset_color\[\e[38;2;166;227;161;1m\]`hostname`$reset_color"
+    local end="\[\e[38;2;250;179;135;1m\]\$$reset_color"
     local start="\n"
 
     # Build the prompt one piece at a time
@@ -35,7 +35,7 @@ set_prompt()
     fi
 
     # Make the path, including a marker to show that it's running remotely
-    local path="\[\e[38;5;254;1m\]\w$reset_color"
+    local path="\[\e[38;242;205;205;1m\]\w$reset_color"
     if [[ -n `is_remote` ]]; then
         local path="\[\e[38;5;208;1m\]ssh:$reset_color$path"
     fi
@@ -64,7 +64,7 @@ make_python_prompt ()
 {
     local python_env="`get_conda_env`"
     if [[ -n $python_env ]]; then
-        echo "\[\e[38;5;221m\]env:\[\e[38;5;221;1m\]$python_env{\[\e[33;0m\]\[\e[38;5;254m\]`get_python_version`\[\e[38;5;221;1m\]}\[\e[33;0m\]"
+        echo "\[\e[38;2;250;179;135m\]env:\[\e[38;2;250;179;135;1m\]$python_env{\[\e[33;0m\]\[\e[38;245;224;220m\]`get_python_version`\[\e[38;2;250;179;135;1m\]}\[\e[33;0m\]"
     else
         echo ""
     fi
@@ -75,15 +75,15 @@ make_git_prompt ()
 {
     if inside_git_repo; then
         # Default values for the appearance of the prompt.
-        local style="\[\e[38;5;33;1m\]"
-        local changed="\[\e[1;93m\]+"
-        local staged="\[\e[1;91m\]•"
-        local untracked="\[\e[1;37m\]?"
-        local conflict="\[\e[1;91m\]x"
-        local ahead="\[\e[38;5;40;1m\]↑"
-        local behind="\[\e[38;5;201;1m\]↓"
-        local noremote="\[\e[1;37m\]⑂"
-        local sep="\[\e[38;5;243m\]."
+        local style="\[\e[38;2;137;180;250;1m\]"
+        local changed="\[\e[38;2;166;227;161;1m\]+"
+        local staged="\[\e[38;2;203;166;247;1m\]•"
+        local untracked="\[\e[38;2;242;205;205;1m\]?"
+        local conflict="\[\e[38;2;243;139;168;1m\]x"
+        local ahead="\[\e[38;2;249;226;175;1m\]↑"
+        local behind="\[\e[38;2;250;179;135;1m\]↓"
+        local noremote="\[\e[38;2;245;194;231;1m\]⑂"
+        local sep=""
 
         # Construct the status info (how many files changed, etc)
         local status=""
@@ -145,7 +145,7 @@ make_git_prompt ()
         local branch=`get_git_branch`
 
         # Append the git info to the PS1
-        local git_prompt="\[\e[38;5;33m\]git:$style$branch"
+        local git_prompt="\[\e[38;2;137;180;250m\]git:$style$branch"
         if [[ -n $status ]]; then
             local git_prompt="$git_prompt{$status$style}"
         fi
