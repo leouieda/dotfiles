@@ -5,7 +5,7 @@ require('leouieda.setup')
 -- require('leouieda.functions')
 
 -- Configure keymappings
-require('leouieda.keymappings')
+-- require('leouieda.keymappings')
 
 -- Create auto commands
 -- require('leouieda.autocmd')

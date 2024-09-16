@@ -30,38 +30,44 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Mason (package manager for LSPs)
-  use {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    config = function() require('leouieda.plugins.mason') end,
-  }
-
   -- Catpuccin theme
   use {
-    "EdenEast/nightfox.nvim",
-    as = "nightfox" ,
-    config = function() require('leouieda.plugins.nightfox') end,
+    "catppuccin/nvim",
+    as = "catppuccin" ,
+    config = function() require('leouieda.plugins.catppuccin') end,
   }
+
+  -- Comment.nvim: Commenting blocks and lines
+  use {
+    'numToStr/Comment.nvim',
+    config = function() require('leouieda.plugins.comment') end,
+  }
+
+  -- Mason (package manager for LSPs)
+  -- use {
+  --   "williamboman/mason.nvim",
+  --   run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+  --   config = function() require('leouieda.plugins.mason') end,
+  -- }
 
   -- Git
-  use {
-    'tpope/vim-fugitive',
-    config = function() require('leouieda.plugins.fugitive') end,
-  }
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function() require('leouieda.plugins.gitsigns') end,
-  }
+  -- use {
+  --   'tpope/vim-fugitive',
+  --   config = function() require('leouieda.plugins.fugitive') end,
+  -- }
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = function() require('leouieda.plugins.gitsigns') end,
+  -- }
 
   -- Surrounding characters
-  use 'tpope/vim-surround'
+  -- use 'tpope/vim-surround'
 
   -- LaTeX
-  use {
-    'lervag/vimtex',
-    config = function() require('leouieda.plugins.vimtex') end,
-  }
+  -- use {
+  --   'lervag/vimtex',
+  --   config = function() require('leouieda.plugins.vimtex') end,
+  -- }
 
   -- Webdev
   -- use 'ap/vim-css-color'
@@ -72,12 +78,6 @@ return require('packer').startup(function()
   --    end
   -- }
 
-  -- Comment.nvim
-  use {
-    'numToStr/Comment.nvim',
-    config = function() require('leouieda.plugins.comment') end,
-  }
-
   -- nvim-tree: File explorer
   -- use {
   --   'nvim-tree/nvim-tree.lua',
@@ -85,17 +85,17 @@ return require('packer').startup(function()
   -- }
 
   -- lualine.nvim
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = function() require('leouieda.plugins.lualine') end,
-  }
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   config = function() require('leouieda.plugins.lualine') end,
+  -- }
 
   -- bufferline
-  use {
-    'akinsho/bufferline.nvim',
-    -- after="catppuccin",
-    config = function() require('leouieda.plugins.bufferline') end,
-  }
+  -- use {
+  --   'akinsho/bufferline.nvim',
+  --   -- after="catppuccin",
+  --   config = function() require('leouieda.plugins.bufferline') end,
+  -- }
 
   -- -- nvim-autopairs
   -- use {
@@ -110,10 +110,10 @@ return require('packer').startup(function()
   -- }
 
   -- LSP
-  use {
-    'neovim/nvim-lspconfig',
-    config = function() require('leouieda.plugins.lspconfig') end,
-  }
+  -- use {
+  --   'neovim/nvim-lspconfig',
+  --   config = function() require('leouieda.plugins.lspconfig') end,
+  -- }
 
   -- cmp
   -- use {

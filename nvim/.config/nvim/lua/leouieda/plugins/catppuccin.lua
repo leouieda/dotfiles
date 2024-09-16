@@ -18,6 +18,11 @@ require("catppuccin").setup({
             information = { "underline" },
         },
     },
+    color_overrides = {
+        all = {
+            base = "#0D1117",
+        },
+    }
 })
 
 -- setup must be called before loading

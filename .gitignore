@@ -1,2 +1,3 @@
 nvim/.vim/
+nvim/.config/nvim/plugin
 git/.config/gh/hosts.yml
