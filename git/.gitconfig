@@ -16,7 +16,7 @@ gpgsign = true
 ui = true
 
 [core]
-editor = nvim
+editor = ~/bin/nvim.appimage
 fscache = true
 excludesfile = ~/.gitignore_global
 
