@@ -30,7 +30,7 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Catpuccin theme
+  -- Catpuccin: Nice pastel theme theme
   use {
     "catppuccin/nvim",
     as = "catppuccin" ,
@@ -41,6 +41,15 @@ return require('packer').startup(function()
   use {
     'numToStr/Comment.nvim',
     config = function() require('leouieda.plugins.comment') end,
+  }
+
+  -- Tree-sitter: Better syntax highlighting 
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('leouieda.plugins.treesitter')
+    end,
   }
 
   -- Mason (package manager for LSPs)
@@ -127,18 +136,6 @@ return require('packer').startup(function()
   --   }
   -- }
 
-  -- Tree-sitter and:
-  --   * treesitter-context
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = ':TSUpdate',
-  --   config = function()
-  --     require('leouieda.plugins.treesitter')
-  --   end,
-  --   requires = {
-  --     'nvim-treesitter/nvim-treesitter-context',
-  --   },
-  -- }
 
   -- telescope
   -- use {

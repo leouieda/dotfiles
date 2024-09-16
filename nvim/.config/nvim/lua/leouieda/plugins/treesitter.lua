@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "python", "lua", "latex", "c", "rust", "vimdoc" },
+  ensure_installed = { "python", "lua", "bibtex", "html", "css", "javascript", "c", "rust", "bash", "make", "markdown", "markdown_inline", "yaml" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -25,11 +25,3 @@ require("nvim-treesitter.configs").setup {
   }
 
 }
-
-require('treesitter-context').setup{
-  multiline_threshold = 1, -- Maximum number of lines to show for a single context
-}
-
-vim.keymap.set("n", "[n", function()
-  require("treesitter-context").go_to_context()
-end, { silent = true })
