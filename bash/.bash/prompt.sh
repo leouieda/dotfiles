@@ -42,6 +42,9 @@ set_prompt()
 
     local prompt="$prompt $path\n$end "
 
+    # Set the terminal background color
+    printf %b '\e]11;#0D1117\a'
+
     PS1="$prompt"
 }
 
