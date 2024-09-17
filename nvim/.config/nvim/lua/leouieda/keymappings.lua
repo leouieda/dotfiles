@@ -1,6 +1,5 @@
--- ==================
--- Define vim.keymap.setpings
--- ==================
+-- Define keymappings for common and useful commands
+-- ============================================================================
 
 -- Navigate between windows
 vim.keymap.set('n', '<C-h>', '<C-w>h')
@@ -29,7 +28,7 @@ vim.keymap.set('v', '<C-c>', '"+y')
 -- Yank until end of line (source: ThePrimeagen)
 vim.keymap.set('n', 'Y', 'y$')
 
--- Don't overwride the register when pasting over selection
+-- Don't override the register when pasting over selection
 -- (in visual mode this is done with P)
 vim.keymap.set('v', 'p', 'P')
 
@@ -50,10 +49,6 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 -- Leader v to paste replacing but not overriding the register
 -- (source: ThePrimeagen)
 vim.keymap.set('x', '<leader>v', [["_dP]])
-
--- Enable/disable diagnostic
-vim.keymap.set('n', '<leader>tdd', vim.diagnostic.disable)
-vim.keymap.set('n', '<leader>tde', vim.diagnostic.enable)
 
 -- Search selected text
 vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
