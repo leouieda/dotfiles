@@ -1,16 +1,10 @@
--- ====================
--- Configure lsp-config
--- ====================
+-- Configure the LSPs downloaded through Mason
+
 local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
---Enable (broadcasting) snippet capability for completion (only for vscode ls)
-local vscode_capabilities = vim.lsp.protocol.make_client_capabilities()
-vscode_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 
 -- C language server
 lspconfig.ccls.setup {
@@ -22,9 +16,8 @@ lspconfig.bashls.setup {
   capabilities = capabilities,
 }
 
--- Define which python lsp to use
+-- Python language server
 local python_lsp = "pyright"
-
 if python_lsp == "pyright" then
   lspconfig.pyright.setup {
     -- Use the following capabilities to disable pyright diagnostics
@@ -47,7 +40,7 @@ if python_lsp == "pyright" then
         }
       }
     },
-    -- avoid running pyright running on the entire home directory
+    -- avoid running pyright on the entire home directory
     -- (https://github.com/microsoft/pyright/issues/4176)
     root_dir = function()
       return vim.fn.getcwd()
@@ -74,8 +67,7 @@ else
   }
 end
 
--- Ruff (python linter as lsp)
--- Configure `ruff-lsp`.
+-- Ruff (python linter) language server
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
 lspconfig.ruff_lsp.setup {
@@ -87,12 +79,12 @@ lspconfig.ruff_lsp.setup {
   }
 }
 
--- Texlab
+-- LaTeX language server
 lspconfig.texlab.setup {
   capabilities = capabilities,
 }
 
--- Rust Analyzer
+-- Rust language server
 lspconfig.rust_analyzer.setup{
   capabilities = capabilities,
   root_dir = util.root_pattern("Cargo.toml"),
@@ -105,40 +97,28 @@ lspconfig.rust_analyzer.setup{
   },
 }
 
--- lua lsp
+-- Lua language server
 lspconfig.lua_ls.setup {
   capabilities = capabilities,
 }
 
--- html lsp
+-- HTML language server
 lspconfig.html.setup {
-  capabilities = vscode_capabilities,
+  capabilities = capabilities,
 }
 
--- css lsp
+-- CSS language server
 lspconfig.cssls.setup {
-  capabilities = vscode_capabilities,
+  capabilities = capabilities,
 }
 
--- ltex-ls
--- lspconfig.ltex.setup {
---  cmd = { "ltex-ls" },
---  filetypes = { "markdown", "tex", "gitcommit", "rst" },
---  flags = { debounce_text_changes = 300 },
---  capabilities = vscode_capabilities,
--- }
 
+-------------------------------------------------------------------------------
+-- Global key mappings
+-------------------------------------------------------------------------------
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-
-
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+-- Use LspAttach autocommand to only map the following keys after the language
+-- server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)

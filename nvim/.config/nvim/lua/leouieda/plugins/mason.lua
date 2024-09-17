@@ -6,6 +6,7 @@ require("mason").setup()
 local MASON_PACKAGES = {
   "pyright",
   "jedi-language-server",
+  "bash-language-server",
   "black",
   "flake8",
   "mypy",
@@ -21,7 +22,6 @@ local MASON_PACKAGES = {
   "tree-sitter-cli",
   "texlab",
   "lua-language-server",
-  "ltex-ls",
 }
 
 function MasonAutoInstall(start_mason)

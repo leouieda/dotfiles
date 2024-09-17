@@ -76,34 +76,33 @@ return require('packer').startup(function()
     config = function() require('leouieda.plugins.vimtex') end,
   }
 
+  -- Colorizer: Display CSS colors inline
   use {
       "norcalli/nvim-colorizer.lua",
       config = function() require('leouieda.plugins.colorizer') end,
   }
 
-  -- Mason (package manager for LSPs)
-  -- use {
-  --   "williamboman/mason.nvim",
-  --   run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-  --   config = function() require('leouieda.plugins.mason') end,
-  -- }
+  -- Mason: Package manager for LSPs
+  use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    config = function() require('leouieda.plugins.mason') end,
+  }
 
-  -- LSP
-  -- use {
-  --   'neovim/nvim-lspconfig',
-  --   config = function() require('leouieda.plugins.lspconfig') end,
-  -- }
+  -- Language Server Protocol (LSP) configuration
+  use {
+    'neovim/nvim-lspconfig',
+    config = function() require('leouieda.plugins.lspconfig') end,
+  }
 
-  -- cmp
-  -- use {
-  --   'hrsh7th/nvim-cmp',
-  --   config = function() require('leouieda.plugins.cmp') end,
-  --   requires = {
-  --     'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-  --     'hrsh7th/cmp-path',         -- complete paths with nvim-cmp
-  --     'hrsh7th/vim-vsnip',        -- Snippets plugin
-  --     'hrsh7th/cmp-vsnip',
-  --   }
-  -- }
+  -- CMP: Complements for the LSPs
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function() require('leouieda.plugins.cmp') end,
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+      'hrsh7th/cmp-path',         -- Complete paths with nvim-cmp
+    }
+  }
 
 end)
