@@ -1,4 +1,6 @@
 -- Configure lualine
+-- From https://github.com/santisoler/dotfiles/
+
 local function getWords()
   if vim.bo.filetype == "tex" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
     if vim.fn.wordcount().visual_words == 1 then

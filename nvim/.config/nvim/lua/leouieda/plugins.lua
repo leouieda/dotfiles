@@ -43,7 +43,7 @@ return require('packer').startup(function()
     config = function() require('leouieda.plugins.comment') end,
   }
 
-  -- Tree-sitter: Better syntax highlighting 
+  -- Tree-sitter: Better code parsing for syntax highlighting 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -52,6 +52,32 @@ return require('packer').startup(function()
     end,
   }
 
+  -- Git signs: Show git diff status in the left side bar and more
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function() require('leouieda.plugins.gitsigns') end,
+  }
+
+  -- Lualine: Status line at the bottom
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function() require('leouieda.plugins.lualine') end,
+  }
+
+  -- Autopairs: Add matching brackets automatically
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
+  -- LaTeX
+  use {
+    'lervag/vimtex',
+    config = function() require('leouieda.plugins.vimtex') end,
+  }
+
+  -- use 'ap/vim-css-color'
+
   -- Mason (package manager for LSPs)
   -- use {
   --   "williamboman/mason.nvim",
@@ -59,63 +85,12 @@ return require('packer').startup(function()
   --   config = function() require('leouieda.plugins.mason') end,
   -- }
 
-  -- Git
-  -- use {
-  --   'tpope/vim-fugitive',
-  --   config = function() require('leouieda.plugins.fugitive') end,
-  -- }
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   config = function() require('leouieda.plugins.gitsigns') end,
-  -- }
-
-  -- Surrounding characters
-  -- use 'tpope/vim-surround'
-
-  -- LaTeX
-  -- use {
-  --   'lervag/vimtex',
-  --   config = function() require('leouieda.plugins.vimtex') end,
-  -- }
-
-  -- Webdev
-  -- use 'ap/vim-css-color'
+  -- 
   -- use {
   --   'mattn/emmet-vim',
   --    config = function()
   --        vim.g.user_emmet_leader_key = '<C-Z>'
   --    end
-  -- }
-
-  -- nvim-tree: File explorer
-  -- use {
-  --   'nvim-tree/nvim-tree.lua',
-  --   config = function() require('leouieda.plugins.nvim-tree') end,
-  -- }
-
-  -- lualine.nvim
-  -- use {
-  --   'nvim-lualine/lualine.nvim',
-  --   config = function() require('leouieda.plugins.lualine') end,
-  -- }
-
-  -- bufferline
-  -- use {
-  --   'akinsho/bufferline.nvim',
-  --   -- after="catppuccin",
-  --   config = function() require('leouieda.plugins.bufferline') end,
-  -- }
-
-  -- -- nvim-autopairs
-  -- use {
-  --   "windwp/nvim-autopairs",
-  --   config = function() require("nvim-autopairs").setup {} end
-  -- }
-
-  -- nvim-lint
-  -- use {
-  --   'mfussenegger/nvim-lint',
-  --   config = function() require('leouieda.plugins.nvim-lint') end,
   -- }
 
   -- LSP
@@ -134,55 +109,6 @@ return require('packer').startup(function()
   --     'hrsh7th/vim-vsnip',        -- Snippets plugin
   --     'hrsh7th/cmp-vsnip',
   --   }
-  -- }
-
-
-  -- telescope
-  -- use {
-  --   'nvim-telescope/telescope.nvim',
-  --   requires = 'nvim-lua/plenary.nvim',
-  --   config = function() require('leouieda.plugins.telescope') end,
-  -- }
-
-  -- neogen (autogenerate docstrings)
-  -- use {
-  --   "danymat/neogen",
-  --   config = function()
-  --       require('leouieda.plugins.neogen')
-  --   end,
-  --   requires = "nvim-treesitter/nvim-treesitter",
-  --   -- Uncomment next line if you want to follow only stable versions
-  --   tag = "*"
-  -- }
-
-  -- undotree
-  -- use {
-  --   'mbbill/undotree',
-  -- }
-
-  -- nvim-coverage
-  -- use({
-  --   "andythigpen/nvim-coverage",
-  --   requires = "nvim-lua/plenary.nvim",
-  --   config = function()
-  --     require("coverage").setup({
-  --         signs = {
-  --           -- use your own highlight groups or text markers
-  --           covered = { hl = "CoverageCovered", text = "✓" },
-  --           uncovered = { hl = "CoverageUncovered", text = "✗" },
-  --           partial = { hl = "CoveragePartial", text = "!" },
-  --         },
-  --     })
-  --   end,
-  -- })
-
-  -- fold
-  -- use {
-  --   'kevinhwang91/nvim-ufo',
-  --   requires = 'kevinhwang91/promise-async',
-  --   config = function()
-  --       require('leouieda.plugins.nvim-ufo')
-  --   end,
   -- }
 
 end)
