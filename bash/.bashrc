@@ -17,11 +17,11 @@ if [ -f "/home/leo/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-source ~/.bash/variables.sh
-source ~/.bash/prompt.sh
-source ~/.bash/aliases.sh
-for script in ~/.bash/functions/*.sh; do
-    source $script
+source "$HOME/.bash/variables.sh"
+source "$HOME/.bash/prompt.sh"
+source "$HOME/.bash/aliases.sh"
+for script in "$HOME"/.bash/functions/*.sh; do
+    source "$script"
 done
 
 # Enable bash completion
