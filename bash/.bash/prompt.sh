@@ -16,7 +16,7 @@ set_prompt()
 
     # Variables used to configure the prompt
     local user="\[\e[38;2;166;227;161m\]`whoami`:$reset_color\[\e[38;2;166;227;161;1m\]`hostname`$reset_color"
-    local end="\[\e[38;2;250;179;135;1m\]\$$reset_color"
+    local end="\[\e[38;2;250;179;135;1m\]❱$reset_color"
     local start="\n"
 
     # Build the prompt one piece at a time
