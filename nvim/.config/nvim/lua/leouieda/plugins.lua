@@ -76,21 +76,16 @@ return require('packer').startup(function()
     config = function() require('leouieda.plugins.vimtex') end,
   }
 
-  -- use 'ap/vim-css-color'
+  use {
+      "norcalli/nvim-colorizer.lua",
+      config = function() require('leouieda.plugins.colorizer') end,
+  }
 
   -- Mason (package manager for LSPs)
   -- use {
   --   "williamboman/mason.nvim",
   --   run = ":MasonUpdate", -- :MasonUpdate updates registry contents
   --   config = function() require('leouieda.plugins.mason') end,
-  -- }
-
-  -- 
-  -- use {
-  --   'mattn/emmet-vim',
-  --    config = function()
-  --        vim.g.user_emmet_leader_key = '<C-Z>'
-  --    end
   -- }
 
   -- LSP
