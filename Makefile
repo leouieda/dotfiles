@@ -1,2 +1,2 @@
 sync:
-	stow --target=$(HOME) --stow bash conda git nvim terminator tmux
+	stow --target=$(HOME) --stow bash cinnamon conda git nvim terminator tmux
