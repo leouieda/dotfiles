@@ -1,0 +1,25 @@
+[global_config]
+  window_state = maximise
+[keybindings]
+  new_tab = <Primary>t
+  cycle_next = ""
+  cycle_prev = ""
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+[profiles]
+  [[default]]
+    background_color = "#0d1117"
+    cursor_shape = underline
+    font = RobotoMono Nerd Font Propo 11
+    foreground_color = "#cdd6f4"
+    show_titlebar = False
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
