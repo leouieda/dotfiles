@@ -79,11 +79,11 @@ make_git_prompt ()
     if inside_git_repo; then
         # Default values for the appearance of the prompt.
         local style="\[\e[38;2;137;180;250;1m\]"
-        local changed="\[\e[38;2;166;227;161;1m\]+"
+        local changed="\[\e[38;2;249;226;175;1m\]+"
         local staged="\[\e[38;2;203;166;247;1m\]•"
         local untracked="\[\e[38;2;242;205;205;1m\]?"
         local conflict="\[\e[38;2;243;139;168;1m\]x"
-        local ahead="\[\e[38;2;249;226;175;1m\]↑"
+        local ahead="\[\e[38;2;166;227;161;1m\]↑"
         local behind="\[\e[38;2;250;179;135;1m\]↓"
         local noremote="\[\e[38;2;245;194;231;1m\]⑂"
         local sep=""
