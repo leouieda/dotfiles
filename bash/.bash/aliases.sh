@@ -24,6 +24,7 @@ alias cd='yavanna cd'
 alias cd..='cd ..'
 alias gti='git'
 alias gt='git'
+alias gi='git'
 alias mak='make'
 
 # Open and copy
@@ -39,6 +40,13 @@ alias nvim='~/bin/nvim.appimage'
 alias v='~/bin/nvim.appimage'
 alias m='make'
 alias errcho='>&2 echo'
+
+# Git
+alias gs='git status'
+alias gc='git commit'
+alias gl='git pull'
+alias gp='git push'
+alias gm='git checkout main'
 
 # Python dev
 alias doc='xdg-open doc/_build/html/index.html'
