@@ -10,3 +10,8 @@ petrophysics
 tesseroids
 interpolators
 gridding
+potential-field
+least-squares
+chi-squared
+finite-differences
+high-frequency
