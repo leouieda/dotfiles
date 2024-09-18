@@ -52,3 +52,8 @@ vim.keymap.set('x', '<leader>v', [["_dP]])
 
 -- Search selected text
 vim.keymap.set("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
+
+-- Handle spell checks
+vim.keymap.set("n", "<leader>sa", "zg")  -- Add word to dictionary
+vim.keymap.set("n", "<leader>s?", "z=")  -- Get a list of possible corrections
+
