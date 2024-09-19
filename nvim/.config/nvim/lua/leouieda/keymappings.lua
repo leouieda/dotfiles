@@ -17,6 +17,9 @@ vim.keymap.set('n', '[b', ':bprevious<CR>')
 -- Remove search highlight
 vim.keymap.set('n', '<leader><space>', ':noh<cr>')
 
+-- Open the file system navigation
+vim.keymap.set('n', '<leader>oo', vim.cmd.Ex)
+
 -- Easier colon
 vim.keymap.set('n', '<leader>;', ':')
 
