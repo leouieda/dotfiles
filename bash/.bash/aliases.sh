@@ -47,6 +47,8 @@ alias gc='git commit'
 alias gl='git pull'
 alias gp='git push'
 alias gm='git checkout main'
+alias gd='git diff'
+alias gds='git diff --staged'
 
 # Python dev
 alias doc='xdg-open doc/_build/html/index.html'
