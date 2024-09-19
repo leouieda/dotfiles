@@ -1,5 +1,4 @@
--- Configure lualine
--- From https://github.com/santisoler/dotfiles/
+-- Based on Santiago Soler's configuration https://github.com/santisoler/dotfiles/
 
 local function getWords()
   if vim.bo.filetype == "tex" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then

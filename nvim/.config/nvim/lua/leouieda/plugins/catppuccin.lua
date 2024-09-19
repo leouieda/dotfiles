@@ -1,6 +1,3 @@
--- =========================
--- Configure catpuccin theme
--- =========================
 require("catppuccin").setup({
     no_italic = true, -- Force no italic
     native_lsp = {
