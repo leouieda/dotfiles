@@ -16,5 +16,7 @@ EOF
     fname="tree-sitter-linux-x64.gz"
     baseurl="https://github.com/tree-sitter/tree-sitter/releases/latest/download"
     wget -P $outdir $baseurl/$fname \
-        && chmod u+x $outdir/$fname
+        && gzip --decompress $outdir/$fname \
+        && mv $outdir/tree-sitter-linux-x64 $outdir/tree-sitter \
+        && chmod u+x $outdir/tree-sitter
 }
