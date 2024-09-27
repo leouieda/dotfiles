@@ -10,9 +10,11 @@
   [[default]]
     background_color = "#0d1117"
     cursor_shape = underline
+    cursor_color = "#cdd6f4"
     font = RobotoMono Nerd Font Propo 11
     foreground_color = "#cdd6f4"
     show_titlebar = False
+    scrollback_infinite = True
     use_system_font = False
 [layouts]
   [[default]]
