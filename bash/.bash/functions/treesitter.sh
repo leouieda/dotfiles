@@ -1,8 +1,8 @@
 # Download and install tree-sitter for better syntax highlighting
 
-tree-sitter-download() {
+install-tree-sitter() {
 read -r -d '' TREESITTERDOWNLOAD_HELP <<-'EOF'
-Usage: tree-sitter-download
+Usage: install-tree-sitter
 
 Download tree-sitter-cli from GitHub and install it to ~/bin
 https://github.com/tree-sitter/tree-sitter/releases
