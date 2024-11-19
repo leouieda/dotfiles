@@ -4,9 +4,9 @@ pdfcmyk() {
     # Convert a PDF from RGB to CMYK
     # Call it as: pdfcmyk INPUT.pdf OUTPUT.pdf
     # Based on http://zeroset.mnim.org/2014/07/14/save-a-pdf-to-cmyk-with-inkscape/
-    gs -dSAFER -dBATCH -dNOPAUSE -dNOCACHE -sDEVICE=pdfwrite \
+    \gs -dSAFER -dBATCH -dNOPAUSE -dNOCACHE -sDEVICE=pdfwrite \
        -sColorConversionStrategy=CMYK -dProcessColorModel=/DeviceCMYK \
-       -sOutputFile=$2 $1
+       -sOutputFile="$2" "$1"
 }
 
 pdfcompress() {
@@ -22,8 +22,18 @@ EOF
         echo "$PDFCOMPRESS_HELP";
         return 1;
     fi
-    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen \
+    if [[ $# == 2 ]]; then
+        level=screen
+        infile=$1
+        outfile=$2
+    else
+        level=$1
+        infile=$2
+        outfile=$3
+    fi
+
+    \gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"$level" \
        -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages \
-       -dCompressFonts=true -sOutputFile=$2 $1
+       -dCompressFonts=true -sOutputFile="$outfile" "$infile"
 }
 
