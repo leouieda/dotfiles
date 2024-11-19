@@ -39,11 +39,13 @@ alias lab='cd ~ && yavanna && tmux new-session -s lab -d jupyter-lab && cd $OLDP
 alias nvim='~/bin/nvim.appimage'
 alias v='~/bin/nvim.appimage'
 alias m='make'
+alias ms='make show'
 alias errcho='>&2 echo'
 
 # Git
 alias gs='git status'
 alias gc='git commit'
+alias ga='git add'
 alias gl='git pull'
 alias gp='git push'
 alias gm='git checkout main'
