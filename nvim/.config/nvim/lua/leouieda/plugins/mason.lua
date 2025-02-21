@@ -10,7 +10,7 @@ local MASON_PACKAGES = {
   "black",
   "flake8",
   "mypy",
-  "ruff-lsp",
+  "ruff",
   "prettier",
   "rstcheck",
   "stylelint",
