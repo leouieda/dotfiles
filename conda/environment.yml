@@ -49,3 +49,4 @@ dependencies:
   # Misc
   - tectonic
   - matplotlib-scalebar
+  - qrcode
