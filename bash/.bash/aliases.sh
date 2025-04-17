@@ -26,6 +26,7 @@ alias gti='git'
 alias gt='git'
 alias gi='git'
 alias mak='make'
+alias mke='make'
 
 # Open and copy
 alias open='xdg-open'
@@ -55,6 +56,8 @@ alias gb='git checkout -b'
 
 # Python dev
 alias doc='xdg-open doc/_build/html/index.html'
+alias md='make -C doc'
+alias mda='make -C doc clean all'
 alias pt='pytest -v --doctest-modules'
 alias p='python'
 alias py='python'
