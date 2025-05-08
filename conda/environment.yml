@@ -2,7 +2,7 @@ name: default
 channels:
   - conda-forge
 dependencies:
-  - python==3.11
+  - python==3.13
   - nodejs
   - conda-lock
   - pip
@@ -10,7 +10,6 @@ dependencies:
   - livereload
   - tqdm
   - black
-  - flake8
   - rich
   # Base Scipy
   - numpy
@@ -33,6 +32,7 @@ dependencies:
   - jupyter-resource-usage
   - mamba_gator
   - nb_conda_kernels
+  - euporie
   # Geo
   - pyproj
   - pykdtree

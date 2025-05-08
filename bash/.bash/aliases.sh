@@ -66,6 +66,8 @@ alias py='python'
 alias y='yavanna'
 alias yv='yavanna'
 alias conda='mamba'
+alias e='euporie-notebook'
+alias ev='euporie-preview'
 
 # tmux
 alias tmux='TERM=xterm-256color tmux'
