@@ -9,8 +9,9 @@
 [profiles]
   [[default]]
     background_color = "#0d1117"
+    background_darkness = 0.9
+    background_type = transparent
     cursor_shape = underline
-    cursor_color = "#cdd6f4"
     font = RobotoMono Nerd Font Propo 11
     foreground_color = "#cdd6f4"
     show_titlebar = False
