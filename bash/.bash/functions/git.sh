@@ -1,5 +1,6 @@
 # Helpers for working with git
 
+
 # Prune merged remote branches
 git-poda() {
     echo "Looking for remote branches to prune..."
@@ -27,3 +28,8 @@ git-poda() {
     return 0
 }
 
+
+# Open the git remote repository in Firefox
+repo() {
+    firefox `git remote get-url origin | sed 's/git@\([a-z]*\)\.\([a-z]*\):\(.*\)/https:\/\/\1\.\2\/\3/'`
+}
