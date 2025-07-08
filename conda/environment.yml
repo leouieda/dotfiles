@@ -43,6 +43,7 @@ dependencies:
   - harmonica
   - boule
   - ensaio
+  - bordado
   # GMT
   - gmt>=6.5.0
   - pygmt>=0.11.0
