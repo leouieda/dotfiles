@@ -29,6 +29,7 @@ dependencies:
   - jupytext
   - jupyterlab-spellchecker
   - jupyterlab-myst
+  - jupyterlab-accessible-themes
   - jupyter-resource-usage
   - mamba_gator
   - nb_conda_kernels
