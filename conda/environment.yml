@@ -52,3 +52,4 @@ dependencies:
   - tectonic
   - matplotlib-scalebar
   - qrcode
+  - grayskull
