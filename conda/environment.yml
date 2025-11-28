@@ -11,6 +11,8 @@ dependencies:
   - tqdm
   - black
   - rich
+  - ruff
+  - python-lsp-server
   # Base Scipy
   - numpy
   - scipy
@@ -46,8 +48,8 @@ dependencies:
   - ensaio
   - bordado
   # GMT
-  - gmt>=6.5.0
-  - pygmt>=0.11.0
+  - gmt
+  - pygmt
   # Misc
   - tectonic
   - matplotlib-scalebar
