@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This repository has moved to Codeberg** and will no longer be updated here: https://codeberg.org/leouieda/dotfiles
+
+---
+
 # My personal config files
 
 This is a repository to keep my linux configuration files and utilities.
